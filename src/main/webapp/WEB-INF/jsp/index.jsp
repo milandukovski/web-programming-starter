@@ -136,7 +136,8 @@
   <script src="scripts/services/crud.js"></script>
   <script src="scripts/services/user.js"></script>  
   
-  <script src="scripts/directives/combo.js"></script>  
+  <script src="scripts/directives/combo.js"></script> 
+  <script src="scripts/directives/crud-directive.js"></script>  
   <!-- endbuild -->
 </body>
 

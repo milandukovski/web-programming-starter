@@ -1,20 +1,21 @@
-FirstApp
-        .factory(
-                "firstService",
-                [function() {
-                  var content = [
-                      {
-                        title: 'HTML5 Boilerplate',
-                        content: 'HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.'
-                      },
-                      {
-                        title: 'Angular',
-                        content: 'AngularJS is a toolset for building the framework most suited to your application development.'
-                      }];
+FirstApp.factory('ExternalFunctionsResolver', [ 'ExternalFunctions',
+		function(ExternalFunctions) {
+			return {
+				get : function(method) {
+					if (typeof ExternalFunctions[method] === 'function') {
+						return ExternalFunctions[method];
+					} else {
+						return method;
+					}
+				}
+			};
+		} ]);
 
-                  return {
-                    get: function() {
-                      return content;
-                    }
-                  };
-                }]);
+FirstApp.factory('ExternalFunctions', [ '$resource', '$filter',
+		function($resource, $filter) {
+			return {
+				groupByTypeName : function(item) {
+					return item.type.name;
+				}
+			};
+		} ]);
