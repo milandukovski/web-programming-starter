@@ -4,18 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
 @Table(name="mvr_VehicleBrends")
-public class VehicleBrend extends BaseEntity{
-	private String brandName;
-
-	public String getBrandName() {
-		return brandName;
-	}
-
-	public void setBrandName(String brandName) {
-		this.brandName = brandName;
-	}
+public class VehicleBrend extends NamedEntity{
 	
 }

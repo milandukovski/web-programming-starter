@@ -4,18 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
 @Table(name="mvr_VehicleRegCountries")
-public class VehicleRegCountry extends BaseEntity{
-	private String registerCountry;
-
-	public String getRegisterCountry() {
-		return registerCountry;
-	}
-
-	public void setRegisterCountry(String registerCountry) {
-		this.registerCountry = registerCountry;
-	}
+public class VehicleRegCountry extends NamedEntity{
 	
 }

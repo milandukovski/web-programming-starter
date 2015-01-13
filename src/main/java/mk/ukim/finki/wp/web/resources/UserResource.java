@@ -27,11 +27,11 @@ public class UserResource {
 
 	private static final int TOKEN_DURATION = 30 * 24 * 60 * 60; // 30 days
 
-	@Autowired
+//	@Autowired
 	private UserDetailsService userService;
 
-	@Autowired
-	@Qualifier("authenticationManager")
+//	@Autowired
+//	@Qualifier("authenticationManager")
 	private AuthenticationManager authManager;
 
 	/**

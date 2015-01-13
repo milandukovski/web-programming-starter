@@ -4,20 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
 @Table(name="mvr_SVRRC")
-public class SvrRc extends BaseEntity{
-	private String svrNamel;
-
-	public String getSvrNamel() {
-		return svrNamel;
-	}
-
-	public void setSvrNamel(String svrNamel) {
-		this.svrNamel = svrNamel;
-	}
-	
+public class SvrRc extends NamedEntity{
 	
 }

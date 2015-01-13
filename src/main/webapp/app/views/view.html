@@ -1,4 +1,4 @@
-<crud crud-title="hr.approval_group" crud-type="ethnicity"
+<crud crud-title="mvr.ethnicity" crud-type="Ethnicity"
 	crud-form="namedEntity"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 
@@ -10,7 +10,7 @@
 			<tr ng-repeat="r in $data">
 				<td class="td-id" data-title="'ID'" sortable="'id'">{{r.id}}</td>
 				<td data-title="'generic.name' | translate" sortable="'name'"
-					filter="{ 'name': 'text' }">{{r.Ethnicity}}</td>
+					filter="{ 'name': 'text' }">{{r.name}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">
 					<button type="button" ng-click="edit(r.id)"
 						class="btn btn-default btn-xs">
@@ -18,7 +18,7 @@
 					</button>
 					<button type="button" ng-click="deleteDialog(r.id)"
 						class="btn btn-danger btn-xs">
-						<i class="fa fa-fw trash-o"></i> {{ 'action.edit' | translate }}
+						<i class="fa fa-fw trash-o"></i> {{ 'action.delete' | translate }}
 					</button>
 				</td>
 			</tr>

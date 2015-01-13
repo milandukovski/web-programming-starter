@@ -42,10 +42,16 @@
 	<![endif]-->
 
   <!-- Add your site or application content here -->
-  <div class="container">
+  <div class="container" ng-controller="MenuController">
     <div class="header">
-      <ul class="nav nav-pills pull-right">
-        <li class="active"><a ng-href="{{$root.pateka}}">Home</a>
+      <ul class="nav nav-pills pull-right" >
+        <li ng-repeat="topMenu in menu">
+        	<a>{{topMenu.name}}</a>
+        	 <ul class="nav nav-pills pull-right">
+		        <li class="active" ng-repeat="item in topMenu.items">
+		        	<a ng-href="{{item.path}}">{{item.label}}</a>
+		        </li>
+		      </ul>
         </li>
         <li><a ng-href="#">About</a>
         </li>
@@ -130,6 +136,7 @@
   <script src="scripts/controllers/category.js"></script>
     <script src="scripts/controllers/book.js"></script>
     <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/student.js"></script>
   <!-- Services definition -->
   <script src="scripts/services/services.js"></script>
   <script src="scripts/services/category.js"></script>

@@ -2,9 +2,9 @@
 
 /* Filters */
 
-var HRFilters = angular.module('HR.filters', []);
+//var HRFilters = angular.module('HR.filters', []);
 
-HRFilters.filter('interpolate', ['version',
+FirstApp.filter('interpolate', ['version',
   function(version) {
     return function(text) {
       return String(text).replace(/\%VERSION\%/mg, version);

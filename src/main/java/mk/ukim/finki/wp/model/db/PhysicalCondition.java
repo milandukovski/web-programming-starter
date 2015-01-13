@@ -4,20 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
 @Table(name = "mvr_PhysicalConditions")
-public class PhysicalCondition extends BaseEntity {
-	private String physicalCondition;
-
-	public String getPhysicalCondition() {
-		return physicalCondition;
-	}
-
-	public void setPhysicalCondition(String physicalCondition) {
-		this.physicalCondition = physicalCondition;
-	}
-	
+public class PhysicalCondition extends NamedEntity {
 	
 }

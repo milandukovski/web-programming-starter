@@ -4,21 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
 @Table(name="mvr_EyeColors")
-public class EyeColor extends BaseEntity {
-	
-	private String eyeColor;
-
-	public String getEyeColor() {
-		return eyeColor;
-	}
-
-	public void setEyeColor(String eyeColor) {
-		this.eyeColor = eyeColor;
-	}
+public class EyeColor extends NamedEntity {
 	
 	
 }

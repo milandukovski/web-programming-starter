@@ -4,19 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
 @Table(name="mvr_HairColors")
-public class HairColor extends BaseEntity {
-	private String hairColor;
-
-	public String getHairColor() {
-		return hairColor;
-	}
-
-	public void setHairColor(String hairColor) {
-		this.hairColor = hairColor;
-	}
-	
+public class HairColor extends NamedEntity {
 	
 }

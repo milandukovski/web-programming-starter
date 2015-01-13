@@ -3,7 +3,7 @@
  *
  */
 
-HrDirectives.directive('crud', [
+FirstApp.directive('crud', [
   '$modal',
   '$filter',
   'crudService',

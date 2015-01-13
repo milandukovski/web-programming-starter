@@ -4,20 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
 @Table(name="mvr_VehicleTypes")
-public class VehicleType extends BaseEntity{
-	private String type;
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-	
+public class VehicleType extends NamedEntity{
 	
 }

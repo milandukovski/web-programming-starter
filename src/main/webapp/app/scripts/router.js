@@ -10,45 +10,55 @@
  *        through the $scope.
  * @see https://docs.angularjs.org/guide/di
  */
-/*FirstApp.config([ '$routeProvider', function($routeProvider) {
-	$routeProvider.when('/', {
+
+var menuData = [ {
+	name : 'opsto',
+	items : [ {
+		label : 'Main',
+		path: "/",
 		templateUrl : 'views/main.html',
 		controller : 'MainCtrl'
-	});
-
-	$routeProvider.when('/login', {
-		templateUrl : 'views/login.html',
-		controller : 'LoginController'
-	});
-
-	$routeProvider.when('/cities', {
-		templateUrl : 'views/city.html',
-		controller : 'CityController'
-	});
-
-	$routeProvider.when('/countries', {
-		templateUrl : 'views/country.html',
-		controller : 'CountryController'
-	});
-
-	$routeProvider.when('/categories', {
-		templateUrl : 'views/category.html',
-		controller : 'CategoryController'
-	});
-
-	$routeProvider.when('/books/:id?', {
-		templateUrl : 'views/book.html',
-		controller : 'BookController'
-	});
-
-	$routeProvider.when('/404', {
-		templateUrl : '404.html'
-	});
-	$routeProvider.otherwise({
-		redirectTo : '/'
-	});
-} ]);
-*/
+	} ]
+}, {
+	name : 'opsto2',
+	items : [ {
+		label : 'Main',
+		path: "/",
+		templateUrl : 'views/main.html',
+		controller : 'MainCtrl'
+	} ]
+}, {
+	name : 'opsto3',
+	items : [ {
+		label : 'Main',
+		path: "/",
+		templateUrl : 'views/main.html',
+		controller : 'MainCtrl'
+	} ]
+} ];
+/*
+ * FirstApp.config([ '$routeProvider', function($routeProvider) {
+ * $routeProvider.when('/', { templateUrl : 'views/main.html', controller :
+ * 'MainCtrl' });
+ * 
+ * $routeProvider.when('/login', { templateUrl : 'views/login.html', controller :
+ * 'LoginController' });
+ * 
+ * $routeProvider.when('/cities', { templateUrl : 'views/city.html', controller :
+ * 'CityController' });
+ * 
+ * $routeProvider.when('/countries', { templateUrl : 'views/country.html',
+ * controller : 'CountryController' });
+ * 
+ * $routeProvider.when('/categories', { templateUrl : 'views/category.html',
+ * controller : 'CategoryController' });
+ * 
+ * $routeProvider.when('/books/:id?', { templateUrl : 'views/book.html',
+ * controller : 'BookController' });
+ * 
+ * $routeProvider.when('/404', { templateUrl : '404.html' });
+ * $routeProvider.otherwise({ redirectTo : '/' }); } ]);
+ */
 FirstApp.config([ '$routeProvider', '$translateProvider',
 		function($routeProvider, $translateProvider) {
 
@@ -64,11 +74,11 @@ FirstApp.config([ '$routeProvider', '$translateProvider',
 				templateUrl : 'views/main.html',
 				controller : 'MainCtrl'
 			});
-			
+
 			$routeProvider.when('/view', {
 				templateUrl : 'views/view.html'
 			});
-			
+
 			$routeProvider.when('/login', {
 				templateUrl : 'views/login.html',
 				controller : 'LoginController'

@@ -29,7 +29,7 @@ public class Event extends BaseEntity{
 	private SvrRc svrRC;
 	
 	@ManyToOne
-	private EventPoloiceStation policeStation;
+	private EventPoliceStation policeStation;
 	
 	@ManyToOne
 	private EventCommonArea commonArea;
@@ -111,11 +111,11 @@ public class Event extends BaseEntity{
 		this.svrRC = svrRC;
 	}
 
-	public EventPoloiceStation getPoliceStation() {
+	public EventPoliceStation getPoliceStation() {
 		return policeStation;
 	}
 
-	public void setPoliceStation(EventPoloiceStation policeStation) {
+	public void setPoliceStation(EventPoliceStation policeStation) {
 		this.policeStation = policeStation;
 	}
 

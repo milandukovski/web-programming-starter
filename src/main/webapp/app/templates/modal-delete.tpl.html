@@ -13,7 +13,10 @@
 	    <button type="button" class="btn btn-default" ng-click="$hide()">
 			<i class="fa fa-fw fa-times"></i> {{ 'action.cancel' | translate }}
 		</button>
-        <delete-button delete-function="delete(id)"></delete-button>        
+		<button type="button" ng-click="delete(id)"
+			class="btn btn-danger">
+			<i class="fa fa-fw trash-o"></i> {{ 'action.delete' | translate }}
+		</button>    
       </div>
     </div>
   </div>

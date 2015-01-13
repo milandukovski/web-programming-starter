@@ -65,6 +65,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\VehicleBrendServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\EthnicityRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EventCommonAreaService.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\NameDescriptionEntity.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\VehiclesOfPersonResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\SpeachTroubleResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EventWeaponTypeService.java
@@ -119,6 +120,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\WeightService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\SpecifiedPersonInEvent.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EventObjectOfAttackServiceImpl.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\NamedEntity.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\EventSuspectActRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EventObjectOfAttackService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\CrudResource.java
@@ -232,7 +234,6 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\security\UnauthorizedEntryPoint.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\EventSuspectActResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\EyeColorRepository.java
-C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\EthnicityController.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\ArticleService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\PersonRoleService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\SkinTypeResource.java
