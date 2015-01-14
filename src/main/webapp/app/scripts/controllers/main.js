@@ -10,8 +10,8 @@
  * @description # MainCtrl Controller of the avAngularStartupApp
  */
 
-FirstApp.controller('MainCtrl', ['$scope', 'firstService',
-    function($scope, firstService) {
+FirstApp.controller('MainCtrl', ['$scope',
+    function($scope) {
       $scope.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Karma'];
-      $scope.content = firstService.get();
+//      $scope.content = firstService.get();
     }]);

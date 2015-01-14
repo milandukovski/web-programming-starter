@@ -14,9 +14,9 @@
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd">
 
 	<!-- Configuration for the environment can be overriden by system properties -->
-	<context:property-placeholder
+<!-- 	<context:property-placeholder
 		location="classpath:spring/security-cas.properties" order="2"
-		ignore-unresolvable="true" />
+		ignore-unresolvable="true" /> -->
 
 
 

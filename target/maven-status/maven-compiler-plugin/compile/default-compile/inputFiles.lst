@@ -113,7 +113,6 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\VehicleTypeServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\ArticleType.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EventPoloiceStationServiceImpl.java
-C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\EventPoloiceStation.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\SvrRc.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\EventWeaponType.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\VehicleColorResource.java
@@ -134,6 +133,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\MunicipalityResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\ArticleInEventService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\TeethConditionService.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\EventPoliceStation.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\VehicleRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EventCrimesAgainstPropertyServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\HairColorResource.java
