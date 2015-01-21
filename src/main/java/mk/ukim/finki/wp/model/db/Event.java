@@ -49,7 +49,7 @@ public class Event extends BaseEntity{
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@JsonSerialize(using = ShortDateSerializer.class)
 	@JsonDeserialize(using = CustomDateDeserializer.class)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "h:mm")
 	private DateTime startingTime;
 	
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -61,7 +61,7 @@ public class Event extends BaseEntity{
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@JsonSerialize(using = ShortDateSerializer.class)
 	@JsonDeserialize(using = CustomDateDeserializer.class)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "h:mm")
 	private DateTime endingTime;
 	
 	@ManyToOne

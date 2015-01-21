@@ -1,0 +1,38 @@
+<crud crud-title="mvr.vehicles" crud-type="Vehicle"
+	crud-form="vehicleEntity"
+	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
+
+<div class="table-responsive">
+	<!--  -->
+	<table ng-table="table" show-filter="true"
+		class="table table-bordered table-striped table-condensed ng-table-responsive">
+		<tbody>
+			<tr ng-repeat="r in $data">
+				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
+				<td data-title="'generic.registration' | translate" sortable="'registration'"
+					filter="{ 'registration': 'text' }">{{r.registration}}</td>
+				<td data-title="'mvr.vehiclebrends' | translate" sortable="'brend'"
+					filter="{ 'brend': 'text' }">{{r.brend["name"]}}</td>
+				<td data-title="'mvr.vehiclecolor' | translate" sortable="'color'"
+					filter="{ 'color': 'text' }">{{r.color["name"]}}</td>
+					<td data-title="'mvr.vehiclemodels' | translate" sortable="'model'"
+					filter="{ 'model': 'text' }">{{r.model["name"]}}</td>
+					<td data-title="'mvr.vehicleregcountries' | translate" sortable="'regCountry'"
+					filter="{ 'regCountry': 'text' }">{{r.regCountry["name"]}}</td>
+					<td data-title="'mvr.vehicletype' | translate" sortable="'type'"
+					filter="{ 'type': 'text' }">{{r.type["name"]}}</td>
+				<td class="td-edit" data-title="'action.edit' | translate">
+					<button type="button" ng-click="edit(r.id)"
+						class="btn btn-default btn-xs">
+						<i class="fa fa-fw fa-edit"></i> {{ 'action.edit' | translate }}
+					</button>
+					<button type="button" ng-click="deleteDialog(r.id)"
+						class="btn btn-danger btn-xs">
+						<i class="fa fa-fw trash-o"></i> {{ 'action.delete' | translate }}
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</crud>

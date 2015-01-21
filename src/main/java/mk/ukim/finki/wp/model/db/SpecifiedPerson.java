@@ -8,6 +8,8 @@ import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -18,6 +20,7 @@ import mk.ukim.finki.wp.model.BaseEntity;
 
 @Entity
 @Table(name="mvr_SpecifiedPersons")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SpecifiedPerson extends BaseEntity{
 	
 	@ManyToOne
@@ -163,6 +166,10 @@ public class SpecifiedPerson extends BaseEntity{
 		this.nationality = nationality;
 	}
 	
-	
+	@JsonProperty(value="fullName")
+	public String getFullName(){
+		return firstName+" "+lastName;
+				
+	}
 	
 }

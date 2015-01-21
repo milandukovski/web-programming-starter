@@ -1,0 +1,20 @@
+<div class="form-group">
+	<div class="row">
+		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.quantity'
+		| translate}}: </label>
+	<div class="col-sm-9">
+		<input type="text" class="form-control " name="num" id="num"
+			ng-model="entity.num">
+	</div>
+	</div>
+</div>
+<div class="row">
+	<combo class="col-sm-12" combo-type="ArticleType" combo-required="true"
+	combo-label="mvr.articletypes" combo-model="entity.type"
+	combo-name="type" combo-property="name"> </combo>
+</div>
+<div class="row">
+	<combo class="col-sm-12" combo-type="ArticleUnit" combo-required="true"
+	combo-label="mvr.articleunits" combo-model="entity.unit"
+	combo-name="unit" combo-property="name"> </combo>
+</div>

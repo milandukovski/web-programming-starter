@@ -1,0 +1,54 @@
+<div class="form-group">
+	<div class="row">
+        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.registration' | translate}}: </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="registration" id="registration" ng-model="entity.registration">
+        </div>
+    </div>
+</div>
+    <div class="row">
+      
+        <combo class="col-sm-12" combo-type="VehicleBrend" combo-required="true"
+				combo-label="mvr.vehiclebrends" 
+				combo-model="entity.brend"
+				combo-name="brend"
+				combo-property="name">
+		</combo>
+    </div>
+    <div class="row">
+      
+        <combo class="col-sm-12" combo-type="VehicleColor" combo-required="true"
+				combo-label="mvr.vehiclecolor" 
+				combo-model="entity.color"
+				combo-name="color"
+				combo-property="name">
+		</combo>
+    </div>
+     </div>
+      <div class="row">
+    
+        <combo class="col-sm-12" combo-type="VehicleType" combo-required="true"
+				combo-label="mvr.vehicletype" 
+				combo-model="entity.type"
+				combo-name="type"
+				combo-property="name">
+		</combo>
+    </div>
+    <div class="row">
+        
+        <combo class="col-sm-12" combo-type="VehicleModel" combo-required="true"
+				combo-label="mvr.vehiclemodels" 
+				combo-model="entity.model"
+				combo-name="model"
+				combo-property="name">
+		</combo>
+    </div>
+    <div class="row">
+     
+        <combo class="col-sm-12" combo-type="VehicleRegCountry" combo-required="true"
+				combo-label="mvr.vehicleregcountries" 
+				combo-model="entity.regCountry"
+				combo-name="regCountry"
+				combo-property="name">
+		</combo>
+   

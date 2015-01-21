@@ -45,21 +45,25 @@
     <div class="container" role="main">
         <nav class="navbar navbar-default" ng-controller="MenuController">
             <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
+                <!-- Brand and toggle get grouped for better mobile display -->               
+                <div class="navbar-header">           
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a class="logo" href="http://www.mvr.gov.mk/">
+       					 <img src="images/police.png" src="macedonian police logo"/>
+     				</a>               
                     <a class="navbar-brand" href="#">{{'menu.crime_Map' | translate}}</a>
+                    
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">{{'menu.home' | translate }} <span class="sr-only">(current)</span></a>
+                        <li><a href="#/">{{'menu.home' | translate }} <span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="dropdown" ng-repeat="topMenu in menu">
@@ -72,7 +76,7 @@
                         </li>
                         <li><a href="#">{{'menu.about' | translate}}</a>
                         </li>
-                        <li><a href="#/views/view_ethnicity">{{'menu.contact' | translate}}</a>
+                        <li><a href="#">{{'menu.contact' | translate}}</a>
                         </li>
                     </ul>
 
@@ -83,7 +87,7 @@
         </nav>
 
 
-        <div class="container">
+        <div class="">
             <!-- 
 	    		ng-view is directive that declares that the element will be 
 	    		place holder for the partial files included through the router
@@ -148,6 +152,7 @@
 
     <script src="scripts/app.js"></script>
     <!-- The route configuration -->
+    <script src="scripts/menuData.js"></script>
     <script src="scripts/router.js"></script>
     <script src="scripts/config.js"></script>
 
@@ -159,6 +164,7 @@
     <script src="scripts/controllers/book.js"></script>
     <script src="scripts/controllers/login.js"></script> -->
     <script src="scripts/controllers/menuController.js"></script>
+    <script src="scripts/controllers/specifiedPersonController.js"></script>
     <!-- Services definition -->
     <script src="scripts/services/services.js"></script>
     <!--  <script src="scripts/services/category.js"></script> -->

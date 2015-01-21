@@ -1,5 +1,5 @@
-<crud crud-title="mvr.vehiclebrends" crud-type="VehicleBrend"
-	crud-form="namedEntity"
+<crud crud-title="mvr.unspecifiedpersonsinevents" crud-type="UnspecifiedPersonInEvent"
+	crud-form="unsPersonInEventEntity"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 
 <div class="table-responsive">
@@ -8,9 +8,11 @@
 		class="table table-bordered table-striped table-condensed ng-table-responsive">
 		<tbody>
 			<tr ng-repeat="r in $data">
-				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
-				<td data-title="'generic.name' | translate" sortable="'name'"
-					filter="{ 'name': 'text' }">{{r.name}}</td>
+			<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
+				<td data-title="'generic.comment' | translate" sortable="'comment'"
+					filter="{ 'comment': 'text' }">{{r.person["comment"]}}</td>
+				<td data-title="'mvr.event' | translate" sortable="'event'"
+					filter="{ 'event': 'text' }">{{r.event["eventDescription"]}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">
 					<button type="button" ng-click="edit(r.id)"
 						class="btn btn-default btn-xs">

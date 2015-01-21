@@ -1,0 +1,55 @@
+<crud crud-title="mvr.specifiedpersons" crud-type="SpecifiedPerson"
+	crud-form="specifiedPersonEntity"
+	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
+	
+
+<div class="table-responsive">
+	<!--  -->
+	<table ng-table="table" show-filter="true"
+		class="table table-bordered table-striped table-condensed ng-table-responsive">
+		<tbody>
+			<tr ng-repeat="r in $data">
+				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
+				<td data-title="'generic.name' | translate" sortable="'firstName'"
+					filter="{ 'firstName': 'text' }">{{r.firstName}}</td>
+				<td data-title="'generic.lastName' | translate" sortable="'lastName'"
+					filter="{ 'lastName': 'text' }">{{r.lastName}}</td>
+				<td data-title="'generic.birthDate' | translate" sortable="'birthDate'"
+					filter="{ 'birthDate': 'text' }">{{r.birthDate}}</td>
+				<td data-title="'generic.gender' | translate" sortable="'gender'"
+					filter="{ 'gender': 'text' }">{{r.gender}}</td>
+				<td data-title="'generic.age' | translate" sortable="'age'"
+					filter="{ 'age': 'text' }">{{r.age}}</td>
+				<td data-title="'generic.address' | translate" sortable="'address'"
+					filter="{ 'address': 'text' }">{{r.address}}</td>
+				<td data-title="'mvr.municipalities' | translate" sortable="'municipalities'"
+					filter="{ 'opstina': 'text' }">{{r.opstina["name"]}}</td>
+				<td data-title="'mvr.cities' | translate" sortable="'city'"
+					filter="{ 'city': 'text' }">{{r.city["name"]}}</td>
+				<td data-title="'generic.currentAddress' | translate" sortable="'currentAddress'"
+					filter="{ 'currentAddress': 'text' }">{{r.currentAddress}}</td>					
+				<td data-title="'generic.currentMunicipality' | translate" sortable="'currentMunicipality'"
+					filter="{ 'currentMunicipality': 'text' }">{{r.currentOpstina["name"]}}</td>				
+				<td data-title="'generic.currentCity' | translate" sortable="'currentCity'"
+					filter="{ 'currentCity': 'text' }">{{r.currentCity["name"]}}</td>
+				<td data-title="'mvr.nationalities' | translate" sortable="'nationality'"
+					filter="{ 'nationality': 'text' }">{{r.nationality["name"]}}</td>
+				<td data-title="'mvr.personroles' | translate" sortable="'personRole'"
+					filter="{ 'personRole': 'text' }">{{r.personRole["name"]}}</td>
+				<td data-title="'generic.comment' | translate" sortable="'comment'"
+					filter="{ 'comment': 'text' }">{{r.comment}}</td>
+				<td class="td-edit" data-title="'action.edit' | translate">
+					<button type="button" ng-click="edit(r.id)"
+						class="btn btn-default btn-xs">
+						<i class="fa fa-fw fa-edit"></i> {{ 'action.edit' | translate }}
+					</button>
+					<button type="button" ng-click="deleteDialog(r.id)"
+						class="btn btn-danger btn-xs">
+						<i class="fa fa-fw trash-o"></i> {{ 'action.delete' | translate }}
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</crud>

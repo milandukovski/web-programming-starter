@@ -1,0 +1,62 @@
+<crud crud-title="mvr.unspecifiedpersons" crud-type="UnspecifiedPerson"
+	crud-form="unspecifiedPersonEntity"
+	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
+
+<div class="table-responsive">
+	<!--  -->
+	<table ng-table="table" show-filter="true"
+		class="table table-bordered table-striped table-condensed ng-table-responsive">
+		<tbody>
+			<tr ng-repeat="r in $data">
+				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
+				<td data-title="'generic.gender' | translate" sortable="'gender'"
+					filter="{ 'gender': 'text' }">{{r.gender}}</td>
+				<td data-title="'mvr.age' | translate" sortable="'age'"
+					filter="{ 'age': 'text' }">{{r.age["name"]}}</td>
+				<td data-title="'mvr.heights' | translate" sortable="'height'"
+					filter="{ 'height': 'text' }">{{r.height["name"]}}</td>
+				<td data-title="'mvr.weights' | translate" sortable="'weight'"
+					filter="{ 'weight': 'text' }">{{r.weight["name"]}}</td>
+				<td data-title="'mvr.eyecolors' | translate" sortable="'eyecolors'"
+					filter="{ 'eyecolors': 'text' }">{{r.eyeColor["name"]}}</td>
+				<td data-title="'mvr.ethnicity' | translate" sortable="'ethnicity'"
+					filter="{ 'ethnicity': 'text' }">{{r.ethicity["name"]}}</td>
+				<td data-title="'mvr.bodytypes' | translate" sortable="'nbodytypesme'"
+					filter="{ 'bodytypes': 'text' }">{{r.bodyType["name"]}}</td>
+				<td data-title="'mvr.teethconditions' | translate" sortable="'teethconditions'"
+					filter="{ 'teethconditions': 'text' }">{{r.teethCondition["name"]}}</td>
+				<td data-title="'mvr.handtypes' | translate" sortable="'handtypes'"
+					filter="{ 'handtypes': 'text' }">{{r.handType["name"]}}</td>					
+				<td data-title="'mvr.humancharacteristics' | translate" sortable="'humancharacteristics'"
+					filter="{ 'humancharacteristics': 'text' }">{{r.humanCharacteristics["name"]}}</td>
+				<td data-title="'mvr.haircolors' | translate" sortable="'haircolors'"
+					filter="{ 'haircolors': 'text' }">{{r.hairColor["name"]}}</td>
+				<td data-title="'generic.hairLength' | translate" sortable="'hairLength'"
+					filter="{ 'hairLength': 'text' }">{{r.hairLength}}</td>
+				<td data-title="'mvr.physicalconditions' | translate" sortable="'physicalconditions'"
+					filter="{ 'physicalconditions': 'text' }">{{r.physicalCondition["name"]}}</td>
+				<td data-title="'mvr.facialhairtypes' | translate" sortable="'facialhair'"
+					filter="{ 'facialhair': 'text' }">{{r.facialHair["name"]}}</td>
+				<td data-title="'mvr.speachtroubles' | translate" sortable="'speachtroubles'"
+					filter="{ 'speachtroubles': 'text' }">{{r.speachTrouble["name"]}}</td>
+				<td data-title="'mvr.skintypes' | translate" sortable="'skintypes'"
+					filter="{ 'skintypes': 'text' }">{{r.skinType["name"]}}</td>
+				<td data-title="'mvr.personroles' | translate" sortable="'personroles'"
+					filter="{ 'personroles': 'text' }">{{r.role["name"]}}</td>
+				<td data-title="'generic.comment' | translate" sortable="'comment'"
+					filter="{ 'comment': 'text' }">{{r.comment}}</td>
+				<td class="td-edit" data-title="'action.edit' | translate">
+					<button type="button" ng-click="edit(r.id)"
+						class="btn btn-default btn-xs">
+						<i class="fa fa-fw fa-edit"></i> {{ 'action.edit' | translate }}
+					</button>
+					<button type="button" ng-click="deleteDialog(r.id)"
+						class="btn btn-danger btn-xs">
+						<i class="fa fa-fw trash-o"></i> {{ 'action.delete' | translate }}
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</crud>

@@ -1,0 +1,32 @@
+<div class="form-group">
+	<div class="row">
+        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.comment' | translate}}: </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="comment" id="comment" ng-model="entity.comment">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+	<div class="row">
+        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.status' | translate}}: </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="status" id="status" ng-model="entity.status">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <combo class="col-sm-12" combo-type="Vehicle"
+		combo-label="mvr.vehicles" 
+		combo-model="entity.vehicle"
+		combo-name="vehicle"
+		combo-property="registration">
+	</combo>
+</div>
+<div class="row">
+    <combo class="col-sm-12" combo-type="SpecifiedPerson"
+		combo-label="mvr.specifiedpersons" 
+		combo-model="entity.person"
+		combo-name="person"
+		combo-property="fullName">
+	</combo>
+</div>
