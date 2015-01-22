@@ -1,8 +1,34 @@
+<div ng-controller="EventController">
 <crud crud-title="mvr.event" crud-type="Event"
 	crud-form="eventEntity"
+	after-init="afterCrudInit"
+	on-new="noPopUp"
+	after-save="crudScope.hide"
+	on-edit="noPopUp"	
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
+	
+	<div class="panel panel-default top-buffer" ng-if="entity">
+		<form name="form{{crudTitle}}" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+			ng-submit="save()">
+			<div class="panel-heading">
+		        <button type="button" class="close" ng-click="hide()">&times;</button>
+		        <h4 class="panel-title">{{ 'generic.add_or_edit' | translate }} <span class="text-info">{{ 'mvr.event' | translate }}</span></h4>
+		      </div>
+			<div class="panel-body">
+				<ng-include src="'forms/eventEntity.html'"></ng-include>
+			</div>
+			<div class="panel-footer">
+		        <button type="button" class="btn btn-default" ng-click="hide()">
+		        	<i class="fa fa-fw fa-times"></i> {{ 'action.cancel' | translate }}
+		        </button>
+		        <button type="submit" ng-disabled="form{{crudTitle}}.$invalid" class="btn btn-primary">
+					<i class="fa fa-fw fa-save"></i> {{ 'action.save' | translate }}
+				</button>
+		      </div>
+	      </form>
+	</div>
 
-<div class="table-responsive">
+<div class="table-responsive top-buffer" ng-if="!entity">
 	<!--  -->
 	<table ng-table="table" show-filter="true"
 		class="table table-bordered table-striped table-condensed ng-table-responsive">
@@ -68,3 +94,4 @@
 	</table>
 </div>
 </crud>
+</div>

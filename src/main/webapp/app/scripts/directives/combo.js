@@ -86,7 +86,13 @@ FirstApp.directive('combo', [
 
           // Function that returns the item display
           $scope.formatItem = function(item, container, query, escapeMarkup) {
-            var val = item[property] || item;
+        	  
+            var val;
+            if(item.__isGroup) {
+            	val = item.group[groupNameProp];
+            } else {
+            	val= item[property] || item;
+            }
             var markedText = $scope.markMatch(val, query, escapeMarkup);
             if (typeof $scope.renderItem === 'function') {
               return $scope.renderItem(val, markedText, item);
@@ -166,6 +172,7 @@ FirstApp.directive('combo', [
                   res[id] = res[id] || {
                     name: id,
                     group: g,
+                    __isGroup: true,
                     children: []
                   };
                   res[id].children.push(val);

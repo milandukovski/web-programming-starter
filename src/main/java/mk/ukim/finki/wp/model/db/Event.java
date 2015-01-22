@@ -6,6 +6,8 @@ import javax.persistence.Table;
 
 import mk.ukim.finki.wp.json.CustomDateDeserializer;
 import mk.ukim.finki.wp.json.ShortDateSerializer;
+import mk.ukim.finki.wp.json.TimeDeserializer;
+import mk.ukim.finki.wp.json.TimeSerializer;
 import mk.ukim.finki.wp.model.BaseEntity;
 
 import org.hibernate.annotations.Type;
@@ -47,9 +49,9 @@ public class Event extends BaseEntity{
 	private DateTime staringDate;
 	
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-	@JsonSerialize(using = ShortDateSerializer.class)
-	@JsonDeserialize(using = CustomDateDeserializer.class)
-	@DateTimeFormat(pattern = "h:mm")
+	@JsonSerialize(using = TimeSerializer.class)
+	@JsonDeserialize(using = TimeDeserializer.class)
+	@DateTimeFormat(pattern = "HH:mm")
 	private DateTime startingTime;
 	
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -59,9 +61,9 @@ public class Event extends BaseEntity{
 	private DateTime endingDate;
 	
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-	@JsonSerialize(using = ShortDateSerializer.class)
-	@JsonDeserialize(using = CustomDateDeserializer.class)
-	@DateTimeFormat(pattern = "h:mm")
+	@JsonSerialize(using = TimeSerializer.class)
+	@JsonDeserialize(using = TimeDeserializer.class)
+	@DateTimeFormat(pattern = "HH:mm")
 	private DateTime endingTime;
 	
 	@ManyToOne
