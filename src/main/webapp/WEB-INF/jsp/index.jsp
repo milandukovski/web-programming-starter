@@ -97,7 +97,7 @@
 
         <div class="footer">
             <p>
-                <span class="glyphicon glyphicon-heart"></span>from the Web programming team</p>
+                All rigths reserved.  
         </div>
     </div>
 

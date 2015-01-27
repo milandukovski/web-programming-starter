@@ -1,181 +1,135 @@
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.date' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="date" class="form-control" name="datum" id="datum" ng-model="entity.datum">
-        </div>
-    </div>
-</div>
-    <div class="row">
-      
-        <combo class="col-sm-12" combo-type="SvrRc" combo-required="true"
-				combo-label="mvr.svrrc" 
-				combo-model="entity.svrRC"
-				combo-name="svrRC"
-				combo-property="name">
-		</combo>
-    </div>
-    <div class="row">
-      
-        <combo class="col-sm-12" combo-type="EventPoloiceStation" combo-required="true"
-				combo-label="mvr.eventpolicestations" 
-				combo-model="entity.policeStation"
-				combo-name="policeStation"
-				combo-property="name">
-		</combo>
-    </div>
-    <div class="row">
-        
-        <combo class="col-sm-12" combo-type="EventCommonArea" combo-required="false"
-				combo-label="mvr.eventcommonareas" 
-				combo-model="entity.commonArea"
-				combo-name="commonArea"
-				combo-property="name">
-		</combo>
-    </div>
-    <div class="row">
-     
-        <combo class="col-sm-12" combo-type="EventArea" combo-required="false"
-				combo-label="mvr.eventareas" 
-				combo-model="entity.area"
-				combo-name="area"
-				combo-property="name">
-		</combo>
-    </div>
-      <div class="row">
-    
-        <combo class="col-sm-12" combo-type="EventCase" combo-required="false"
-				combo-label="mvr.eventcases" 
-				combo-model="entity.ecase"
-				combo-name="ecase"
-				combo-property="name">
-		</combo>
-    </div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.startDate' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="date" class="form-control" name="startingDate" id="startingDate" ng-model="entity.staringDate">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.endDate' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="date" class="form-control" name="endingDate" id="endingDate" ng-model="entity.endingDate">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.startTime' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="time" class="form-control" name="startingTime" id="startingTime" ng-model="entity.startingTime">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.endTime' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="time" class="form-control" name="endingTime" id="endingTime" ng-model="entity.endingTime">
-        </div>
-    </div>
-</div>
 <div class="row">
-        <combo class="col-sm-12" combo-type="Municipality" combo-required="true"
-				combo-label="mvr.municipalities" 
-				combo-model="entity.opstina"
-				combo-name="opstina"
-				combo-property="name">
-		</combo>
-</div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.location' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" name="location" id="location" ng-model="entity.location">
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.date' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" name="datum" id="datum" ng-model="entity.datum">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <combo class="col-sm-12" combo-type="SvrRc" combo-required="true" combo-label="mvr.svrrc" combo-model="entity.svrRC" combo-name="svrRC" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+
+            <combo class="col-sm-12" combo-type="EventPoloiceStation" combo-required="true" combo-label="mvr.eventpolicestations" combo-model="entity.policeStation" combo-name="policeStation" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+
+            <combo class="col-sm-12" combo-type="EventCommonArea" combo-required="false" combo-label="mvr.eventcommonareas" combo-model="entity.commonArea" combo-name="commonArea" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+
+            <combo class="col-sm-12" combo-type="EventArea" combo-required="false" combo-label="mvr.eventareas" combo-model="entity.area" combo-name="area" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+
+            <combo class="col-sm-12" combo-type="EventCase" combo-required="false" combo-label="mvr.eventcases" combo-model="entity.ecase" combo-name="ecase" combo-property="name">
+            </combo>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.startDate' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" name="startingDate" id="startingDate" ng-model="entity.staringDate">
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.startTime' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="time" class="form-control" name="startingTime" id="startingTime" ng-model="entity.startingTime">
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.endDate' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" name="endingDate" id="endingDate" ng-model="entity.endingDate">
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.endTime' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="time" class="form-control" name="endingTime" id="endingTime" ng-model="entity.endingTime">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="Municipality" combo-required="true" combo-label="mvr.municipalities" combo-model="entity.opstina" combo-name="opstina" combo-property="name">
+            </combo>
         </div>
     </div>
-</div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.eventDescription' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" name="eventDescription" id="eventDescription" ng-model="entity.eventDescription">
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.location' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="location" id="location" ng-model="entity.location">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.eventDescription' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="eventDescription" id="eventDescription" ng-model="entity.eventDescription">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.materialCost' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="materialCost" id="materialCost" ng-model="entity.materialCost">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.benefit' | translate}}: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="benefit" id="benefit" ng-model="entity.benefit">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="EventPointsOfEntry" combo-required="false" combo-label="mvr.eventpointsofentry" combo-model="entity.point" combo-name="point" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="EventMethodOfEntering" combo-required="false" combo-label="mvr.eventmethodsofentering" combo-model="entity.method" combo-name="method" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="EventSuspectAct" combo-required="false" combo-label="mvr.eventsuspectacts" combo-model="entity.suspectAct" combo-name="suspectAct" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="EventCrimesAgainstProperty" combo-required="false" combo-label="mvr.eventcrimesagainstproperties" combo-model="entity.propertyCrime" combo-name="propertyCrime" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="EventObjectOfAttack" combo-required="false" combo-label="mvr.eventobjectsofattack" combo-model="entity.objectOfAttack" combo-name="objectOfAttack" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="EventWayOfLeaving" combo-required="false" combo-label="mvr.eventwayofleaving" combo-model="entity.wayOfLeaving" combo-name="wayOfLeaving" combo-property="name">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="EventWeaponType" combo-required="false" combo-label="mvr.eventweapontypes" combo-model="entity.weaponType" combo-name="weaponType" combo-property="name">
+            </combo>
         </div>
     </div>
-</div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.materialCost' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" name="materialCost" id="materialCost" ng-model="entity.materialCost">
-        </div>
-    </div>
-</div>
-<div class="form-group">
-	<div class="row">
-        <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.benefit' | translate}}: </label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" name="benefit" id="benefit" ng-model="entity.benefit">
-        </div>
-    </div>
-</div>
-<div class="row">
-        <combo class="col-sm-12" combo-type="EventPointsOfEntry" combo-required="false"
-				combo-label="mvr.eventpointsofentry" 
-				combo-model="entity.point"
-				combo-name="point"
-				combo-property="name">
-		</combo>
-</div>
-<div class="row">
-        <combo class="col-sm-12" combo-type="EventMethodOfEntering" combo-required="false"
-				combo-label="mvr.eventmethodsofentering" 
-				combo-model="entity.method"
-				combo-name="method"
-				combo-property="name">
-		</combo>
-</div>
-<div class="row">
-        <combo class="col-sm-12" combo-type="EventSuspectAct" combo-required="false"
-				combo-label="mvr.eventsuspectacts" 
-				combo-model="entity.suspectAct"
-				combo-name="suspectAct"
-				combo-property="name">
-		</combo>
-</div>
-<div class="row">
-        <combo class="col-sm-12" combo-type="EventCrimesAgainstProperty" combo-required="false"
-				combo-label="mvr.eventcrimesagainstproperties" 
-				combo-model="entity.propertyCrime"
-				combo-name="propertyCrime"
-				combo-property="name">
-		</combo>
-</div>
-<div class="row">
-        <combo class="col-sm-12" combo-type="EventObjectOfAttack" combo-required="false"
-				combo-label="mvr.eventobjectsofattack" 
-				combo-model="entity.objectOfAttack"
-				combo-name="objectOfAttack"
-				combo-property="name">
-		</combo>
-</div>
-<div class="row">
-        <combo class="col-sm-12" combo-type="EventWayOfLeaving" combo-required="false"
-				combo-label="mvr.eventwayofleaving" 
-				combo-model="entity.wayOfLeaving"
-				combo-name="wayOfLeaving"
-				combo-property="name">
-		</combo>
-</div>
-<div class="row">
-        <combo class="col-sm-12" combo-type="EventWeaponType" combo-required="false"
-				combo-label="mvr.eventweapontypes" 
-				combo-model="entity.weaponType"
-				combo-name="weaponType"
-				combo-property="name">
-		</combo>
 </div>
