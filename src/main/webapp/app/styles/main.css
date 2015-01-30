@@ -91,6 +91,10 @@ body {
 	padding: 10px;
 }
 
+.top-buffer2 {
+	margin-top: 10px;
+}
+
 .logo{
 	float:left;
 	margin-right:10px;

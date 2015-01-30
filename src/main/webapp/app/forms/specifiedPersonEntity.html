@@ -1,113 +1,119 @@
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.name'| translate}}: </label>
-		<div class="col-sm-9">
-			<input type="text" class="form-control " name="firstName" id="firstName"ng-model="entity.firstName">
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.name'| translate}}: </label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control " name="firstName" id="firstName"ng-model="entity.firstName">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.lastName'
+				| translate}}: </label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control " name="lastName" id="lastName"
+					ng-model="entity.lastName">
+			</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.birthDate'
+				| translate}}: </label>
+			<div class="col-sm-9">
+				<input type="date" class="form-control" ng-change="age()" name="birthDate" id="birthDate"
+					ng-model="entity.birthDate">
+			</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.gender'
+				| translate}}: </label>
+			<div class="col-sm-9">
+				<select class="form-control" name="gender" id="gender"
+					ng-model="entity.gender">
+					<!-- <option>{{'generic.male' | translate}}</option>
+					<option>{{'generic.female' | translate}}</option> -->
+					<option>male</option>
+					<option>female</option>
+				</select>
+			</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.age'
+				| translate}}: </label>
+			<div class="col-sm-9">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{entity.age}} </label>
+			</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.address'
+				| translate}}: </label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" name="address" id="address"
+					ng-model="entity.address">
+			</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<combo class="col-sm-12" combo-type="Municipality" combo-required="true"
+			combo-label="mvr.municipalities" combo-model="entity.opstina"
+			combo-name="opstina" combo-property="name"> </combo>
 		</div>
 	</div>
-</div>
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.lastName'
-		| translate}}: </label>
-	<div class="col-sm-9">
-		<input type="text" class="form-control " name="lastName" id="lastName"
-			ng-model="entity.lastName">
-	</div>
-	</div>
-</div>
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.birthDate'
-		| translate}}: </label>
-	<div class="col-sm-9">
-		<input type="date" class="form-control" ng-change="age()" name="birthDate" id="birthDate"
-			ng-model="entity.birthDate">
-	</div>
-	</div>
-</div>
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.gender'
-		| translate}}: </label>
-	<div class="col-sm-9">
-		<select class="form-control" name="gender" id="gender"
-			ng-model="entity.gender">
-			<!-- <option>{{'generic.male' | translate}}</option>
-			<option>{{'generic.female' | translate}}</option> -->
-			<option>male</option>
-			<option>female</option>
-		</select>
-	</div>
-	</div>
-</div>
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.age'
-		| translate}}: </label>
-	<div class="col-sm-9">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{entity.age}} </label>
-	</div>
-	</div>
-</div>
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.address'
-		| translate}}: </label>
-	<div class="col-sm-9">
-		<input type="text" class="form-control" name="address" id="address"
-			ng-model="entity.address">
-	</div>
-	</div>
-</div>
-
-<div class="row">
-	<combo class="col-sm-12" combo-type="Municipality" combo-required="true"
-	combo-label="mvr.municipalities" combo-model="entity.opstina"
-	combo-name="opstina" combo-property="name"> </combo>
-</div>
-<div class="row">
-	<combo class="col-sm-12" combo-type="City" combo-required="true"
-	combo-label="mvr.cities" combo-model="entity.city"
-	combo-name="city" combo-property="name"> </combo>
-</div>
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.currentAddress'
-		| translate}}: </label>
-	<div class="col-sm-9">
-		<input type="text" class="form-control" name="currentAddress" id="currentAddress"
-			ng-model="entity.currentAddress">
-	</div>
-	</div>
-</div>
-<div class="row">
-	<combo class="col-sm-12" combo-type="Municipality" combo-required="true"
-	combo-label="generic.currentMunicipality" combo-model="entity.currentOpstina"
-	combo-name="opstina" combo-property="name"> </combo>
-</div>
-<div class="row">
-	<combo class="col-sm-12" combo-type="City" combo-required="true"
-	combo-label="generic.currentCity" combo-model="entity.currentCity"
-	combo-name="city" combo-property="name"> </combo>
-</div>
-<div class="row">
-	<combo class="col-sm-12" combo-type="Nationality" combo-required="true"
-	combo-label="mvr.nationalities" combo-model="entity.nationality"
-	combo-name="nationality" combo-property="name"> </combo>
-</div>
-<div class="row">
-	<combo class="col-sm-12" combo-type="PersonRole" combo-required="true"
-	combo-label="mvr.personroles" combo-model="entity.personRole"
-	combo-name="personroles" combo-property="name"> </combo>
-</div>
-<div class="form-group">
-	<div class="row">
-		<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.comment'
-		| translate}}: </label>
-	<div class="col-sm-9">
-		<input type="text" class="form-control" name="comment" id="comment"
-			ng-model="entity.comment">
-	</div>
+	<div class="col-md-6">
+		<div class="row">
+			<combo class="col-sm-12" combo-type="City" combo-required="true"
+			combo-label="mvr.cities" combo-model="entity.city"
+			combo-name="city" combo-property="name"> </combo>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.currentAddress'
+				| translate}}: </label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" name="currentAddress" id="currentAddress"
+					ng-model="entity.currentAddress">
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<combo class="col-sm-12" combo-type="Municipality" combo-required="true"
+			combo-label="generic.currentMunicipality" combo-model="entity.currentOpstina"
+			combo-name="opstina" combo-property="name"> </combo>
+		</div>
+		<div class="row">
+			<combo class="col-sm-12" combo-type="City" combo-required="true"
+			combo-label="generic.currentCity" combo-model="entity.currentCity"
+			combo-name="city" combo-property="name"> </combo>
+		</div>
+		<div class="row">
+			<combo class="col-sm-12" combo-type="Nationality" combo-required="true"
+			combo-label="mvr.nationalities" combo-model="entity.nationality"
+			combo-name="nationality" combo-property="name"> </combo>
+		</div>
+		<div class="row">
+			<combo class="col-sm-12" combo-type="PersonRole" combo-required="true"
+			combo-label="mvr.personroles" combo-model="entity.personRole"
+			combo-name="personroles" combo-property="name"> </combo>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.comment'
+				| translate}}: </label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" name="comment" id="comment"
+					ng-model="entity.comment">
+			</div>
+			</div>
+		</div>
 	</div>
 </div>

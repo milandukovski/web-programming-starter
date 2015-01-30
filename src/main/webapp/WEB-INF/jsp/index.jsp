@@ -165,6 +165,7 @@
     <script src="scripts/controllers/login.js"></script> -->
     <script src="scripts/controllers/menuController.js"></script>
     <script src="scripts/controllers/specifiedPersonController.js"></script>
+    <script src="scripts/controllers/unspecifiedPersonController.js"></script>
     <script src="scripts/controllers/eventController.js"></script>
     <script src="scripts/controllers/municipalityControler.js"></script>
     <!-- Services definition -->
