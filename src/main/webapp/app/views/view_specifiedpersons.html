@@ -1,10 +1,34 @@
+
 <crud crud-title="mvr.specifiedpersons" crud-type="SpecifiedPerson"
 	crud-form="specifiedPersonEntity"
 	after-init="afterCrudInit"
+	on-new="noPopUp"
+	after-save="crudScope.hide"
+	on-edit="noPopUp"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 	
+	<div class="panel panel-default top-buffer2" ng-if="entity">
+		<form name="form{{crudTitle}}" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+			ng-submit="save()">
+			<div class="panel-heading">
+		        <button type="button" class="close" ng-click="hide()">&times;</button>
+		        <h4 class="panel-title">{{ 'generic.add_or_edit' | translate }} <span class="text-info">{{ 'mvr.specifiedpersons' | translate }}</span></h4>
+		      </div>
+			<div class="panel-body">
+				<ng-include src="'forms/specifiedPersonEntity.html'"></ng-include>
+			</div>
+			<div class="panel-footer">
+		        <button type="button" class="btn btn-default" ng-click="hide()">
+		        	<i class="fa fa-fw fa-times"></i> {{ 'action.cancel' | translate }}
+		        </button>
+		        <button type="submit" ng-disabled="form{{crudTitle}}.$invalid" class="btn btn-primary">
+					<i class="fa fa-fw fa-save"></i> {{ 'action.save' | translate }}
+				</button>
+		      </div>
+	      </form>
+	</div>
 
-<div class="table-responsive">
+<div class="table-responsive top-buffer2" ng-if="!entity">
 	<!--  -->
 	<table ng-table="table" show-filter="true"
 		class="table table-bordered table-striped table-condensed ng-table-responsive">
@@ -23,8 +47,8 @@
 					filter="{ 'age': 'text' }">{{r.age}}</td>
 				<td data-title="'generic.address' | translate" sortable="'address'"
 					filter="{ 'address': 'text' }">{{r.address}}</td>
-				<td data-title="'mvr.municipalities' | translate" sortable="'municipalities'"
-					filter="{ 'opstina': 'text' }">{{r.opstina["name"]}}</td>
+<!-- 				<td data-title="'mvr.municipalities' | translate" sortable="'municipalities'"
+					filter="{ 'opstina': 'text' }">{{r.opstina["name"]}}</td> -->
 				<td data-title="'mvr.cities' | translate" sortable="'city'"
 					filter="{ 'city': 'text' }">{{r.city["name"]}}</td>
 				<td data-title="'generic.currentAddress' | translate" sortable="'currentAddress'"
@@ -35,8 +59,8 @@
 					filter="{ 'currentCity': 'text' }">{{r.currentCity["name"]}}</td>
 				<td data-title="'mvr.nationalities' | translate" sortable="'nationality'"
 					filter="{ 'nationality': 'text' }">{{r.nationality["name"]}}</td>
-				<td data-title="'mvr.personroles' | translate" sortable="'personRole'"
-					filter="{ 'personRole': 'text' }">{{r.personRole["name"]}}</td>
+				<!-- <td data-title="'mvr.personroles' | translate" sortable="'personRole'"
+					filter="{ 'personRole': 'text' }">{{r.personRole["name"]}}</td> -->
 				<td data-title="'generic.comment' | translate" sortable="'comment'"
 					filter="{ 'comment': 'text' }">{{r.comment}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">

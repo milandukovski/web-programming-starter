@@ -7,7 +7,7 @@
 	on-edit="noPopUp"	
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 	
-	<div class="panel panel-default top-buffer" ng-if="entity">
+	<div class="panel panel-default top-buffer2" ng-if="entity">
 		<form name="form{{crudTitle}}" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
 			ng-submit="save()">
 			<div class="panel-heading">
@@ -28,7 +28,7 @@
 	      </form>
 	</div>
 
-<div class="table-responsive top-buffer" ng-if="!entity">
+<div class="table-responsive top-buffer2" ng-if="!entity">
 	<!--  -->
 	<table ng-table="table" show-filter="true"
 		class="table table-bordered table-striped table-condensed ng-table-responsive">
@@ -41,38 +41,38 @@
 					filter="{ 'svrrc': 'text' }">{{r.svrRC["name"]}}</td>
 				<td data-title="'mvr.eventpolicestations' | translate" sortable="'policeStation'"
 					filter="{ 'policeStation': 'text' }">{{r.policeStation["name"]}}</td>
-				<td data-title="'mvr.eventcommonareas' | translate" sortable="'commonArea'"
+			<!-- 	<td data-title="'mvr.eventcommonareas' | translate" sortable="'commonArea'"
 					filter="{ 'commonArea': 'text' }">{{r.commonArea["name"]}}</td>
 				<td data-title="'mvr.eventareas' | translate" sortable="'area'"
-					filter="{ 'area': 'text' }">{{r.area["name"]}}</td>
+					filter="{ 'area': 'text' }">{{r.area["name"]}}</td> -->
 				<td data-title="'mvr.eventcases' | translate" sortable="'ecase'"
 					filter="{ 'ecase': 'text' }">{{r.ecase["name"]}}</td>
 				<td data-title="'generic.startDate' | translate" sortable="'startingDate'"
 					filter="{ 'startingDate': 'text' }">{{r.staringDate}}</td>
 				<td data-title="'generic.endDate' | translate" sortable="'endingDate'"
 					filter="{ 'endingDate': 'text' }">{{r.endingDate}}</td>
-				<td data-title="'generic.startTime' | translate" sortable="'startTime'"
+<!-- 				<td data-title="'generic.startTime' | translate" sortable="'startTime'"
 					filter="{ 'startTime': 'text' }">{{r.startingTime}}</td>
 				<td data-title="'generic.endTime' | translate" sortable="'endTime'"
-					filter="{ 'endTime': 'text' }">{{r.endingTime}}</td>
+					filter="{ 'endTime': 'text' }">{{r.endingTime}}</td> 
 				<td data-title="'mvr.municipalities' | translate" sortable="'opstina'"
 					filter="{ 'opstina': 'text' }">{{r.opstina["name"]}}</td>
 				<td data-title="'generic.location' | translate" sortable="'location'"
-					filter="{ 'location': 'text' }">{{r.location}}</td>
+					filter="{ 'location': 'text' }">{{r.location}}</td> -->
 				<td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
 					filter="{ 'eventDescription': 'text' }">{{r.eventDescription}}</td>
 				<td data-title="'generic.materialCost' | translate" sortable="'materialCost'"
 					filter="{ 'materialCost': 'text' }">{{r.materialCost}}</td>
 				<td data-title="'generic.benefit' | translate" sortable="'benefit'"
 					filter="{ 'benefit': 'text' }">{{r.benefit}}</td>
-				<td data-title="'mvr.eventpointsofentry' | translate" sortable="'point'"
+		<!-- 		<td data-title="'mvr.eventpointsofentry' | translate" sortable="'point'"
 					filter="{ 'point': 'text' }">{{r.point["name"]}}</td>
 				<td data-title="'mvr.eventmethodsofentering' | translate" sortable="'method'"
 					filter="{ 'method': 'text' }">{{r.method["name"]}}</td>
 				<td data-title="'mvr.eventsuspectacts' | translate" sortable="'suspectAct'"
 					filter="{ 'suspectAct': 'text' }">{{r.suspectAct["name"]}}</td>
 				<td data-title="'mvr.eventcrimesagainstproperties' | translate" sortable="'propertyCrime'"
-					filter="{ 'propertyCrime': 'text' }">{{r.propertyCrime["name"]}}</td>
+					filter="{ 'propertyCrime': 'text' }">{{r.propertyCrime["name"]}}</td> -->
 				<td data-title="'mvr.eventobjectsofattack' | translate" sortable="'objectOfAttack'"
 					filter="{ 'objectOfAttack': 'text' }">{{r.objectOfAttack["name"]}}</td>
 				<td data-title="'mvr.eventwayofleaving' | translate" sortable="'wayOfLeaving'"

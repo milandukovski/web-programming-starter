@@ -7,7 +7,8 @@ var menuData = [{
     },{
         label: 'mvr.municipalities',
         path: "/views/view_municipalities",
-        templateUrl: 'views/view_municipalities.html',
+        templateUrl: 'views/crime_map/municipalities.html',
+        controller : 'municipalityCtrl'
     }, {
         label: 'mvr.cities',
         path: "/views/view_cities",
