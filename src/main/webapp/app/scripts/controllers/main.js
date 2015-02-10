@@ -24,8 +24,10 @@ FirstApp.controller('MainCtrl', [
 			};
 
 			$scope.textX = function(entity) {
-				if(!entity) 0;
-				if(!$scope.svg) return 0;
+				if (!entity)
+					0;
+				if (!$scope.svg)
+					return 0;
 				console.log(entity.description);
 				var el = $("#path-" + entity.id);
 				return el[0].getBoundingClientRect().left
@@ -34,8 +36,10 @@ FirstApp.controller('MainCtrl', [
 			}
 
 			$scope.textY = function(entity) {
-				if(!entity) 0;
-				if(!$scope.svg) return 0;
+				if (!entity)
+					0;
+				if (!$scope.svg)
+					return 0;
 				var el = $("#path-" + entity.id);
 				return el[0].getBoundingClientRect().top
 						- $scope.svg[0].getBoundingClientRect().top
@@ -49,3 +53,13 @@ FirstApp.controller('MainCtrl', [
 					});
 
 		} ]);
+
+FirstApp.controller('ImportController', [ '$scope', 'crudService',
+
+function($scope, crudService) {
+	$scope.save = function() {
+		var regex = /"id":[^,]*,/gi;
+		var content = $scope.entities.replace(regex, "");
+		crudService($scope.service).import(content);
+	};
+} ]);

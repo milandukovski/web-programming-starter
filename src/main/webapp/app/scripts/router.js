@@ -26,28 +26,28 @@ FirstApp.config([ '$routeProvider', '$translateProvider',
 				templateUrl : 'views/main.html',
 				controller : 'MainCtrl'
 			});
-//
-//			$routeProvider.when('/view/view_ethnicity', {
-//				templateUrl : 'views/view_ethnicity.html'
-//			});
-			
-			for(var i=0;i<menuData.length;i++){
-				var items=menuData[i]["items"];
-				for(var j=0;j<items.length;j++){
-					var temp=items[j];
-					var path=temp['path'];
-					if(Object.keys(temp).length==3){
+
+			$routeProvider.when('/import', {
+				templateUrl : 'views/import/import.html',
+				controller : 'ImportController',
+				publicAccess : true
+			})
+
+			for (var i = 0; i < menuData.length; i++) {
+				var items = menuData[i]["items"];
+				for (var j = 0; j < items.length; j++) {
+					var temp = items[j];
+					var path = temp['path'];
+					if (Object.keys(temp).length == 3) {
 						$routeProvider.when(path, {
-							"templateUrl":temp['templateUrl']
+							"templateUrl" : temp['templateUrl']
 						});
-					}
-					else if(Object.keys(temp).length==4){
+					} else if (Object.keys(temp).length == 4) {
 						$routeProvider.when(path, {
-							templateUrl:temp['templateUrl'],
-							controller:temp['controller']
+							templateUrl : temp['templateUrl'],
+							controller : temp['controller']
 						});
-					}
-					else
+					} else
 						alert("ERROR in router.js");
 				}
 			}

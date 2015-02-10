@@ -1,0 +1,30 @@
+<form name="form" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+		ng-submit="save()">
+	<div class="panel-body">
+		/data/rest/<b>{field value}</b><input ng-model="service"
+					 name="service"
+					 type="text"
+					 required="true"
+					 ng-minlength="1"
+					 ng-maxlength="50">
+		</input>
+		<div class="form-group">
+			<label for="entities" translate="generic.entities"></label>
+			<textarea rows="15" class="form-control" name="entities" ng-model="entities"></textarea>
+		</div>
+	</div>
+      
+	<div class="panel-footer">
+        <button type="button" class="btn btn-default" ng-click="clear()">
+        	<i class="fa fa-fw fa-times"></i> {{ 'action.cancel' | translate }}
+        </button>
+        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+			<i class="fa fa-fw fa-save"></i> {{ 'action.save' | translate }}
+		</button>
+	</div>
+</form>
+
+
+
+
+			 
