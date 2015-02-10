@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <svg xmlns:dc="http://purl.org/dc/elements/1.1/"
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
 			xmlns:cc="http://creativecommons.org/ns#"
 			xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 			xmlns:svg="http://www.w3.org/2000/svg"
@@ -9,23 +9,30 @@
 			width="744.09003" 
 			height="581" 
 			id="svg2" 
+			ng-if="entities"
 			sodipodi:version="0.32"
 			inkscape:version="0.48.4 r9939" 
 			version="1.0"
 			sodipodi:docname="Map_of_urban_and_rural_municipalities_of_Macedonia_en.svg"
 			inkscape:output_extension="org.inkscape.output.svg.inkscape">
 
-    		<g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
-    			 <path	ng-repeat="p in entities"
+    		<g inkscape:label="Layer 1"  id="layer1">
+    			<path	ng-repeat="p in entities"
     			 		inkscape:connector-curvature="0"
-						style="fill:#000;
-						fill-opacity:1;
+						style="fill:#a00;
+						fill-opacity:0.1;
 						fill-rule:nonzero;
-						stroke:#fff;
+						stroke:#000;
 						stroke-opacity:1"
-						d="{{p.description}}"
-				>
-        		 <path>
+						id="path-{{p.id}}"
+						ng-click="pathClick(p)"
+						d="{{p.description}}">
+						
+        		 </path>
+        		 <circle ng-repeat="p in entities" cx="{{textX(p)}}" cy="{{textY(p)}}"  r="3"
+        					fill="blue" stroke="blue" stroke-width="2"  />
+        		 <text ng-repeat="p in entities" x="{{textX(p)+6}}" y="{{textY(p)+6}}" 
+        		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p.name}}</text>
     		</g>
   </svg>
 </div>

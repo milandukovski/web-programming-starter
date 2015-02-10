@@ -67,17 +67,14 @@
                         </li>
 
                         <li class="dropdown" ng-repeat="topMenu in menu">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{topMenu.name | translate}} <span class="caret"></span></a>
+                            <a class="dropdown-toggle" href="javascript: false" data-toggle="dropdown" role="button" aria-expanded="false">{{topMenu.name | translate}} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li ng-repeat="item in topMenu.items">
-                                    <a ng-href="{{url+''+item.path}}">{{item.label | translate}}</a>
+                                    <a ng-href="{{item.path}}">{{item.label | translate}}</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="#">{{'menu.about' | translate}}</a>
-                        </li>
-                        <li><a href="#">{{'menu.contact' | translate}}</a>
-                        </li>
+                        
                     </ul>
 
                 </div>
