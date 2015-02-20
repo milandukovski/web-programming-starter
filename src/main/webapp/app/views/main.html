@@ -1,4 +1,8 @@
-<div class="jumbotron">
+<div class="row">
+<div class="jumbotron col-md-9" ng-if="entities">
+<h1> 
+{{ "mnogu dolg tekst bla bla laskdjflsda alsd jsdlaj sdaoj saldjf sadl jdsalj sdlj lsdaj lsdajf lsadjf lsadj lfd" | shorten : 10 }}
+</h1>
 <svg xmlns:dc="http://purl.org/dc/elements/1.1/"
 			xmlns:cc="http://creativecommons.org/ns#"
 			xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -18,6 +22,7 @@
 
     		<g inkscape:label="Layer 1"  id="layer1">
     			<path	ng-repeat="p in entities"
+    					ng-click="select(p)"
     			 		inkscape:connector-curvature="0"
 						style="fill:#a00;
 						fill-opacity:0.1;
@@ -35,4 +40,8 @@
         		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p.name}}</text>
     		</g>
   </svg>
+</div>
+<div class="col-md-3">
+	{{selected.name}}
+</div>
 </div>

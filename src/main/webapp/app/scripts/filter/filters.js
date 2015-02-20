@@ -22,10 +22,11 @@ FirstApp.filter('interpolate', ['version',
     return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
   };
 }).filter('shorten', function() {
-  return function(value) {
+  return function(value, len) {
+	  len= len || 50;
     value = value || "";
-    if (value.length && value.length > 50) {
-      return value.substring(0, 50) + "...";
+    if (value.length && value.length > len) {
+      return value.substring(0, len) + "...";
     } else {
       return value;
     }

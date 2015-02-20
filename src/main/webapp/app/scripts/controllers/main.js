@@ -22,14 +22,20 @@ FirstApp.controller('MainCtrl', [
 				var el = $("#path-" + entity.id);
 				console.log(el);
 			};
+			
+			$scope.selected = {};
+			
+			$scope.select = function(p) {
+				$scope.selected=p;
+			}
 
 			$scope.textX = function(entity) {
 				if (!entity)
 					0;
 				if (!$scope.svg)
 					return 0;
-				console.log(entity.description);
 				var el = $("#path-" + entity.id);
+				if(!el[0]) return 0;
 				return el[0].getBoundingClientRect().left
 						- $scope.svg[0].getBoundingClientRect().left
 						+ el[0].getBoundingClientRect().width / 4;
@@ -41,6 +47,7 @@ FirstApp.controller('MainCtrl', [
 				if (!$scope.svg)
 					return 0;
 				var el = $("#path-" + entity.id);
+				if(!el[0]) return 0;
 				return el[0].getBoundingClientRect().top
 						- $scope.svg[0].getBoundingClientRect().top
 						+ el[0].getBoundingClientRect().height / 2;

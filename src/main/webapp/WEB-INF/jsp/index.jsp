@@ -70,7 +70,7 @@
                             <a class="dropdown-toggle" href="javascript: false" data-toggle="dropdown" role="button" aria-expanded="false">{{topMenu.name | translate}} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li ng-repeat="item in topMenu.items">
-                                    <a ng-href="{{item.path}}">{{item.label | translate}}</a>
+                                    <a ng-href="{{ '#' + item.path}}">{{item.label | translate}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -152,6 +152,8 @@
     <script src="scripts/menuData.js"></script>
     <script src="scripts/router.js"></script>
     <script src="scripts/config.js"></script>
+    
+    <script src="scripts/filter/filters.js"></script>
 
     <!-- controllers definition -->
     <script src="scripts/controllers/main.js"></script>
