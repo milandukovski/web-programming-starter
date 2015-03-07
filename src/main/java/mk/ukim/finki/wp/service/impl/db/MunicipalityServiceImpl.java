@@ -29,7 +29,7 @@ public class MunicipalityServiceImpl extends
 	}
 	
 	public List<Municipality> findByName(String name){
-		return getRepository().findByNameLike(name);
+		return getRepository().findByName(name);
 	}
 
 }

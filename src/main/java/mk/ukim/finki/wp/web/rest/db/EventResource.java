@@ -1,10 +1,10 @@
 package mk.ukim.finki.wp.web.rest.db;
 
+import java.util.Date;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,7 @@ import mk.ukim.finki.wp.model.db.EventCommonArea;
 import mk.ukim.finki.wp.model.db.EventPoliceStation;
 import mk.ukim.finki.wp.model.db.Municipality;
 import mk.ukim.finki.wp.model.db.SvrRc;
-import mk.ukim.finki.wp.service.db.EventService;
-import mk.ukim.finki.wp.service.db.MunicipalityService;
-import mk.ukim.finki.wp.service.impl.db.MunicipalityServiceImpl;
+import mk.ukim.finki.wp.service.db.*;
 import mk.ukim.finki.wp.web.rest.CrudResource;
 
 @RestController
@@ -33,7 +31,25 @@ public class EventResource extends CrudResource<Event, EventService> {
 
 	@Autowired
 	private EventService service;
+	
+	@Autowired
+	private MunicipalityService municipalityService;
+	
+	@Autowired
+	private SvrRcService SvrRcService;
 
+	@Autowired
+	private EventPoloiceStationService PoliceStationService;
+	
+	@Autowired
+	private EventCommonAreaService CommonAreaService;
+	
+	@Autowired
+	private EventAreaService AreaService;
+	
+	@Autowired
+	private EventCaseService CaseService;
+	
 	@Override
 	public EventService getService() {
 		return service;
@@ -56,12 +72,11 @@ public class EventResource extends CrudResource<Event, EventService> {
 		String csvData = "data.csv";
 		BufferedReader br = null;
 		String line = "";
-		String cvsSplitBy = ",";
+		String cvsSplitBy = "\t";
 		
 		try {
 			br = new BufferedReader(new FileReader(csvData));
-			@SuppressWarnings("unused")
-			String column = br.readLine();
+			br.readLine();
 			while ((line = br.readLine()) != null) {
 				Event entity = new Event();
 				
@@ -69,38 +84,82 @@ public class EventResource extends CrudResource<Event, EventService> {
 				
 				//set datum
 				String t[] = fields[0].split("/");
-				DateTime datum = new DateTime(Integer.parseInt(t[2]), Integer.parseInt(t[1]), Integer.parseInt(t[0]), 0, 0);
+				DateTime datum = new DateTime(Integer.parseInt(t[2]), Integer.parseInt(t[0]), Integer.parseInt(t[1]), 0, 0);
 				entity.setDatum(datum);
 				
 				//set SVR
-				SvrRc svrRc = new SvrRc();
-				svrRc.setName(fields[1]);
-				entity.setSvrRC(svrRc);
-				
+				List<SvrRc> svrs = SvrRcService.findByName(fields[1]);
+				if(svrs == null || svrs.size() == 0){
+					SvrRc svrRc = new SvrRc();
+					svrRc.setName(fields[1]);
+					SvrRcService.save(svrRc);
+					entity.setSvrRC(svrRc);
+				}
+				else{
+					entity.setSvrRC(svrs.get(0));
+				}
 				//set Police Station
-				EventPoliceStation policeStation = new EventPoliceStation();
-				policeStation.setName(fields[2]);
-				entity.setPoliceStation(policeStation);
-				
+				List<EventPoliceStation> policeStations = PoliceStationService.findByName(fields[2]);
+				if(policeStations == null || policeStations.size() == 0){
+					EventPoliceStation policeStation = new EventPoliceStation();
+					policeStation.setName(fields[2]);
+					PoliceStationService.save(policeStation);
+					entity.setPoliceStation(policeStation);
+				}else{
+					entity.setPoliceStation(policeStations.get(0));
+				}
+	
 				//set OpstaOblast
-				EventCommonArea commonArea = new EventCommonArea();
-				commonArea.setName(fields[3]);
-				entity.setCommonArea(commonArea);
+				List<EventCommonArea> commonAreas = CommonAreaService.findByName(fields[3]);
+				if(commonAreas == null || commonAreas.size()==0){
+					EventCommonArea commonArea = new EventCommonArea();
+					commonArea.setName(fields[3]);
+					CommonAreaService.save(commonArea);
+					entity.setCommonArea(commonArea);
+				}else{
+					entity.setCommonArea(commonAreas.get(0));
+				}
 				
 				//set Area Crime
-				EventArea area = new EventArea();
-				area.setName(fields[4]);
-				entity.setArea(area);
+				List<EventArea> areas = AreaService.findByName(fields[4]);
+				if(areas == null || areas.size()==0){
+					EventArea area = new EventArea();
+					area.setName(fields[4]);
+					AreaService.save(area);
+					entity.setArea(area);
+				}else{
+					entity.setArea(areas.get(0));
+				}
+				
 				
 				// set Event Case
-				EventCase ecase = new EventCase();
-				ecase.setName(fields[5]);
-				entity.setEcase(ecase);
+				List<EventCase> cases = CaseService.findByName(fields[5]);
+				if(cases == null || cases.size()==0){
+					EventCase ecase = new EventCase();
+					ecase.setName(fields[5]);
+					CaseService.save(ecase);
+					entity.setEcase(ecase);
+				}else{
+					entity.setEcase(cases.get(0));
+				}
 				
 				//set datum na slucuvanje
 				String st[] = fields[6].split("/");
-				String sh[] = fields[7].split(":");
-				DateTime startingDate = new DateTime(Integer.parseInt(st[2]), Integer.parseInt(st[1]), Integer.parseInt(st[0]), Integer.parseInt(sh[0]), Integer.parseInt(sh[0]));
+				String parts [] = fields[7].split(" ");
+				String sh[] = parts[0].split(":");
+				Date date = new Date();
+				date.setYear(Integer.parseInt(st[2]));
+				date.setMonth(Integer.parseInt(st[0]));
+				date.setDate(Integer.parseInt(st[1]));
+				date.setHours(Integer.parseInt(sh[0]));
+				date.setMinutes(Integer.parseInt(sh[0]));
+				date.setSeconds(0);
+				
+				if(parts[1].equals("PM") && !sh[0].equals("12"))
+					date.setHours(date.getHours()+12);
+					
+				DateTime startingDate = new DateTime(date.getYear(),date.getMonth() , date.getDate(), date.getHours(), date.getMinutes());
+				
 				entity.setStaringDate(startingDate);
 				
 				//Set vreme na slucuvanje
@@ -108,16 +167,14 @@ public class EventResource extends CrudResource<Event, EventService> {
 				
 				//Set opstina
 				String opstina = fields[8].substring(0,1).toUpperCase() + fields[8].substring(1).toLowerCase();
-				MunicipalityServiceImpl MS = new MunicipalityServiceImpl();
-				List<Municipality> opstini = MS.findByName("Скопје");
-				for (Municipality municipality : opstini) {
-					System.out.println(municipality.getName());
+				List<Municipality> opstini = municipalityService.findByName(opstina);
+				if(opstini == null || opstini.size() == 0) {
+					Municipality op = new Municipality();
+					municipalityService.save(op);
+					entity.setOpstina(op);
+				}else{
+					entity.setOpstina(opstini.get(0));
 				}
-				
-				if(true == true)break;
-				Municipality municipality = new Municipality();
-				municipality.setName(opstina);
-				entity.setOpstina(municipality);
 				
 				//Set location
 				entity.setLocation(fields[9]);
@@ -130,7 +187,8 @@ public class EventResource extends CrudResource<Event, EventService> {
 				entity.setMaterialCost(fields[11]);
 				
 				//Set benefits
-				entity.setBenefit(fields[12]);
+				if(fields.length==13)
+					entity.setBenefit(fields[12]);
 				
 				//Area ??
 				/*

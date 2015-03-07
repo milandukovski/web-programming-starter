@@ -28,19 +28,19 @@ public class Event extends BaseEntity{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private DateTime datum;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private SvrRc svrRC;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventPoliceStation policeStation;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventCommonArea commonArea;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventArea area;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventCase ecase;
 	
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -78,25 +78,25 @@ public class Event extends BaseEntity{
 	private String benefit;
 	
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventPointsOfEntry point;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventMethodOfEntering method;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventSuspectAct suspectAct;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventCrimesAgainstProperty propertyCrime;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventObjectOfAttack objectOfAttack;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventWayOfLeaving wayOfLeaving;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
 	private EventWeaponType weaponType;
 
 	public DateTime getDatum() {

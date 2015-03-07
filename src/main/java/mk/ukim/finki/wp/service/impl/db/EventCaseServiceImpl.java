@@ -1,5 +1,7 @@
 package mk.ukim.finki.wp.service.impl.db;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,11 @@ public class EventCaseServiceImpl extends
 	@Override
 	protected EventCaseRepository getRepository() {
 		return repository;
+	}
+
+	@Override
+	public List<EventCase> findByName(String name) {
+		return getRepository().findByName(name);
 	}
 
 }

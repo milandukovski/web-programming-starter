@@ -12,7 +12,7 @@ public interface MunicipalityRepository extends
 		JpaSpecificationRepository<Municipality> {
 
 	
-	public List<Municipality> findByNameLike(String name);
+	public List<Municipality> findByName(String name);
 	
 	@Query(value = "select m.name, m.description, count(*) as total "
 			+ "from mvr_Event e, mvr_Municipalities m "
