@@ -32,6 +32,8 @@
 
 	<beans>
 		<jpa:repositories base-package="mk.ukim.finki.wp.repository" />
+		
+		
 		<bean id="entityManagerFactory"
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 			p:dataSource-ref="dataSource">

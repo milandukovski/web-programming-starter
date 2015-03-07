@@ -25,8 +25,11 @@ public class MunicipalityServiceImpl extends
 
 	@Override
 	public List<MunicipalityInfo> total() {
-		// TODO Auto-generated method stub
 		return repository.total();
+	}
+	
+	public List<Municipality> findByName(String name){
+		return getRepository().findByNameLike(name);
 	}
 
 }

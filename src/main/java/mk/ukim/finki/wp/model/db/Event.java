@@ -1,5 +1,6 @@
 package mk.ukim.finki.wp.model.db;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -27,19 +28,19 @@ public class Event extends BaseEntity{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private DateTime datum;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private SvrRc svrRC;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventPoliceStation policeStation;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventCommonArea commonArea;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventArea area;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventCase ecase;
 	
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -73,28 +74,29 @@ public class Event extends BaseEntity{
 	
 	private String eventDescription;
 	
-	private Long materialCost;
-	private Long benefit;
+	private String materialCost;
+	private String benefit;
 	
-	@ManyToOne
+	
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventPointsOfEntry point;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventMethodOfEntering method;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventSuspectAct suspectAct;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventCrimesAgainstProperty propertyCrime;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventObjectOfAttack objectOfAttack;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventWayOfLeaving wayOfLeaving;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private EventWeaponType weaponType;
 
 	public DateTime getDatum() {
@@ -201,19 +203,19 @@ public class Event extends BaseEntity{
 		this.eventDescription = eventDescription;
 	}
 
-	public Long getMaterialCost() {
+	public String getMaterialCost() {
 		return materialCost;
 	}
 
-	public void setMaterialCost(Long materialCost) {
+	public void setMaterialCost(String materialCost) {
 		this.materialCost = materialCost;
 	}
 
-	public Long getBenefit() {
+	public String getBenefit() {
 		return benefit;
 	}
 
-	public void setBenefit(Long benefit) {
+	public void setBenefit(String benefit) {
 		this.benefit = benefit;
 	}
 

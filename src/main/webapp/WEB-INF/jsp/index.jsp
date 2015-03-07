@@ -61,7 +61,7 @@
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="#/">{{'menu.home' | translate }} <span class="sr-only">(current)</span></a>
                         </li>
@@ -167,6 +167,7 @@
     <script src="scripts/controllers/unspecifiedPersonController.js"></script>
     <script src="scripts/controllers/eventController.js"></script>
     <script src="scripts/controllers/municipalityControler.js"></script>
+    <script src="scripts/controllers/uploadController.js"></script>
     <!-- Services definition -->
     <script src="scripts/services/services.js"></script>
     <!--  <script src="scripts/services/category.js"></script> -->

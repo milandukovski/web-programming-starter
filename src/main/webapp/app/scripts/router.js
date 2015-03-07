@@ -51,7 +51,12 @@ FirstApp.config([ '$routeProvider', '$translateProvider',
 						alert("ERROR in router.js");
 				}
 			}
-
+			
+			$routeProvider.when('/upload', {
+				templateUrl : 'views/upload/upload.html',
+				controller : 'UploadController',
+			});
+			
 			$routeProvider.when('/404', {
 				templateUrl : '404.html'
 			});
