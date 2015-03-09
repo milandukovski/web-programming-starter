@@ -6,8 +6,12 @@ import mk.ukim.finki.wp.model.db.Municipality;
 import mk.ukim.finki.wp.service.BaseEntityCrudService;
 
 public interface MunicipalityService extends BaseEntityCrudService<Municipality> {
-
-    public List<MunicipalityInfo> total();
     
+	public List<MunicipalityInfo> total();
+    
+    public List<MunicipalityInfo> getAllMunicipalities();
+    
+    public List<MunicipalityInfo> getCaseTotal(long case_id);
+
     public List<Municipality> findByName(String name);
 }

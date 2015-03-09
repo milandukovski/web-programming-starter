@@ -1,5 +1,6 @@
 package mk.ukim.finki.wp.web.rest.db;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.io.BufferedReader;
@@ -23,6 +24,7 @@ import mk.ukim.finki.wp.model.db.EventPoliceStation;
 import mk.ukim.finki.wp.model.db.Municipality;
 import mk.ukim.finki.wp.model.db.SvrRc;
 import mk.ukim.finki.wp.service.db.*;
+import mk.ukim.finki.wp.web.EventCaseInfo;
 import mk.ukim.finki.wp.web.rest.CrudResource;
 
 @RestController
@@ -54,6 +56,11 @@ public class EventResource extends CrudResource<Event, EventService> {
 	public EventService getService() {
 		return service;
 	}
+	
+	@RequestMapping(value = "/count", method = RequestMethod.GET, produces = "application/json")
+	 public ArrayList<EventCaseInfo> getInfoOnMunicipality(){
+	      return getService().getCount();
+	 }
 	
 	@ResponseBody
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
