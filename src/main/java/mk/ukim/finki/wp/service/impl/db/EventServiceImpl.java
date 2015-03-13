@@ -1,6 +1,7 @@
 package mk.ukim.finki.wp.service.impl.db;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,9 +25,15 @@ public class EventServiceImpl extends
 	}
 	
 	@Override
-	public ArrayList<EventCaseInfo> getCount() {
+	public List<EventCaseInfo> getCount() {
 		// TODO Auto-generated method stub
 		return repository.getCount();
+	}
+
+	@Override
+	public List<EventCaseInfo> getCaseByCity(long id) {
+		// TODO Auto-generated method stub
+		return repository.getCaseByCity(id);
 	}
 
 }

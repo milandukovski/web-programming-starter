@@ -5,7 +5,7 @@
 <!--  cases.indexOf(case) as case.name for case in cases-->
 <!-- case.name for case in cases   -->
 
-<select ng-model="myCase" ng-options="case.name for case in cases" ng-change="reload()"> 
+ <select ng-model="myCase" ng-options="case.name for case in cases" ng-change="reload()"> 
 </select>
 
 
@@ -47,15 +47,22 @@
         		 <circle ng-repeat="p in entity" cx="{{textX(p)}}" cy="{{textY(p)-2}}"  r="3"
         					fill="blue" stroke="blue" stroke-width="2"  />
         		 <text ng-repeat="p in entity" x="{{textX(p)+5}}" y="{{textY(p)+3}}" 
-        		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[1]}}</text>
+        		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[1]}} ({{p[3]}})</text>
     		</g>
   </svg>
 
  
 </div>
-<div class="col-md-3">
-	{{selected[1]}}
-	{{selected[3]}}
+<div class="col-md-3" ng-if="selectedCity">
+	<h2>За {{selectedCity}}:</h2>
+	
+	<ul class="list-unstyled" ng-if="selected">
+		<li ng-repeat="s in selected">{{s[1]}}   {{s[2]}}</li>
+	</ul>
+	
+	{{selected}}
+	
+	<p ng-if="!selected||!selected.length">Моментално нема криминални активности.</p>
 </div>
 </div>
 	

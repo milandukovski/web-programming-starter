@@ -30,9 +30,20 @@ FirstApp.controller('MainCtrl', [
 			};
 			
 			$scope.selected = {};
+			$scope.selectedCity=null;
 			
 			$scope.select = function(p) {
-				$scope.selected=p;
+				$scope.selectedCity=p[1];
+				
+				if($scope.mode){
+					$http.get('/data/rest/Event/count/'+p[0]).success(
+							function(data, status, headers, config) {	
+								$scope.selected=data;
+							});	
+				}
+				else{
+					
+				}
 			}
 
 			$scope.textX = function(entity) {
