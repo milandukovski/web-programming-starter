@@ -26,6 +26,7 @@ import mk.ukim.finki.wp.web.rest.CrudResource;
 
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,26 +65,31 @@ public class EventResource extends CrudResource<Event, EventService> {
 		return service;
 	}
 
-	@RequestMapping(value = "/count", method = RequestMethod.GET, produces = "application/json")
-	public List<EventCaseInfo> getInfoOnMunicipality() {
-		return getService().getCount();
+	@RequestMapping(value = "/count/{from}/{to}", method = RequestMethod.GET, produces = "application/json")
+	public List<EventCaseInfo> getInfoOnMunicipality(
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date to) {
+		return getService().getCount(from, to);
 	}
 
-	/*
-	 * @RequestMapping(value = "/count/{1}", method = RequestMethod.GET,
-	 * produces = "application/json") public List<EventCaseInfo>
-	 * getCaseByCity(@PathVariable long id){ return
-	 * getService().getCaseByCity(id); }
-	 */
-
-	@RequestMapping(value = "/count/{id}", method = RequestMethod.GET, produces = "application/json")
-	public List<EventCaseInfo> getCaseByCity(@PathVariable long id) {
-		return getService().getCaseByCity(id);
+	@RequestMapping(value = "/count/{id}/{from}/{to}", method = RequestMethod.GET, produces = "application/json")
+	public List<EventCaseInfo> getCaseByCity(@PathVariable long id,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date to) {
+		return getService().getCaseByCity(id, from, to);
+	}
+	
+	@RequestMapping(value = "/events/{id}/{municipality}/{from}/{to}", method = RequestMethod.GET, produces = "application/json")
+	public List<Event> getEventByCase(@PathVariable long id, @PathVariable long municipality,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date to){
+		return getService().getEventByCase(id, municipality, from, to);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String postFile(@RequestParam("file") MultipartFile file) throws Exception {
+	public String postFile(@RequestParam("file") MultipartFile file)
+			throws Exception {
 
 		System.out.println(file.getSize());
 		doUpload(file.getInputStream());

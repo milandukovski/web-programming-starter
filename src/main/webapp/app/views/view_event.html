@@ -46,11 +46,10 @@
 				<td data-title="'mvr.eventareas' | translate" sortable="'area'"
 					filter="{ 'area': 'text' }">{{r.area["name"]}}</td> -->
 				<td data-title="'mvr.eventcases' | translate" sortable="'ecase'"
-					filter="{ 'ecase': 'text' }">{{r.ecase["name"]}}</td>
-				<td data-title="'generic.startDate' | translate" sortable="'startingDate'"
-					filter="{ 'startingDate': 'text' }">{{r.staringDate}}</td>
-				<td data-title="'generic.endDate' | translate" sortable="'endingDate'"
-					filter="{ 'endingDate': 'text' }">{{r.endingDate}}</td>
+					filter="{ 'ecase': 'text' }">{{r.ecase["name"] | shorten}}</td>
+				<td data-title="'generic.datum' | translate" show-filter="hide">{{'generic.od' | translate}} {{r.staringDate}} {{'generic.do' | translate}} {{r.endingDate}}</td>
+			<!-- 	<td data-title="'generic.endDate' | translate" sortable="'endingDate'"
+					filter="{ 'endingDate': 'text' }">{{r.endingDate}}</td> -->
 <!-- 				<td data-title="'generic.startTime' | translate" sortable="'startTime'"
 					filter="{ 'startTime': 'text' }">{{r.startingTime}}</td>
 				<td data-title="'generic.endTime' | translate" sortable="'endTime'"
@@ -60,7 +59,7 @@
 				<td data-title="'generic.location' | translate" sortable="'location'"
 					filter="{ 'location': 'text' }">{{r.location}}</td> -->
 				<td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
-					filter="{ 'eventDescription': 'text' }">{{r.eventDescription}}</td>
+					filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten}}</td>
 				<td data-title="'generic.materialCost' | translate" sortable="'materialCost'"
 					filter="{ 'materialCost': 'text' }">{{r.materialCost}}</td>
 				<td data-title="'generic.benefit' | translate" sortable="'benefit'"

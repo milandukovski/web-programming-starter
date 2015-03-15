@@ -1,5 +1,6 @@
 package mk.ukim.finki.wp.service.impl.db;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class MunicipalityServiceImpl extends
 	}
 
 	@Override
-	public List<MunicipalityInfo> total() {
-		return repository.total();
+	public List<MunicipalityInfo> total(Date from, Date to) {
+		return repository.total(from,to);
 	}
 	
 	public List<Municipality> findByName(String name){
@@ -39,9 +40,9 @@ public class MunicipalityServiceImpl extends
 	}
 
 	@Override
-	public List<MunicipalityInfo> getCaseTotal(long case_id) {
+	public List<MunicipalityInfo> getCaseTotal(long case_id, Date from, Date to) {
 		// TODO Auto-generated method stub
-		return repository.getCaseTotal(case_id);
+		return repository.getCaseTotal(case_id,from,to);
 	}
 
 }

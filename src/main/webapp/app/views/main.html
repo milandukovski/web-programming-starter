@@ -5,8 +5,22 @@
 <!--  cases.indexOf(case) as case.name for case in cases-->
 <!-- case.name for case in cases   -->
 
- <select ng-model="myCase" ng-options="case.name for case in cases" ng-change="reload()"> 
-</select>
+
+<div class="form-group">
+	 <select class="dropdown" ng-model="myCase" ng-options="case.name for case in cases" ng-change="reload()"> 
+</select> <br/>
+
+
+<!-- <div class="dropdown">
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" ng-model="myCase" ng-repeat="case in cases" ng-change="reload"><a role="menuitem" tabindex="-1" href="#">{{case.name}}</a></li>
+  </ul>
+</div>
+</div> -->
+
+	од <input type="date" ng-model="Date.from" placeholder="yyyy-MM-dd" min="1970-01-01" max="2050-12-31"/> до <input type="date" ng-model="Date.to" placeholder="yyyy-MM-dd" min="1970-01-01" max="2050-12-31"/>
+	<button type="button" class="btn-primary btn-lg" ng-click="changeDate()">Пребарај</button>
+</div>
 
 
 <!-- <combo class="col-sm-12" combo-type="EventCase" combo-required="false"
@@ -44,25 +58,41 @@
 						d="{{p[2]}}">
 						
         		 </path>
-        		 <circle ng-repeat="p in entity" cx="{{textX(p)}}" cy="{{textY(p)-2}}"  r="3"
+        		 <circle ng-repeat="p in entity" cx="{{textX(p)+6}}" cy="{{textY(p)-2}}"  r="3"
         					fill="blue" stroke="blue" stroke-width="2"  />
-        		 <text ng-repeat="p in entity" x="{{textX(p)+5}}" y="{{textY(p)+3}}" 
+        		 <text ng-repeat="p in entity" x="{{textX(p)+13}}" y="{{textY(p)+4}}" 
         		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[1]}} ({{p[3]}})</text>
     		</g>
-  </svg>
-
- 
+  </svg> 	
 </div>
-<div class="col-md-3" ng-if="selectedCity">
-	<h2>За {{selectedCity}}:</h2>
-	
-	<ul class="list-unstyled" ng-if="selected">
-		<li ng-repeat="s in selected">{{s[1]}}   {{s[2]}}</li>
+<div class="col-md-3" ng-if="selectedCity&&mode">
+	<h3><u>{{selectedCity[1]}}</u></h2>
+</div>
+<div class="col-md-3">
+	<ul class="list-unstyled" ng-if="selected&&click" style="color:blue">
+		<li ng-repeat="s in selected" ng-click="displayCase(s[0])"><u>{{s[1] | shorten:35}}</u></li>
 	</ul>
 	
-	{{selected}}
-	
-	<p ng-if="!selected||!selected.length">Моментално нема криминални активности.</p>
+	<p ng-if="!selected||!selected.length&&!click">Моментално нема криминални активности.</p>
+</div>
+<div class="col-md-3" ng-if="eventsByCase&&mode">	
+	<table ng-table="table">
+		<tbody>
+			<tr ng-repeat="row in eventsByCase">
+				<td>
+					<div class="col-md-6">
+						<span><small><b>од {{row["staringDate"]}}<br/>до {{row["endingDate"]}}</b></small></span><br/>
+						<span>Штета<br/>{{row["materialCost"]}}</span><br/>
+						<span>Корист<br/>{{row["benefit"]}}</span><br/>
+					</div>
+					<div class="col-md-6">{{row["eventDescription"] | shorten:80}}</div>
+				</td>
+				<td>
+				</td>
+				<br/>
+			</tr>
+		</tbody>
+	</table>
 </div>
 </div>
 	
