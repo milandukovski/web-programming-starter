@@ -99,3 +99,7 @@ body {
 	float:left;
 	margin-right:10px;
 }
+
+.pointer{
+	cursor: pointer
+}

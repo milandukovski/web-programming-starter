@@ -23,8 +23,7 @@ FirstApp.config([ '$routeProvider', '$translateProvider',
 			$translateProvider.preferredLanguage("en");
 
 			$routeProvider.when('/', {
-				templateUrl : 'views/main.html',
-				controller : 'MainCtrl'
+				templateUrl : 'views/main.html'
 			});
 
 			$routeProvider.when('/import', {

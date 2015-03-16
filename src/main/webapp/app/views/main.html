@@ -55,7 +55,8 @@
 						stroke-opacity:1"
 						fill={{color(p[3])}}
 						id="path-{{p[0]}}"
-						d="{{p[2]}}">
+						d="{{p[2]}}"
+						class="pointer">
 						
         		 </path>
         		 <circle ng-repeat="p in entity" cx="{{textX(p)+6}}" cy="{{textY(p)-2}}"  r="3"
@@ -68,9 +69,9 @@
 <div class="col-md-3" ng-if="selectedCity&&mode">
 	<h3><u>{{selectedCity[1]}}</u></h2>
 </div>
-<div class="col-md-3">
+<div class="col-md-3" ng-if="selectedCity&&mode">
 	<ul class="list-unstyled" ng-if="selected&&click" style="color:blue">
-		<li ng-repeat="s in selected" ng-click="displayCase(s[0])"><u>{{s[1] | shorten:35}}</u></li>
+		<li ng-repeat="s in selected" ng-click="displayCase(s[0])" class="pointer"><u>{{s[1] | shorten:35}}</u></li>
 	</ul>
 	
 	<p ng-if="!selected||!selected.length&&!click">Моментално нема криминални активности.</p>

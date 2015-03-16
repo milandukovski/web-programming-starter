@@ -1,6 +1,7 @@
 package mk.ukim.finki.wp.model.db;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -72,6 +73,7 @@ public class Event extends BaseEntity{
 	
 	private String location;
 	
+	@Column(length=10000)
 	private String eventDescription;
 	
 	private String materialCost;

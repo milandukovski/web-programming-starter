@@ -40,6 +40,7 @@ FirstApp.controller('MainCtrl', [
 			$scope.select = function(p) {
 				$scope.selectedCity=p;
 				$scope.click=true;
+				$scope.eventsByCase=null;
 				
 				if($scope.mode){
 					$http.get('/data/rest/Event/count/'+p[0]+'/'+$scope.Date.from+'/'+$scope.Date.to).success(
