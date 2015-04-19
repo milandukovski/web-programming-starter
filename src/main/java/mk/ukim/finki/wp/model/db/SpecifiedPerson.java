@@ -19,7 +19,7 @@ import mk.ukim.finki.wp.model.BaseEntity;
 
 
 @Entity
-@Table(name="mvr_SpecifiedPersons")
+@Table(name="mvr_specified_persons")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SpecifiedPerson extends BaseEntity{
 	

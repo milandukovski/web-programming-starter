@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_EventCommonAreas")
+@Table(name="mvr_event_common_areas")
 public class EventCommonArea extends NamedEntity {
 	
 }

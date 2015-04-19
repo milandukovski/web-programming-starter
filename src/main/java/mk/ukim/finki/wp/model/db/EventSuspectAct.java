@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
-@Table(name="mvr_EventSuspectActs")
+@Table(name="mvr_event_suspect_acts")
 public class EventSuspectAct extends NamedEntity{
 	
 }

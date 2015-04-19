@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.BaseEntity;
 import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
-@Table(name="mvr_Heights")
+@Table(name="mvr_heights")
 public class Height extends NamedEntity {
 	
 }

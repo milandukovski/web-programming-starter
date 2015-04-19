@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import mk.ukim.finki.wp.model.BaseEntity;
 
 @Entity
-@Table(name="mvr_VehiclesOfPersons")
+@Table(name="mvr_vehicles_of_persons")
 public class VehiclesOfPerson extends BaseEntity {
 	
 	private String status;

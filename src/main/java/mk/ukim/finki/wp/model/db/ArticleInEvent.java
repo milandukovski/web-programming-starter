@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import mk.ukim.finki.wp.model.BaseEntity;
 
 @Entity
-@Table(name="mvr_ArticlesInEvents")
+@Table(name="mvr_articles_in_events")
 public class ArticleInEvent extends BaseEntity{
 	
 	@ManyToOne

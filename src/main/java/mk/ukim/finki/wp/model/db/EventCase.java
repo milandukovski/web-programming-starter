@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_EventCases")
+@Table(name="mvr_event_cases")
 public class EventCase extends NamedEntity {
 	
 }

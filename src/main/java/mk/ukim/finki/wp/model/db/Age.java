@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_Ages")
+@Table(name="mvr_ages")
 public class Age extends NamedEntity {
 	
 }

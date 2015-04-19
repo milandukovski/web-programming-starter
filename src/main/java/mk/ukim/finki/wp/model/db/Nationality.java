@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_Nationalities")
+@Table(name="mvr_nationalities")
 public class Nationality extends NamedEntity {
 	
 }

@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.BaseEntity;
 import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
-@Table(name="mvr_PersonRoles")
+@Table(name="mvr_person_roles")
 public class PersonRole extends NamedEntity {
 	
 	

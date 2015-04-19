@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
-@Table(name="mvr_Event")
+@Table(name="mvr_event")
 public class Event extends BaseEntity{
 	
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")

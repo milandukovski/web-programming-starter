@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.BaseEntity;
 import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
-@Table(name="mvr_FacialHairTypes")
+@Table(name="mvr_facial_hair_types")
 public class FacialHairType extends NamedEntity {
 	
 }

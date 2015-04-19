@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import mk.ukim.finki.wp.model.BaseEntity;
 
 @Entity
-@Table(name="mvr_UnspecifiedPersonsInEvents")
+@Table(name="mvr_unspecified_persons_in_events")
 public class UnspecifiedPersonInEvent extends BaseEntity {
 	
 	@ManyToOne

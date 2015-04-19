@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NameDescriptionEntity;
 
 
 @Entity
-@Table(name="mvr_Municipalities")
+@Table(name="mvr_municipalities")
 public class Municipality extends NameDescriptionEntity {
 
 }

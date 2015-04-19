@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_Weights")
+@Table(name="mvr_weights")
 public class Weight extends NamedEntity {
 	
 }

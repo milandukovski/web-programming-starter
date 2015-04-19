@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_BodyTypes")
+@Table(name="mvr_body_types")
 public class BodyType extends NamedEntity{
 	
 }

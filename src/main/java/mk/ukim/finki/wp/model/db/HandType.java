@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_HandTypes")
+@Table(name="mvr_hand_types")
 public class HandType extends NamedEntity{
 	
 	

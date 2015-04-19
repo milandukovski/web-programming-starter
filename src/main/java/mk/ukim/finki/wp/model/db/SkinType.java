@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_SkinTypes")
+@Table(name="mvr_skin_types")
 public class SkinType extends NamedEntity{
 	
 }

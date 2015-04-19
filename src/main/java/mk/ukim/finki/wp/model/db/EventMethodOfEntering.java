@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_EventMethodsOfEntering")
+@Table(name="mvr_event_methods_of_entering")
 public class EventMethodOfEntering extends NamedEntity{
 
 }

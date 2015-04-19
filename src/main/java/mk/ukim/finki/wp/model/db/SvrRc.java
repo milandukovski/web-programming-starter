@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_SVRRC")
+@Table(name="mvr_svr_rc")
 public class SvrRc extends NamedEntity{
 	
 }

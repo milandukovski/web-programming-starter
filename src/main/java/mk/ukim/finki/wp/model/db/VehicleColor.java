@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.BaseEntity;
 import mk.ukim.finki.wp.model.NamedEntity;
 
 @Entity
-@Table(name="mvr_VehicleColors")
+@Table(name="mvr_vehicle_colors")
 public class VehicleColor extends NamedEntity {
 	
 }

@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_TeethConditions")
+@Table(name="mvr_teeth_conditions")
 public class TeethCondition extends NamedEntity {
 	
 }

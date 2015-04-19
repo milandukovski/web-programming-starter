@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_ArticleUnits")
+@Table(name="mvr_article_units")
 public class ArticleUnit extends NamedEntity{
 	
 	@ManyToOne

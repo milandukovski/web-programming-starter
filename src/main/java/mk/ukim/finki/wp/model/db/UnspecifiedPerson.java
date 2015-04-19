@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.BaseEntity;
 
 
 @Entity
-@Table(name="mvr_UnspecifiedPersons")
+@Table(name="mvr_unspecified_persons")
 public class UnspecifiedPerson extends BaseEntity {
 	
 	private String comment;

@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name = "mvr_PhysicalConditions")
+@Table(name = "mvr_physical_conditions")
 public class PhysicalCondition extends NamedEntity {
 	
 }

@@ -7,7 +7,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_EventCrimesAgainstProperties")
+@Table(name="mvr_event_crimes_against_properties")
 public class EventCrimesAgainstProperty  extends NamedEntity{
 	
 }

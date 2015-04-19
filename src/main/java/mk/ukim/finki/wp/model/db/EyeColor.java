@@ -8,7 +8,7 @@ import mk.ukim.finki.wp.model.NamedEntity;
 
 
 @Entity
-@Table(name="mvr_EyeColors")
+@Table(name="mvr_eye_colors")
 public class EyeColor extends NamedEntity {
 	
 	
