@@ -1,5 +1,11 @@
-<div class="form-group " ng-class="{'has-error has-feedback': ($root.errors && $root.errors[fName]) || (form[fName].$dirty && form[fName].$invalid)}">
-	<div class="row">
+<div class="form-group "
+ ng-class="{'has-error has-feedback': ($root.errors && $root.errors[fName]) || (form[fName].$dirty && form[fName].$invalid)}">
+		<div class="btn btn-default btn-xs right" title="{{ 'action.reload' | translate}}" ng-click="reload()">
+		    <i class="fa fa-fw fa-refresh glyphicon glyphicon-refresh"></i>
+		</div>
+		<a ng-href="#/views/view_{{comboType.toLowerCase()}}" class="btn btn-primary btn-xs right" title="{{ 'action.add' | translate}}" ng-click="reload()" target="_blank_{{comboType}}">
+		    <i class="fa fa-fw fa-plus"></i>
+		</a>
 		<label class="col-sm-3 control-label" for="field" ng-if="showLabel">{{ comboLabel | translate }} <span ng-show="comboRequired">*</span></label>
 		<div class="col-sm-9">
 			<div ui-select2="options" cmb-change="onChange" 
@@ -16,5 +22,4 @@
 					{{ 'validation.'+err | translate: validationParams }}
 			</p>
 		</div>
-	</div>
 </div>

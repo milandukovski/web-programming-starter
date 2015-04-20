@@ -36,7 +36,7 @@ FirstApp.directive('combo', [
         compile: function(tElem, attrs) {
 
           if (attrs.comboRequired == "true") {
-            tElem[0].children[0].children[1].setAttribute("required", true);
+            tElem[0].children[0].children[3].setAttribute("required", true);
           }
 
           return function(scope, elem, attrs) {
