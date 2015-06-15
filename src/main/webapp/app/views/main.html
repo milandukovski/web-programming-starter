@@ -5,6 +5,7 @@
 <!--  cases.indexOf(case) as case.name for case in cases-->
 <!-- case.name for case in cases   -->
 
+<!-- <input id="datetimepicker" type="text" > -->
 
 <div class="form-group">
 	 <select class="dropdown" ng-model="myCase" ng-options="case.name for case in cases" ng-change="reload()"> 
@@ -59,9 +60,9 @@
 						class="pointer">
 						
         		 </path>
-        		 <circle ng-repeat="p in entity" cx="{{textX(p)+6}}" cy="{{textY(p)-2}}"  r="3"
+        		 <circle ng-repeat="p in entity" cx="{{textX(p)}}" cy="{{textY(p)}}"  r="3"
         					fill="blue" stroke="blue" stroke-width="2"  />
-        		 <text ng-repeat="p in entity" x="{{textX(p)+13}}" y="{{textY(p)+4}}" 
+        		 <text ng-repeat="p in entity" x="{{textX(p)+4}}" y="{{textY(p)+2}}" 
         		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[1]}} ({{p[3]}})</text>
     		</g>
   </svg>
@@ -80,17 +81,10 @@
 	<table ng-table="table">
 		<tbody>
 			<tr ng-repeat="row in eventsByCase">
-				<td>
-					<div class="col-md-6">
-						<span><small><b>од {{row["staringDate"]}}<br/>до {{row["endingDate"]}}</b></small></span><br/>
-						<span>Штета<br/>{{row["materialCost"]}}</span><br/>
-						<span>Корист<br/>{{row["benefit"]}}</span><br/>
-					</div>
-					<div class="col-md-6">{{row["eventDescription"] | shorten:80}}</div>
+				<td style="padding:5px;border-bottom: 1px solid #4444dd">
+					<div >{{row["eventDescription"] }}</div>
 				</td>
-				<td>
-				</td>
-				<br/>
+				
 			</tr>
 		</tbody>
 	</table>

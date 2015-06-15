@@ -46,7 +46,9 @@
         "vehiclesofpersons": "Возила на лица",
         "vehiclesinevents": "Возила во настан",
         "specifiedpersonsinevents": "Утврдено лице во настан",
-        "unspecifiedpersonsinevents": "Неутврдено лице во настан"
+        "unspecifiedpersonsinevents": "Неутврдено лице во настан",
+        "upload" : "Додади податоци",
+        "import" : "Додади општини"
     },
     "generic": {
         "id": "Ид",
@@ -123,7 +125,7 @@
         "vehicle": "Возило",
         "person": "Лице",
         "article": "Предмет",
-        "": "",
+        "upload": "Додади",
         "": "",
         "": ""
     }

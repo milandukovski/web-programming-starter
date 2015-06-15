@@ -56,6 +56,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\VehicleRegCountryResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\VehiclesOfPerson.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\util\RequestProcessor.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EventPoliceStationServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\UnspecifiedPersonInEventRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\Ethnicity.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\UnspecifiedPersonRepository.java
@@ -113,7 +114,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\NationalityRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\VehicleTypeServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\ArticleType.java
-C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EventPoloiceStationServiceImpl.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EventPoliceStationService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\SvrRc.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\json\TimeSerializer.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\EventWeaponType.java
@@ -161,7 +162,6 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\UnspecifiedPersonResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\PersonRole.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\SpecifiedPersonResource.java
-C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\EventPoloiceStationResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\ArticleTypeRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\Event.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\VehicleTypeResource.java
@@ -178,10 +178,10 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\EventMethodOfEnteringRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\VehicleColorService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\VehicleModel.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\EventPoliceStationResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\NationalityServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\UnspecifiedPersonServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EthnicityService.java
-C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EventPoloiceStationService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\TeethConditionResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\ArticleTypeResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\HumanCharacteristics.java

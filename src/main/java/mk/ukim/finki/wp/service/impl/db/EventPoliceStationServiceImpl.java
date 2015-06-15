@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 import mk.ukim.finki.wp.model.db.EventPoliceStation;
 import mk.ukim.finki.wp.repository.db.EventPoloiceStationRepository;
-import mk.ukim.finki.wp.service.db.EventPoloiceStationService;
+import mk.ukim.finki.wp.service.db.EventPoliceStationService;
 import mk.ukim.finki.wp.service.impl.BaseEntityCrudServiceImpl;
 
 @Service
-public class EventPoloiceStationServiceImpl extends
-		BaseEntityCrudServiceImpl<EventPoliceStation, EventPoloiceStationRepository> implements EventPoloiceStationService {
+public class EventPoliceStationServiceImpl extends
+		BaseEntityCrudServiceImpl<EventPoliceStation, EventPoloiceStationRepository> implements EventPoliceStationService {
 
 	@Autowired
 	private EventPoloiceStationRepository repository;

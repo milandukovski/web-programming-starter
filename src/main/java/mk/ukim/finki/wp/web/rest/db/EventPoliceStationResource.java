@@ -5,18 +5,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mk.ukim.finki.wp.model.db.EventPoliceStation;
-import mk.ukim.finki.wp.service.db.EventPoloiceStationService;
+import mk.ukim.finki.wp.service.db.EventPoliceStationService;
 import mk.ukim.finki.wp.web.rest.CrudResource;
 
 @RestController
-@RequestMapping("/data/rest/EventPoloiceStation")
-public class EventPoloiceStationResource extends CrudResource<EventPoliceStation, EventPoloiceStationService> {
+@RequestMapping("/data/rest/EventPoliceStation")
+public class EventPoliceStationResource extends CrudResource<EventPoliceStation, EventPoliceStationService> {
 
 	@Autowired
-	private EventPoloiceStationService service;
+	private EventPoliceStationService service;
 
 	@Override
-	public EventPoloiceStationService getService() {
+	public EventPoliceStationService getService() {
 		return service;
 	}
 

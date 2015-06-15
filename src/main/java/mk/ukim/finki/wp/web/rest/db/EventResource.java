@@ -5,8 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import mk.ukim.finki.wp.model.db.Event;
@@ -19,7 +23,7 @@ import mk.ukim.finki.wp.model.db.SvrRc;
 import mk.ukim.finki.wp.service.db.EventAreaService;
 import mk.ukim.finki.wp.service.db.EventCaseService;
 import mk.ukim.finki.wp.service.db.EventCommonAreaService;
-import mk.ukim.finki.wp.service.db.EventPoloiceStationService;
+import mk.ukim.finki.wp.service.db.EventPoliceStationService;
 import mk.ukim.finki.wp.service.db.EventService;
 import mk.ukim.finki.wp.service.db.SvrRcService;
 import mk.ukim.finki.wp.service.db.MunicipalityService;
@@ -37,6 +41,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.json.simple.*;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/data/rest/Event")
@@ -52,7 +60,7 @@ public class EventResource extends CrudResource<Event, EventService> {
 	private SvrRcService SvrRcService;
 
 	@Autowired
-	private EventPoloiceStationService PoliceStationService;
+	private EventPoliceStationService PoliceStationService;
 
 	@Autowired
 	private EventCommonAreaService CommonAreaService;
@@ -69,6 +77,31 @@ public class EventResource extends CrudResource<Event, EventService> {
 	}
 
 	private HashSet<String> municipalitiesOfSkopje = new HashSet<String>();
+	
+	@RequestMapping(value = "/all/{from}/{to}", method = RequestMethod.GET, produces = "application/json")
+	public LinkedList<Object> getALL(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date to) throws JsonProcessingException{
+		
+//		LinkedHashMap map = new LinkedHashMap();
+		LinkedList map = new LinkedList<Object>();
+		ObjectMapper mapper = new ObjectMapper();
+		
+		//EventCase
+		List<EventCase> ec= CaseService.findAll();
+		
+		map.add(municipalityService.total(from, to));
+		
+		//Total by all cases and municipality
+//		map.put("Сите настани", getService().getCount(from, to));
+		
+		for(EventCase c : ec){
+//			map.put(c.getName(), municipalityService.getCaseTotal(c.getId(), from, to));
+			map.add(municipalityService.getCaseTotal(c.getId(), from, to));
+		}
+		
+//		return mapper.writeValueAsString(map);
+		return map;
+	}
 
 	@RequestMapping(value = "/count/{from}/{to}", method = RequestMethod.GET, produces = "application/json")
 	public List<EventCaseInfo> getInfoOnMunicipality(

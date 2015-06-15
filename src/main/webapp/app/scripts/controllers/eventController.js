@@ -1,6 +1,6 @@
 FirstApp.controller('EventController', [ '$scope', function($scope) {
 	$scope.crudScope = {};
-
+	
 	$scope.afterCrudInit = function(crudScope) {
 		$scope.crudScope = crudScope;
 		crudScope.hide = function() {
@@ -11,5 +11,4 @@ FirstApp.controller('EventController', [ '$scope', function($scope) {
 	$scope.noPopUp = function() {
 
 	}
-
 } ]);

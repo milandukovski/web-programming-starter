@@ -103,3 +103,8 @@ body {
 .pointer{
 	cursor: pointer
 }
+textarea{
+	resize:none;
+	overflow-y: scroll;
+	height: 300px;
+}

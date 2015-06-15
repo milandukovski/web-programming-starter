@@ -4,8 +4,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.date' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" name="datum" id="datum" ng-model="entity.datum">
-                </div>
+                    <input type="date" class="form-control" name="datum" id="datum" ng-model="entity.datum">              
             </div>
         </div>
         <div class="row">
@@ -15,7 +14,7 @@
         </div>
         <div class="row">
 
-            <combo class="col-sm-12" combo-type="EventPoloiceStation" combo-required="true" combo-label="mvr.eventpolicestations" combo-model="entity.policeStation" combo-name="policeStation" combo-property="name">
+            <combo class="col-sm-12" combo-type="EventPoliceStation" combo-required="true" combo-label="mvr.eventpolicestations" combo-model="entity.policeStation" combo-name="policeStation" combo-property="name">
             </combo>
         </div>
         <div class="row">
@@ -79,11 +78,12 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+         <div class="form-group">
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.eventDescription' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="eventDescription" id="eventDescription" ng-model="entity.eventDescription">
+                    <textarea  class="form-control" scrolbar="vertical" name="eventDescription" id="eventDescription" ng-model="entity.eventDescription">
+                	</textarea>
                 </div>
             </div>
         </div>

@@ -1,8 +1,10 @@
 package mk.ukim.finki.wp.model.db;
 
-import javax.persistence.CascadeType;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -79,6 +81,9 @@ public class Event extends BaseEntity{
 	private String materialCost;
 	private String benefit;
 	
+	
+	@ManyToMany
+	private List<SpecifiedPerson> specifiedPersons;
 	
 	@ManyToOne()
 	private EventPointsOfEntry point;

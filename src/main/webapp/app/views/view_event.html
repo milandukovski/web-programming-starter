@@ -45,9 +45,9 @@
 					filter="{ 'commonArea': 'text' }">{{r.commonArea["name"]}}</td>
 				<td data-title="'mvr.eventareas' | translate" sortable="'area'"
 					filter="{ 'area': 'text' }">{{r.area["name"]}}</td> -->
-				<td data-title="'mvr.eventcases' | translate" sortable="'ecase'"
-					filter="{ 'ecase': 'text' }">{{r.ecase["name"] | shorten}}</td>
-				<td data-title="'generic.datum' | translate" show-filter="hide">{{'generic.od' | translate}} {{r.staringDate}} {{'generic.do' | translate}} {{r.endingDate}}</td>
+				<td data-title="'mvr.eventcases' | translate" sortable="'ecase'">
+				{{r.ecase["name"] | shorten}}</td>
+				<td data-title="'generic.datum' | translate">{{'generic.od' | translate}} {{r.staringDate}} {{'generic.do' | translate}} {{r.endingDate}}</td>
 			<!-- 	<td data-title="'generic.endDate' | translate" sortable="'endingDate'"
 					filter="{ 'endingDate': 'text' }">{{r.endingDate}}</td> -->
 <!-- 				<td data-title="'generic.startTime' | translate" sortable="'startTime'"
@@ -59,11 +59,11 @@
 				<td data-title="'generic.location' | translate" sortable="'location'"
 					filter="{ 'location': 'text' }">{{r.location}}</td> -->
 				<td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
-					filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten}}</td>
+					>{{r.eventDescription | shorten}}</td>
 				<td data-title="'generic.materialCost' | translate" sortable="'materialCost'"
-					filter="{ 'materialCost': 'text' }">{{r.materialCost}}</td>
+					>{{r.materialCost}}</td>
 				<td data-title="'generic.benefit' | translate" sortable="'benefit'"
-					filter="{ 'benefit': 'text' }">{{r.benefit}}</td>
+					>{{r.benefit}}</td>
 		<!-- 		<td data-title="'mvr.eventpointsofentry' | translate" sortable="'point'"
 					filter="{ 'point': 'text' }">{{r.point["name"]}}</td>
 				<td data-title="'mvr.eventmethodsofentering' | translate" sortable="'method'"
@@ -73,9 +73,9 @@
 				<td data-title="'mvr.eventcrimesagainstproperties' | translate" sortable="'propertyCrime'"
 					filter="{ 'propertyCrime': 'text' }">{{r.propertyCrime["name"]}}</td> -->
 				<td data-title="'mvr.eventobjectsofattack' | translate" sortable="'objectOfAttack'"
-					filter="{ 'objectOfAttack': 'text' }">{{r.objectOfAttack["name"]}}</td>
+					>{{r.objectOfAttack["name"]}}</td>
 				<td data-title="'mvr.eventwayofleaving' | translate" sortable="'wayOfLeaving'"
-					filter="{ 'wayOfLeaving': 'text' }">{{r.wayOfLeaving["name"]}}</td>
+					>{{r.wayOfLeaving["name"]}}</td>
 				<td data-title="'mvr.eventweapontypes' | translate" sortable="'weaponType'"
 					filter="{ 'weaponType': 'text' }">{{r.weaponType["name"]}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">

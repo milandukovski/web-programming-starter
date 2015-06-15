@@ -6,36 +6,36 @@ var menuData = [{
         templateUrl: 'views/view_event.html',
     },{
         label: 'mvr.municipalities',
-        path: "/views/view_municipalities",
+        path: "/views/view_municipality",
         templateUrl: 'views/crime_map/municipalities.html',
         controller : 'municipalityCtrl'
     }, {
         label: 'mvr.cities',
-        path: "/views/view_cities",
+        path: "/views/view_city",
         templateUrl: 'views/view_cities.html',
     }, {
         label: 'mvr.eventareas',
-        path: "/views/view_eventareas",
+        path: "/views/view_eventarea",
         templateUrl: 'views/view_eventareas.html',
     }, {
         label: 'mvr.eventcommonareas',
-        path: "/views/view_eventcommonareas",
+        path: "/views/view_eventcommonarea",
         templateUrl: 'views/view_eventcommonareas.html',
     }, {
         label: 'mvr.eventcases',
-        path: "/views/view_eventcases",
+        path: "/views/view_eventcase",
         templateUrl: 'views/view_eventcases.html',
     }, {
         label: 'mvr.eventcrimesagainstproperties',
-        path: "/views/view_eventcrimesagainstproperties",
+        path: "/views/view_eventcrimesagainstproperty",
         templateUrl: 'views/view_eventcrimesagainstproperties.html',
     }, {
         label: 'mvr.eventmethodsofentering',
-        path: "/views/view_eventmethodsofentering",
+        path: "/views/view_eventmethodofentering",
         templateUrl: 'views/view_eventmethodsofentering.html',
     }, {
         label: 'mvr.eventobjectsofattack',
-        path: "/views/view_eventobjectsofattack",
+        path: "/views/view_eventobjectofattack",
         templateUrl: 'views/view_eventobjectsofattack.html',
     }, {
         label: 'mvr.eventpointsofentry',
@@ -43,11 +43,11 @@ var menuData = [{
         templateUrl: 'views/view_eventpointsofentry.html',
     }, {
         label: 'mvr.eventpolicestations',
-        path: "/views/view_eventpolicestations",
+        path: "/views/view_eventpolicestation",
         templateUrl: 'views/view_eventpolicestations.html',
     }, {
         label: 'mvr.eventsuspectacts',
-        path: "/views/view_eventsuspectacts",
+        path: "/views/view_eventsuspectact",
         templateUrl: 'views/view_eventsuspectacts.html',
     }, {
         label: 'mvr.eventwayofleaving',
@@ -55,11 +55,11 @@ var menuData = [{
         templateUrl: 'views/view_eventwayofleaving.html',
     }, {
         label: 'mvr.eventweapontypes',
-        path: "/views/view_eventweapontypes",
+        path: "/views/view_eventweapontype",
         templateUrl: 'views/view_eventweapontypes.html',
     }, {
         label: 'mvr.personroles',
-        path: "/views/view_personroles",
+        path: "/views/view_personrole",
         templateUrl: 'views/view_personroles.html',
     }, {
         label: 'mvr.svrrc',
@@ -78,27 +78,27 @@ var menuData = [{
         templateUrl: 'views/view_vehiclecolor.html',
     }, {
         label: 'mvr.vehiclemodels',
-        path: "/views/view_vehiclemodels",
+        path: "/views/view_vehiclemodel",
         templateUrl: 'views/view_vehiclemodels.html',
     }, {
         label: 'mvr.vehiclebrends',
-        path: "/views/view_vehiclebrends",
+        path: "/views/view_vehiclebrend",
         templateUrl: 'views/view_vehiclebrends.html',
     }, {
         label: 'mvr.vehicleregcountries',
-        path: "/views/view_vehicleregcountries",
+        path: "/views/view_vehicleregcountry",
         templateUrl: 'views/view_vehicleregcountries.html',
     }, {
         label: 'mvr.vehicles',
-        path: "/views/view_vehicles",
+        path: "/views/view_vehicle",
         templateUrl: 'views/view_vehicles.html',
     }, {
         label: 'mvr.vehiclesofpersons',
-        path: "/views/view_vehiclesofpersons",
+        path: "/views/view_vehiclesofperson",
         templateUrl: 'views/view_vehiclesofpersons.html',
     },{
         label: 'mvr.vehiclesinevents',
-        path: "/views/view_vehiclesinevents",
+        path: "/views/view_vehiclesinevent",
         templateUrl: 'views/view_vehiclesinevents.html',
     }]
 
@@ -106,19 +106,19 @@ var menuData = [{
     name: 'menu.article',
     items: [{
         label: 'mvr.articletypes',
-        path: "/views/view_articletypes",
+        path: "/views/view_articletype",
         templateUrl: 'views/view_articletypes.html',
     }, {
         label: 'mvr.articleunits',
-        path: "/views/view_articleunits",
+        path: "/views/view_articleunit",
         templateUrl: 'views/view_articleunits.html',
     }, {
         label: 'mvr.articles',
-        path: "/views/view_articles",
+        path: "/views/view_article",
         templateUrl: 'views/view_articles.html',
     }, {
         label: 'mvr.articlesinevents',
-        path: "/views/view_articlesinevents",
+        path: "/views/view_articlesinevent",
         templateUrl: 'views/view_articlesinevents.html',
     }
     ] 
@@ -134,27 +134,27 @@ var menuData = [{
         templateUrl: 'views/view_age.html',
     }, {
         label: 'mvr.skintypes',
-        path: "/views/view_skintypes",
+        path: "/views/view_skintype",
         templateUrl: 'views/view_skintypes.html',
     }, {
         label: 'mvr.heights',
-        path: "/views/view_heights",
+        path: "/views/view_height",
         templateUrl: 'views/view_heights.html',
     }, {
         label: 'mvr.weights',
-        path: "/views/view_weights",
+        path: "/views/view_weight",
         templateUrl: 'views/view_weights.html',
     }, {
         label: 'mvr.teethconditions',
-        path: "/views/view_teethconditions",
+        path: "/views/view_teethcondition",
         templateUrl: 'views/view_teethconditions.html',
     }, {
         label: 'mvr.speachtroubles',
-        path: "/views/view_speachtroubles",
+        path: "/views/view_speachtrouble",
         templateUrl: 'views/view_speachtroubles.html',
     }, {
         label: 'mvr.physicalconditions',
-        path: "/views/view_physicalconditions",
+        path: "/views/view_physicalcondition",
         templateUrl: 'views/view_physicalconditions.html',
     }, {
         label: 'mvr.humancharacteristics',
@@ -162,44 +162,55 @@ var menuData = [{
         templateUrl: 'views/view_humancharacteristics.html',
     }, {
         label: 'mvr.handtypes',
-        path: "/views/view_handtypes",
+        path: "/views/view_handtype",
         templateUrl: 'views/view_handtypes.html',
     }, {
         label: 'mvr.haircolors',
-        path: "/views/view_haircolors",
+        path: "/views/view_haircolor",
         templateUrl: 'views/view_haircolors.html',
     }, {
         label: 'mvr.facialhairtypes',
-        path: "/views/view_facialhairtypes",
+        path: "/views/view_facialhairtype",
         templateUrl: 'views/view_facialhairtypes.html',
     }, {
         label: 'mvr.eyecolors',
-        path: "/views/view_eyecolors",
+        path: "/views/view_eyecolor",
         templateUrl: 'views/view_eyecolors.html',
     }, {
         label: 'mvr.bodytypes',
-        path: "/views/view_bodytypes",
+        path: "/views/view_bodytype",
         templateUrl: 'views/view_bodytypes.html',
     }, {
         label: 'mvr.nationalities',
-        path: "/views/view_nationalities",
+        path: "/views/view_nationality",
         templateUrl: 'views/view_nationalities.html',
     }, {
         label: 'mvr.specifiedpersons',
-        path: "/views/view_specifiedpersons",
+        path: "/views/view_specifiedperson",
         templateUrl: 'views/view_specifiedpersons.html',
         controller: 'specifiedPersonController'
     }, {
         label: 'mvr.unspecifiedpersons',
-        path: "/views/view_unspecifiedpersons",
+        path: "/views/view_unspecifiedperson",
         templateUrl: 'views/view_unspecifiedpersons.html',
     }, {
         label: 'mvr.specifiedpersonsinevents',
-        path: "/views/view_specifiedpersonsinevents",
+        path: "/views/view_specifiedpersonsinevent",
         templateUrl: 'views/view_specifiedpersonsinevents.html',
     }, {
         label: 'mvr.unspecifiedpersonsinevents',
-        path: "/views/view_unspecifiedpersonsinevents",
+        path: "/views/view_unspecifiedpersonsinevent",
         templateUrl: 'views/view_unspecifiedpersonsinevents.html',
     }]  
+},{
+	 name: 'menu.upload',
+	    items: [{
+	    	 label: 'mvr.import',
+	         path: "import",
+	         templateUrl: 'views/import/import.html',
+	    },{
+	    	 label: 'mvr.upload',
+	         path: "upload",
+	         templateUrl: 'views/upload/upload.html',
+	    }]
 }];

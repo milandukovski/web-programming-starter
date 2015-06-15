@@ -16,7 +16,8 @@ FirstApp.controller('MainCtrl', [
 		'$http',
 		'$q',
 		function($scope, $http,$q) {
-
+//			$scope.datetimepicker = $("#datetimepicker").datetimepicker();
+			
 			$scope.entities = [];
 			$scope.cases=[];
 			$scope.entity = {};
@@ -31,7 +32,6 @@ FirstApp.controller('MainCtrl', [
 			         from: new Date(86400000).toISOString().split("T")[0],
 			         to: new Date().toISOString().split("T")[0]
 			       };
-			
 			$scope.pathClick = function(entity) {
 				var el = $("#path-" + entity.id);
 				console.log(el);
@@ -62,7 +62,7 @@ FirstApp.controller('MainCtrl', [
 				if(!el[0]) return 0;
 				return el[0].getBoundingClientRect().left
 						- $scope.svg[0].getBoundingClientRect().left
-						+ el[0].getBoundingClientRect().width / 4;
+						+ el[0].getBoundingClientRect().width/4;
 			}
 
 			$scope.textY = function(entity) {
@@ -139,6 +139,30 @@ FirstApp.controller('MainCtrl', [
 			}
 			
 			var serverAPI = function(){
+				$http.get('/data/rest/EventCase').success(
+						function(data, status, headers, config) {	
+							$scope.cases.push({'id':0,'name':'all'});
+							$scope.myCase=$scope.cases[0];
+							
+//							for(var i in data)
+//							{
+//								var deferred = $q.defer();
+//							   $http.get('/data/rest/Municipality/total1/'+data[i].id+'/'+$scope.Date.from+'/'+$scope.Date.to).success(
+//										function(data, status, headers, config) {
+//											 deferred.resolve(data);							
+//											$scope.entities.push(data);
+//											 
+//										}).
+//										error(function(data, status, headers, config) {
+//										     deferred.reject(status);
+//										});
+//															  
+//							}
+							for(var i in data){
+								$scope.cases.push(data[i]);
+							}
+							
+						});
 				$http.get('/data/rest/Event/count/'+$scope.Date.from+'/'+$scope.Date.to).success(
 						function(data, status, headers, config) {	
 							$scope.casesTotal=data;
@@ -148,39 +172,23 @@ FirstApp.controller('MainCtrl', [
 							     c+=data[i][2];									  
 							}
 							$scope.count=c;
-							$http.get('/data/rest/Municipality/total/'+$scope.Date.from+'/'+$scope.Date.to).success(
-									function(data, status, headers, config) {
-										$scope.svg = $("svg");
-										$scope.entities.push( data);
-										$scope.entity=$scope.entities[0];
+//							$http.get('/data/rest/Municipality/total/'+$scope.Date.from+'/'+$scope.Date.to).success(
+//									function(data, status, headers, config) {
+//										$scope.svg = $("svg");
+//										$scope.entities.push( data);
+//										$scope.entity=$scope.entities[0];
 										
-										$http.get('/data/rest/EventCase').success(
-												function(data, status, headers, config) {	
-													$scope.cases.push({'id':0,'name':'all'});
-													$scope.myCase=$scope.cases[0];
-													
-													for(var i in data)
-													{
-														var deferred = $q.defer();
-													   $http.get('/data/rest/Municipality/total1/'+data[i].id+'/'+$scope.Date.from+'/'+$scope.Date.to).success(
-																function(data, status, headers, config) {
-																	 deferred.resolve(data);							
-																	$scope.entities.push(data);
-																	 
-																}).
-																error(function(data, status, headers, config) {
-																     deferred.reject(status);
-																});
-																					  
-													}
-													for(var i in data){
-														$scope.cases.push(data[i]);
-													}
-													
-												});
+										
+										
 									});
 							
 							
+//						});		
+				$http.get('/data/rest/Event/all/'+$scope.Date.from+'/'+$scope.Date.to).success(
+						function(data, status, headers, config) {	
+							$scope.svg = $("svg");
+							$scope.entities = data;
+							$scope.entity=$scope.entities[0];
 						});
 			}		
 			
