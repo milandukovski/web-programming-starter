@@ -13,14 +13,22 @@
  *       directive
  * @description # avAngularStartupApp Main module of the application.
  */
-var FirstApp = angular.module('avAngularStartupApp', [ 'ngResource', 'ngRoute',
-		'ngAnimate', 'ngTable', 'ngTableExport', 'ngCookies', 'ngQuickDate',
-		'chieffancypants.loadingBar', 'ui.bootstrap', 'ui.select2',
-		'mgcrea.ngStrap', 'toaster', 'angularFileUpload',
-		'pascalprecht.translate' ]);
+var FirstApp = angular.module('avAngularStartupApp', ['ngResource', 'ngRoute',
+  'ngAnimate', 'ngTable', 'ngTableExport', 'ngCookies', 'ngQuickDate',
+  'chieffancypants.loadingBar', 'ui.bootstrap', 'ui.select2',
+  'mgcrea.ngStrap', 'toaster', 'angularFileUpload',
+  'pascalprecht.translate']);
 
-FirstApp.config([ '$translateProvider', '$httpProvider', 'settings',
-		function($translateProvider, $httpProvider, settings) {
+FirstApp.config(['$translateProvider', '$httpProvider', 'ngQuickDateDefaultsProvider', 'settings',
+  function($translateProvider, $httpProvider, ngQuickDateDefaultsProvider, settings) {
 
-			$httpProvider.interceptors.push('HRHttpInterceptors');
-		} ]);
+
+    $httpProvider.interceptors.push('HRHttpInterceptors');
+    Date.prototype.toJSON = function() {
+      return moment(this).format('YYYY-MM-DD HH:mm');
+    };
+
+    Date.prototype.toISOString = function() {
+      return moment(this).format('YYYY-MM-DD HH:mm');
+    };
+  }]);

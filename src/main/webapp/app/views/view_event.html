@@ -1,96 +1,104 @@
 <div ng-controller="EventController">
-<crud crud-title="mvr.event" crud-type="Event"
-	crud-form="eventEntity"
-	after-init="afterCrudInit"
-	on-new="noPopUp"
-	after-save="crudScope.hide"
-	on-edit="noPopUp"	
-	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
-	
-	<div class="panel panel-default top-buffer2" ng-if="entity">
-		<form name="form{{crudTitle}}" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
-			ng-submit="save()">
-			<div class="panel-heading">
-		        <button type="button" class="close" ng-click="hide()">&times;</button>
-		        <h4 class="panel-title">{{ 'generic.add_or_edit' | translate }} <span class="text-info">{{ 'mvr.event' | translate }}</span></h4>
-		      </div>
-			<div class="panel-body">
-				<ng-include src="'forms/eventEntity.html'"></ng-include>
-			</div>
-			<div class="panel-footer">
-		        <button type="button" class="btn btn-default" ng-click="hide()">
-		        	<i class="fa fa-fw fa-times"></i> {{ 'action.cancel' | translate }}
-		        </button>
-		        <button type="submit" ng-disabled="form{{crudTitle}}.$invalid" class="btn btn-primary">
-					<i class="fa fa-fw fa-save"></i> {{ 'action.save' | translate }}
-				</button>
-		      </div>
-	      </form>
-	</div>
+  <crud crud-title="mvr.event" crud-type="Event"
+        crud-form="eventEntity"
+        after-init="afterCrudInit"
+        on-new="noPopUp"
+        after-save="crudScope.hide"
+        on-edit="noPopUp"
+        paged="true"
+        crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 
-<div class="table-responsive top-buffer2" ng-if="!entity">
-	<!--  -->
-	<table ng-table="table" show-filter="true"
-		class="table table-bordered table-striped table-condensed ng-table-responsive">
-		<tbody>
-			<tr ng-repeat="r in $data">
-				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
-				<td data-title="'generic.date' | translate" sortable="'date'"
-					filter="{ 'date': 'text' }">{{r.datum}}</td>
-				<td data-title="'mvr.svrrc' | translate" sortable="'svrrc'"
-					filter="{ 'svrrc': 'text' }">{{r.svrRC["name"]}}</td>
-				<td data-title="'mvr.eventpolicestations' | translate" sortable="'policeStation'"
-					filter="{ 'policeStation': 'text' }">{{r.policeStation["name"]}}</td>
-			<!-- 	<td data-title="'mvr.eventcommonareas' | translate" sortable="'commonArea'"
-					filter="{ 'commonArea': 'text' }">{{r.commonArea["name"]}}</td>
-				<td data-title="'mvr.eventareas' | translate" sortable="'area'"
-					filter="{ 'area': 'text' }">{{r.area["name"]}}</td> -->
-				<td data-title="'mvr.eventcases' | translate" sortable="'ecase'">
-				{{r.ecase["name"] | shorten}}</td>
-				<td data-title="'generic.datum' | translate">{{'generic.od' | translate}} {{r.staringDate}} {{'generic.do' | translate}} {{r.endingDate}}</td>
-			<!-- 	<td data-title="'generic.endDate' | translate" sortable="'endingDate'"
-					filter="{ 'endingDate': 'text' }">{{r.endingDate}}</td> -->
-<!-- 				<td data-title="'generic.startTime' | translate" sortable="'startTime'"
-					filter="{ 'startTime': 'text' }">{{r.startingTime}}</td>
-				<td data-title="'generic.endTime' | translate" sortable="'endTime'"
-					filter="{ 'endTime': 'text' }">{{r.endingTime}}</td> 
-				<td data-title="'mvr.municipalities' | translate" sortable="'opstina'"
-					filter="{ 'opstina': 'text' }">{{r.opstina["name"]}}</td>
-				<td data-title="'generic.location' | translate" sortable="'location'"
-					filter="{ 'location': 'text' }">{{r.location}}</td> -->
-				<td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
-					filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten}}</td>
-				<td data-title="'generic.materialCost' | translate" sortable="'materialCost'"
-					>{{r.materialCost}}</td>
-				<td data-title="'generic.benefit' | translate" sortable="'benefit'"
-					>{{r.benefit}}</td>
-		<!-- 		<td data-title="'mvr.eventpointsofentry' | translate" sortable="'point'"
-					filter="{ 'point': 'text' }">{{r.point["name"]}}</td>
-				<td data-title="'mvr.eventmethodsofentering' | translate" sortable="'method'"
-					filter="{ 'method': 'text' }">{{r.method["name"]}}</td>
-				<td data-title="'mvr.eventsuspectacts' | translate" sortable="'suspectAct'"
-					filter="{ 'suspectAct': 'text' }">{{r.suspectAct["name"]}}</td>
-				<td data-title="'mvr.eventcrimesagainstproperties' | translate" sortable="'propertyCrime'"
-					filter="{ 'propertyCrime': 'text' }">{{r.propertyCrime["name"]}}</td> -->
-				<td data-title="'mvr.eventobjectsofattack' | translate" sortable="'objectOfAttack'"
-					>{{r.objectOfAttack["name"]}}</td>
-				<td data-title="'mvr.eventwayofleaving' | translate" sortable="'wayOfLeaving'"
-					>{{r.wayOfLeaving["name"]}}</td>
-				<td data-title="'mvr.eventweapontypes' | translate" sortable="'weaponType'"
-					filter="{ 'weaponType': 'text' }">{{r.weaponType["name"]}}</td>
-				<td class="td-edit" data-title="'action.edit' | translate">
-					<button type="button" ng-click="edit(r.id)"
-						class="btn btn-default btn-xs">
-						<i class="fa fa-fw fa-edit"></i> {{ 'action.edit' | translate }}
-					</button>
-					<button type="button" ng-click="deleteDialog(r.id)"
-						class="btn btn-danger btn-xs">
-						<i class="fa fa-fw trash-o"></i> {{ 'action.delete' | translate }}
-					</button>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-</crud>
+    <div class="panel panel-default top-buffer2" ng-if="entity">
+      <form name="form{{crudTitle}}" role="form" novalidate
+            class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+            ng-submit="save()">
+        <div class="panel-heading">
+          <button type="button" class="close" ng-click="hide()">&times;</button>
+          <h4 class="panel-title">{{ 'generic.add_or_edit' | translate }} <span class="text-info">{{ 'mvr.event' | translate }}</span>
+          </h4>
+        </div>
+        <div class="panel-body">
+          <ng-include src="'forms/eventEntity.html'"></ng-include>
+        </div>
+        <div class="panel-footer">
+          <button type="button" class="btn btn-default" ng-click="hide()">
+            <i class="fa fa-fw fa-times"></i> {{ 'action.cancel' | translate }}
+          </button>
+          <button type="submit" ng-disabled="form{{crudTitle}}.$invalid" class="btn btn-primary">
+            <i class="fa fa-fw fa-save"></i> {{ 'action.save' | translate }}
+          </button>
+        </div>
+      </form>
+    </div>
+    <script type="text/ng-template" id="ng-table/filters/datum.html">
+      <quick-datepicker ng-model='params.filter()[name]' date-format="dd.MM.yyyy"
+                        disable-timepicker="true"></quick-datepicker>
+    </script>
+    <script type="text/ng-template" id="ng-table/filters/svrrc.html">
+      <combo combo-type="SvrRc"
+             combo-required="true"
+             combo-label="mvr.svrrc"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo>
+
+    </script>
+
+    <div class="table-responsive top-buffer2" ng-if="!entity">
+      <!--  -->
+      <table ng-table="table" show-filter="true"
+             class="table table-bordered table-striped table-condensed ng-table-responsive">
+        <tbody>
+        <tr ng-repeat="r in $data">
+          <td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
+          <td data-title="'generic.date' | translate" sortable="'date'"
+              filter="{ 'datumFrom': 'datum' }">{{r.datum}}
+          </td>
+          <td data-title="'mvr.svrrc' | translate" sortable="'svrrc'"
+              filter="{ 'svrrc': 'svrrc' }">{{r.svrRC["name"]}}
+          </td>
+          <td data-title="'mvr.eventpolicestations' | translate" sortable="'policeStation'"
+              filter="{ 'policeStation': 'text' }">{{r.policeStation["name"]}}
+          </td>
+          <td data-title="'mvr.eventcases' | translate" sortable="'ecase'">
+            {{r.ecase["name"] | shorten}}
+          </td>
+          <td data-title="'generic.datum' | translate">{{'generic.od' | translate}} {{r.staringDate}} {{'generic.do' |
+            translate}} {{r.endingDate}}
+          </td>
+
+          <td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
+              filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten}}
+          </td>
+          <td data-title="'generic.materialCost' | translate" sortable="'materialCost'"
+            >{{r.materialCost}}
+          </td>
+          <td data-title="'generic.benefit' | translate" sortable="'benefit'"
+            >{{r.benefit}}
+          </td>
+
+          <td data-title="'mvr.eventobjectsofattack' | translate" sortable="'objectOfAttack'"
+            >{{r.objectOfAttack["name"]}}
+          </td>
+          <td data-title="'mvr.eventwayofleaving' | translate" sortable="'wayOfLeaving'"
+            >{{r.wayOfLeaving["name"]}}
+          </td>
+          <td data-title="'mvr.eventweapontypes' | translate" sortable="'weaponType'"
+              filter="{ 'weaponType': 'text' }">{{r.weaponType["name"]}}
+          </td>
+          <td class="td-edit" data-title="'action.edit' | translate">
+            <button type="button" ng-click="edit(r.id)"
+                    class="btn btn-default btn-xs">
+              <i class="fa fa-fw fa-edit"></i> {{ 'action.edit' | translate }}
+            </button>
+            <button type="button" ng-click="deleteDialog(r.id)"
+                    class="btn btn-danger btn-xs">
+              <i class="fa fa-fw trash-o"></i> {{ 'action.delete' | translate }}
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </crud>
 </div>
