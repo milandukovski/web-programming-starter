@@ -4,6 +4,10 @@ var menuData = [{
         label: 'mvr.event',
         path: "/views/view_event",
         templateUrl: 'views/view_event.html',
+    }, {
+        label: 'mvr.shortEvent',
+        path: "/views/view_shortEvent",
+        templateUrl: 'views/view_shortEvent.html',
     },{
         label: 'mvr.municipalities',
         path: "/views/view_municipality",

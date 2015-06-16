@@ -2,10 +2,7 @@
 <div class="row" ng-controller="MainCtrl">
 
 <div class="jumbotron col-md-9" >
-<!--  cases.indexOf(case) as case.name for case in cases-->
-<!-- case.name for case in cases   -->
 
-<!-- <input id="datetimepicker" type="text" > -->
 
 <div class="form-group">
 	 <select class="dropdown" ng-model="myCase" ng-options="case.name for case in cases" ng-change="reload()"> 
@@ -18,7 +15,6 @@
   </ul>
 </div>
 </div> -->
-
 	од <input type="date" ng-model="Date.from" placeholder="yyyy-MM-dd" min="1970-01-01" max="2050-12-31"/> до <input type="date" ng-model="Date.to" placeholder="yyyy-MM-dd" min="1970-01-01" max="2050-12-31"/>
 	<button type="button" class="btn-primary btn-lg" ng-click="changeDate()">Пребарај</button>
 </div>
@@ -60,24 +56,22 @@
 						class="pointer">
 						
         		 </path>
-        		 <circle ng-repeat="p in entity" cx="{{textX(p)}}" cy="{{textY(p)}}"  r="3"
-        					fill="blue" stroke="blue" stroke-width="2"  />
         		 <text ng-repeat="p in entity" x="{{textX(p)+4}}" y="{{textY(p)+2}}" 
-        		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[1]}} ({{p[3]}})</text>
+        		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[3]}}</text>
     		</g>
   </svg>
 </div>
-<div class="col-md-3" ng-if="selectedCity&&mode">
+<div class="col-md-3" ng-if="selectedCity">
 	<h3><u>{{selectedCity[1]}}</u></h2>
 </div>
 <div class="col-md-3" ng-if="selectedCity&&mode">
 	<ul class="list-unstyled" ng-if="selected&&click" style="color:blue">
-		<li ng-repeat="s in selected" ng-click="displayCase(s[0])" class="pointer"><u>{{s[1] | shorten:35}}</u></li>
+		<li ng-repeat="s in selected" ng-click="displayCase(s[0],true)" class="pointer"><u>{{s[1] | shorten:35}}</u></li>
 	</ul>
 	
 	<p ng-if="!selected||!selected.length&&!click">Моментално нема криминални активности.</p>
 </div>
-<div class="col-md-3" ng-if="eventsByCase&&mode">	
+<div class="col-md-3" ng-if="eventsByCase">	
 	<table ng-table="table">
 		<tbody>
 			<tr ng-repeat="row in eventsByCase">
@@ -89,5 +83,3 @@
 		</tbody>
 	</table>
 </div>
-</div>
-	

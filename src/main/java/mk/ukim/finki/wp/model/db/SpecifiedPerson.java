@@ -1,6 +1,11 @@
 package mk.ukim.finki.wp.model.db;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -53,7 +58,10 @@ public class SpecifiedPerson extends BaseEntity{
 	
 	@ManyToOne
 	private Nationality nationality;
-
+	
+//	@ManyToMany(mappedBy="specifiedPersons")
+//	private List<Event> events = new LinkedList<Event>();
+	
 	public PersonRole getPersonRole() {
 		return personRole;
 	}
@@ -171,5 +179,13 @@ public class SpecifiedPerson extends BaseEntity{
 		return firstName+" "+lastName;
 				
 	}
+
+//	public List<Event> getEvents() {
+//		return events;
+//	}
+//
+//	public void setEvents(List<Event> events) {
+//		this.events = events;
+//	}
 	
 }

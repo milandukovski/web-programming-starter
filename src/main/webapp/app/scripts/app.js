@@ -14,7 +14,7 @@
  * @description # avAngularStartupApp Main module of the application.
  */
 var FirstApp = angular.module('avAngularStartupApp', [ 'ngResource', 'ngRoute',
-		'ngAnimate', 'ngTable', 'ngTableExport', 'ngCookies',
+		'ngAnimate', 'ngTable', 'ngTableExport', 'ngCookies', 'ngQuickDate',
 		'chieffancypants.loadingBar', 'ui.bootstrap', 'ui.select2',
 		'mgcrea.ngStrap', 'toaster', 'angularFileUpload',
 		'pascalprecht.translate' ]);

@@ -49,7 +49,7 @@ FirstApp.controller('MainCtrl', [
 							});	
 				}
 				else{
-					
+					$scope.displayCase($scope.myCase['id'],false);
 				}
 			}
 
@@ -107,6 +107,7 @@ FirstApp.controller('MainCtrl', [
 			$scope.reload = function(){
 				$scope.selected=null;
 				$scope.selectedCity=null;
+				$scope.eventsByCase=null;
 				if($scope.myCase["id"]==0){
 					$scope.mode=true;
 					$scope.entity=$scope.entities[0];
@@ -130,12 +131,14 @@ FirstApp.controller('MainCtrl', [
 				}			
 			}
 			
-			$scope.displayCase = function(id){
-				$scope.click=false;
+			$scope.displayCase = function(id,flag){
+				if(flag){
+					$scope.click=false;					
+				}
 				$http.get('/data/rest/Event/events/'+id+'/'+$scope.selectedCity[0]+'/'+$scope.Date.from+'/'+$scope.Date.to).success(
 						function(data, status, headers, config) {	
 							$scope.eventsByCase=data;
-						});		
+						});					
 			}
 			
 			var serverAPI = function(){

@@ -1,34 +1,8 @@
-<div ng-controller="EventController">
-<crud crud-title="mvr.event" crud-type="Event"
-	crud-form="eventEntity"
-	after-init="afterCrudInit"
-	on-new="noPopUp"
-	after-save="crudScope.hide"
-	on-edit="noPopUp"	
+<crud crud-title="mvr.shortEvent" crud-type="Event"
+	crud-form="shortEventEntity"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 	
-	<div class="panel panel-default top-buffer2" ng-if="entity">
-		<form name="form{{crudTitle}}" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
-			ng-submit="save()">
-			<div class="panel-heading">
-		        <button type="button" class="close" ng-click="hide()">&times;</button>
-		        <h4 class="panel-title">{{ 'generic.add_or_edit' | translate }} <span class="text-info">{{ 'mvr.event' | translate }}</span></h4>
-		      </div>
-			<div class="panel-body">
-				<ng-include src="'forms/eventEntity.html'"></ng-include>
-			</div>
-			<div class="panel-footer">
-		        <button type="button" class="btn btn-default" ng-click="hide()">
-		        	<i class="fa fa-fw fa-times"></i> {{ 'action.cancel' | translate }}
-		        </button>
-		        <button type="submit" ng-disabled="form{{crudTitle}}.$invalid" class="btn btn-primary">
-					<i class="fa fa-fw fa-save"></i> {{ 'action.save' | translate }}
-				</button>
-		      </div>
-	      </form>
-	</div>
-
-<div class="table-responsive top-buffer2" ng-if="!entity">
+<div class="table-responsive top-buffer2">
 	<!--  -->
 	<table ng-table="table" show-filter="true"
 		class="table table-bordered table-striped table-condensed ng-table-responsive">
@@ -37,10 +11,7 @@
 				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
 				<td data-title="'generic.date' | translate" sortable="'date'"
 					filter="{ 'date': 'text' }">{{r.datum}}</td>
-				<td data-title="'mvr.svrrc' | translate" sortable="'svrrc'"
-					filter="{ 'svrrc': 'text' }">{{r.svrRC["name"]}}</td>
-				<td data-title="'mvr.eventpolicestations' | translate" sortable="'policeStation'"
-					filter="{ 'policeStation': 'text' }">{{r.policeStation["name"]}}</td>
+			
 			<!-- 	<td data-title="'mvr.eventcommonareas' | translate" sortable="'commonArea'"
 					filter="{ 'commonArea': 'text' }">{{r.commonArea["name"]}}</td>
 				<td data-title="'mvr.eventareas' | translate" sortable="'area'"
@@ -59,11 +30,7 @@
 				<td data-title="'generic.location' | translate" sortable="'location'"
 					filter="{ 'location': 'text' }">{{r.location}}</td> -->
 				<td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
-					filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten}}</td>
-				<td data-title="'generic.materialCost' | translate" sortable="'materialCost'"
-					>{{r.materialCost}}</td>
-				<td data-title="'generic.benefit' | translate" sortable="'benefit'"
-					>{{r.benefit}}</td>
+					filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten:100}}</td>
 		<!-- 		<td data-title="'mvr.eventpointsofentry' | translate" sortable="'point'"
 					filter="{ 'point': 'text' }">{{r.point["name"]}}</td>
 				<td data-title="'mvr.eventmethodsofentering' | translate" sortable="'method'"
@@ -72,12 +39,6 @@
 					filter="{ 'suspectAct': 'text' }">{{r.suspectAct["name"]}}</td>
 				<td data-title="'mvr.eventcrimesagainstproperties' | translate" sortable="'propertyCrime'"
 					filter="{ 'propertyCrime': 'text' }">{{r.propertyCrime["name"]}}</td> -->
-				<td data-title="'mvr.eventobjectsofattack' | translate" sortable="'objectOfAttack'"
-					>{{r.objectOfAttack["name"]}}</td>
-				<td data-title="'mvr.eventwayofleaving' | translate" sortable="'wayOfLeaving'"
-					>{{r.wayOfLeaving["name"]}}</td>
-				<td data-title="'mvr.eventweapontypes' | translate" sortable="'weaponType'"
-					filter="{ 'weaponType': 'text' }">{{r.weaponType["name"]}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">
 					<button type="button" ng-click="edit(r.id)"
 						class="btn btn-default btn-xs">
@@ -93,4 +54,3 @@
 	</table>
 </div>
 </crud>
-</div>

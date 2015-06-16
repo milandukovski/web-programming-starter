@@ -48,7 +48,8 @@
         "specifiedpersonsinevents": "Утврдено лице во настан",
         "unspecifiedpersonsinevents": "Неутврдено лице во настан",
         "upload" : "Додади податоци",
-        "import" : "Додади општини"
+        "import" : "Додади општини",
+        "shortEvent" : "Краток настан"
     },
     "generic": {
         "id": "Ид",
@@ -83,7 +84,9 @@
         "status": "Статус",
         "datum": "Почетен и Краен датум",
         "od": "од",
-        "do": "до"
+        "do": "до",
+        "residents" : "Жители",
+        "color" : "Боја"
     },
     "action": {
         "actions": "Акции",

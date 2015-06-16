@@ -1,10 +1,15 @@
 package mk.ukim.finki.wp.model.db;
 
+import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -78,12 +83,23 @@ public class Event extends BaseEntity{
 	@Column(length=10000)
 	private String eventDescription;
 	
+	//treba da bidat double
 	private String materialCost;
 	private String benefit;
 	
 	
-	@ManyToMany
-	private List<SpecifiedPerson> specifiedPersons;
+//	@ManyToMany(cascade = { CascadeType.ALL })  
+//	@JoinTable(name = "specified_person_in_event", joinColumns = { @JoinColumn(name = "event_id") }, inverseJoinColumns = { @JoinColumn(name = "person_id") })  
+//	private List<SpecifiedPerson> specifiedPersons = new LinkedList<SpecifiedPerson>();
+//	
+//	@ManyToMany
+//	private List<UnspecifiedPerson> unspecifiedPersons;
+//	
+//	@ManyToMany
+//	private List<Vehicle> vehicles;
+//	
+//	@ManyToMany
+//	private List<Article> articles;
 	
 	@ManyToOne()
 	private EventPointsOfEntry point;
@@ -281,5 +297,37 @@ public class Event extends BaseEntity{
 	public void setWeaponType(EventWeaponType weaponType) {
 		this.weaponType = weaponType;
 	}
+
+//	public List<SpecifiedPerson> getSpecifiedPersons() {
+//		return specifiedPersons;
+//	}
+//
+//	public void setSpecifiedPersons(List<SpecifiedPerson> specifiedPersons) {
+//		this.specifiedPersons = specifiedPersons;
+//	}
+//
+//	public List<UnspecifiedPerson> getUnspecifiedPersons() {
+//		return unspecifiedPersons;
+//	}
+//
+//	public void setUnspecifiedPersons(List<UnspecifiedPerson> unspecifiedPersons) {
+//		this.unspecifiedPersons = unspecifiedPersons;
+//	}
+//
+//	public List<Vehicle> getVehicles() {
+//		return vehicles;
+//	}
+//
+//	public void setVehicles(List<Vehicle> vehicles) {
+//		this.vehicles = vehicles;
+//	}
+//
+//	public List<Article> getArticles() {
+//		return articles;
+//	}
+//
+//	public void setArticles(List<Article> articles) {
+//		this.articles = articles;
+//	}
 	
 }	
