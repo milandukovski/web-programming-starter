@@ -4,7 +4,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.date' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" name="datum" id="datum" ng-model="entity.datum">              
+                    <quick-datepicker ng-model='entity.datum' id="datum" name="datum" icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>              
             	</div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.startDate' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" name="startingDate" id="startingDate" ng-model="entity.staringDate">
+                	<quick-datepicker ng-model='entity.staringDate' name="startingDate" id="startingDate"  icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>                          	
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.startTime' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="time" class="form-control" name="startingTime" id="startingTime" ng-model="entity.startingTime">
+              		<timepicker name="startingTime" id="startingTime" ng-model="entity.startingTime" hour-step="1" minute-step="1" show-meridian="false"></timepicker>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.endDate' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" name="endingDate" id="endingDate" ng-model="entity.endingDate">
+               		 <quick-datepicker ng-model='entity.endingDate' name="endingDate" id="endingDate"  icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>                          	            
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.endTime' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="time" class="form-control" name="endingTime" id="endingTime" ng-model="entity.endingTime">
+                	<timepicker name="endingTime" id="endingTime" ng-model="entity.endingTime" hour-step="1" minute-step="1" show-meridian="false"></timepicker>
                 </div>
             </div>
         </div>
@@ -69,8 +69,6 @@
             <combo class="col-sm-12" combo-type="Municipality" combo-required="true" combo-label="mvr.municipalities" combo-model="entity.opstina" combo-name="opstina" combo-property="name">
             </combo>
         </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.location' | translate}}: </label>
@@ -88,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+         <div class="form-group">
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.materialCost' | translate}}: </label>
                 <div class="col-sm-9">
@@ -96,7 +94,9 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+    </div>
+    <div class="col-md-6">
+    	 <div class="form-group">
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.benefit' | translate}}: </label>
                 <div class="col-sm-9">
@@ -132,5 +132,21 @@
             <combo class="col-sm-12" combo-type="EventWeaponType" combo-required="false" combo-label="mvr.eventweapontypes" combo-model="entity.weaponType" combo-name="weaponType" combo-property="name">
             </combo>
         </div>
+       <!--  <div class="row">
+            <combo class="col-sm-12" combo-type="SpecifiedPerson" combo-required="false" combo-label="mvr.specifiedpersons" combo-model="entity.specifiedpersons" combo-name="specifiedpersons" combo-property="name" multiple="true">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="UnspecifiedPerson" combo-required="false" combo-label="mvr.unspecifiedpersons" combo-model="entity.unspecifiedpersons" combo-name="unspecifiedpersons" combo-property="name" multiple="true">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="Article" combo-required="false" combo-label="mvr.articles" combo-model="entity.articles" combo-name="articles" combo-property="name" multiple="true">
+            </combo>
+        </div>
+        <div class="row">
+            <combo class="col-sm-12" combo-type="Vehicle" combo-required="false" combo-label="mvr.vehicles" combo-model="entity.vehicles" combo-name="vehicles" combo-property="name" multiple="true">
+            </combo>
+        </div> -->
     </div>
 </div>

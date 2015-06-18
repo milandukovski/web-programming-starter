@@ -103,8 +103,8 @@
 
     <script src="scripts/app.js"></script>
     <!-- The route configuration -->
-    <script src="scripts/menuData.js"></script>
-    <script src="scripts/router.js"></script>
+<!--     <script src="scripts/menuData.js"></script> -->
+    <script src="scripts/public_router.js"></script>
     <script src="scripts/config.js"></script>
     
     <script src="scripts/filter/filters.js"></script>
@@ -129,6 +129,7 @@
     <!--    <script src="scripts/services/user.js"></script> -->
 
     <script src="scripts/directives/combo.js"></script>
+    <script src="scripts/directives/combo2.js"></script>
     <script src="scripts/directives/crud-directive.js"></script>
     <script>
         $(document).ready(function() {

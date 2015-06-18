@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mk.ukim.finki.wp.model.db.SkinType;
 import mk.ukim.finki.wp.service.db.SkinTypeService;
-import mk.ukim.finki.wp.web.rest.CrudResource;
+import mk.ukim.finki.wp.web.CrudResource;
 
 @RestController
 @RequestMapping("/data/rest/SkinType")

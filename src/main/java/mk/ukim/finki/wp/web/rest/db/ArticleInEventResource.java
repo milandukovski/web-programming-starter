@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mk.ukim.finki.wp.model.db.ArticleInEvent;
 import mk.ukim.finki.wp.service.db.ArticleInEventService;
-import mk.ukim.finki.wp.web.rest.CrudResource;
+import mk.ukim.finki.wp.web.CrudResource;
+
 
 @RestController
 @RequestMapping("/data/rest/ArticleInEvent")

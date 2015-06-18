@@ -22,13 +22,21 @@ var FirstApp = angular.module('avAngularStartupApp', ['ngResource', 'ngRoute',
 FirstApp.config(['$translateProvider', '$httpProvider', 'ngQuickDateDefaultsProvider', 'settings',
   function($translateProvider, $httpProvider, ngQuickDateDefaultsProvider, settings) {
 
-
     $httpProvider.interceptors.push('HRHttpInterceptors');
+    //This make a problem
+//    Date.prototype.toJSON = function() {
+//      return moment(this).format('YYYY-MM-DD HH:mm');
+//    };
+//
+//    Date.prototype.toISOString = function() {
+//      return moment(this).format('YYYY-MM-DD HH:mm');
+//    };
+    
     Date.prototype.toJSON = function() {
-      return moment(this).format('YYYY-MM-DD HH:mm');
-    };
+        return moment(this).format('YYYY-MM-DD');
+      };
 
-    Date.prototype.toISOString = function() {
-      return moment(this).format('YYYY-MM-DD HH:mm');
-    };
+      Date.prototype.toISOString = function() {
+        return moment(this).format('YYYY-MM-DD');
+      };
   }]);

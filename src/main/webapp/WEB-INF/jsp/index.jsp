@@ -175,6 +175,7 @@
     <!--    <script src="scripts/services/user.js"></script> -->
 
     <script src="scripts/directives/combo.js"></script>
+    <script src="scripts/directives/combo2.js"></script>
     <script src="scripts/directives/crud-directive.js"></script>
     <script>
         $(document).ready(function() {

@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
 public class EventSpecifications implements BaseSpecification<Event> {
 
   public static DateTimeFormatter DATE_TIME = DateTimeFormat
-    .forPattern("yyyy-MM-dd HH:mm");
+    .forPattern("yyyy-MM-dd ");
 
   static Specification<Event> date(final DateTime date) {
     return new Specification<Event>() {

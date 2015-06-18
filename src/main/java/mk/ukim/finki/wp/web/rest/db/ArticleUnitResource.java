@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mk.ukim.finki.wp.model.db.ArticleUnit;
 import mk.ukim.finki.wp.service.db.ArticleUnitService;
-import mk.ukim.finki.wp.web.rest.CrudResource;
+import mk.ukim.finki.wp.web.CrudResource;
 
 @RestController
 @RequestMapping("/data/rest/ArticleUnit")

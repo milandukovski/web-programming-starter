@@ -572,7 +572,7 @@
 					<server>tomcat-development-server</server>
 
 					<port>9966</port>
-					<path>/web-programming</path>
+					<path>/crime-map</path>
 					
 					<clientAuth>false</clientAuth>
 					<httpsPort>9443</httpsPort>

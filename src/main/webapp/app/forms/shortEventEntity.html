@@ -2,7 +2,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.date' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" name="datum" id="datum" ng-model="entity.datum">              
+                     <quick-datepicker ng-model='entity.datum' id="datum" name="datum" icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>              
             	</div>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.startDate' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" name="startingDate" id="startingDate" ng-model="entity.staringDate">
+                    <quick-datepicker ng-model='entity.staringDate' name="startingDate" id="startingDate"  icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="row">
                 <label class="col-sm-3 control-label" for="formGroupInputLarge">{{'generic.endDate' | translate}}: </label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" name="endingDate" id="endingDate" ng-model="entity.endingDate">
+                    <quick-datepicker ng-model='entity.endingDate' name="endingDate" id="endingDate"  icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker> 
                 </div>
             </div>
         </div>

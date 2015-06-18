@@ -2,28 +2,17 @@
 <div class="row" ng-controller="MainCtrl">
 
 <div class="jumbotron col-md-9" >
-
-
-<div class="form-group">
-	 <select class="dropdown" ng-model="myCase" ng-options="case.name for case in cases" ng-change="reload()"> 
-</select> <br/>
-
-
-<!-- <div class="dropdown">
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation" ng-model="myCase" ng-repeat="case in cases" ng-change="reload"><a role="menuitem" tabindex="-1" href="#">{{case.name}}</a></li>
-  </ul>
-</div>
-</div> -->
-	од <input type="date" ng-model="Date.from" placeholder="yyyy-MM-dd" min="1970-01-01" max="2050-12-31"/> до <input type="date" ng-model="Date.to" placeholder="yyyy-MM-dd" min="1970-01-01" max="2050-12-31"/>
-	<button type="button" class="btn-primary btn-lg" ng-click="changeDate()">Пребарај</button>
-</div>
-
-
-<!-- <combo class="col-sm-12" combo-type="EventCase" combo-required="false"
-	combo-label="Делo" combo-model="myCase"
-	combo-name="unit" combo-property="name" on-change="reload(myCase)"> </combo> -->
-	
+<div class="row">
+		<div class="form-group">
+			 <select class="dropdown" ng-model="myCase" ng-options="case.name | translate for case in cases" ng-change="reload()"> 
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		од <quick-datepicker ng-model='Date.from' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" init-value="01/02/1970" placeholder="избери датум"></quick-datepicker>
+		до <quick-datepicker ng-model='Date.to' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>
+		<button type="button" class="btn-primary btn-md" ng-click="changeDate()">Пребарај</button>
+	</div>
 
 <svg xmlns:dc="http://purl.org/dc/elements/1.1/"
 			xmlns:cc="http://creativecommons.org/ns#"
@@ -56,7 +45,7 @@
 						class="pointer">
 						
         		 </path>
-        		 <text ng-repeat="p in entity" x="{{textX(p)+4}}" y="{{textY(p)+2}}" 
+        		 <text ng-repeat="p in entity" x="{{textX(p)}}" y="{{textY(p)}}" 
         		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[3]}}</text>
     		</g>
   </svg>
@@ -72,14 +61,12 @@
 	<p ng-if="!selected||!selected.length&&!click">Моментално нема криминални активности.</p>
 </div>
 <div class="col-md-3" ng-if="eventsByCase">	
-	<table ng-table="table">
-		<tbody>
-			<tr ng-repeat="row in eventsByCase">
+	<table ng-table="$parent.tableParams" class="table">
+			<tr ng-repeat="row in $data">
 				<td style="padding:5px;border-bottom: 1px solid #4444dd">
 					<div >{{row["eventDescription"] }}</div>
-				</td>
-				
+				</td>				
 			</tr>
-		</tbody>
-	</table>
+		</table>
+</div>
 </div>
