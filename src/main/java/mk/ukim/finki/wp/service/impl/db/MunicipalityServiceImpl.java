@@ -33,11 +33,11 @@ public class MunicipalityServiceImpl extends
 		return getRepository().findByName(name);
 	}
 	
-	@Override
-	public List<MunicipalityInfo> getAllMunicipalities() {
-		// TODO Auto-generated method stub
-		return repository.getAllMunicipalities();
-	}
+//	@Override
+//	public List<MunicipalityInfo> getAllMunicipalities() {
+//		// TODO Auto-generated method stub
+//		return repository.getAllMunicipalities();
+//	}
 
 	@Override
 	public List<MunicipalityInfo> getCaseTotal(long case_id, Date from, Date to) {

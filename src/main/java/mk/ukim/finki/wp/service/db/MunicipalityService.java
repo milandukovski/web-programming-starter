@@ -11,7 +11,7 @@ public interface MunicipalityService extends BaseEntityCrudService<Municipality>
     
 	public List<MunicipalityInfo> total(Date from, Date to);
     
-    public List<MunicipalityInfo> getAllMunicipalities();
+//    public List<MunicipalityInfo> getAllMunicipalities();
     
     public List<MunicipalityInfo> getCaseTotal(long case_id, Date from, Date to);
 

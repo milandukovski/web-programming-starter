@@ -1,8 +1,10 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html class="no-js">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
@@ -35,66 +37,33 @@
 	and its children will be handled by angular.js 
 -->
 
-<body ng-app="avAngularStartupApp">
+<body ng-app="avAngularStartupApp" class="main-body">
     <!--[if lt IE 7]>
 	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
 	    your browser</a> to improve your experience.</p>
 	<![endif]-->
+	<div class="background">
+		<div class="header_bottom">
+                <div class="mvr_mk">РЕПУБЛИКА МАКЕДОНИЈА <br> 
+                МИНИСТЕРСТВО ЗА ВНАТРЕШНИ РАБОТИ
+                <br/>
+                Мапа на криминал</div>
+                <div class="mvr_logo"></div>
+                <div class="mvr_en">REPUBLIC OF MACEDONIA 
+                <br> MINISTRY OF INTERNAL AFFAIRS
+                <br/>
+                Crime map</div>
+        </div>
+	</div>
 
     <!-- Add your site or application content here -->
     <div class="container" role="main">
-        <nav class="navbar navbar-default" ng-controller="MenuController">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->               
-                <div class="navbar-header">           
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="logo" href="http://www.mvr.gov.mk/">
-       					 <img src="images/police.png" src="macedonian police logo"/>
-     				</a>               
-                    <a class="navbar-brand" href="#">{{'menu.crime_Map' | translate}}</a>
-                    
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#/">{{'menu.home' | translate }} <span class="sr-only">(current)</span></a>
-                        </li>
-
-                        <li class="dropdown" ng-repeat="topMenu in menu">
-                            <a class="dropdown-toggle" href="javascript: false" data-toggle="dropdown" role="button" aria-expanded="false">{{topMenu.name | translate}} <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li ng-repeat="item in topMenu.items">
-                                    <a ng-href="{{ '#' + item.path}}">{{item.label | translate}}</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                    </ul>
-
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-
-
         <div class="">
             <!-- 
 	    		ng-view is directive that declares that the element will be 
 	    		place holder for the partial files included through the router
 	    	 -->
             <div ng-view></div>
-        </div>
-
-        <div class="footer">
-            <p>
-                All rigths reserved.  
         </div>
     </div>
 
@@ -140,6 +109,7 @@
     <script src="bower_components/ng-table/ng-table.js"></script>
     <script src="bower_components/ng-table-export/ng-table-export.js"></script>
     <script src="bower_components/ngQuickDate/dist/ng-quick-date.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -149,19 +119,14 @@
 
     <script src="scripts/app.js"></script>
     <!-- The route configuration -->
-    <script src="scripts/menuData.js"></script>
-    <script src="scripts/router.js"></script>
+<!--     <script src="scripts/menuData.js"></script> -->
+    <script src="scripts/public_router.js"></script>
     <script src="scripts/config.js"></script>
     
     <script src="scripts/filter/filters.js"></script>
 
     <!-- controllers definition -->
     <script src="scripts/controllers/main.js"></script>
-    <!--   <script src="scripts/controllers/city.js"></script>
-    <script src="scripts/controllers/country.js"></script>
-    <script src="scripts/controllers/category.js"></script>
-    <script src="scripts/controllers/book.js"></script>
-    <script src="scripts/controllers/login.js"></script> -->
     <script src="scripts/controllers/menuController.js"></script>
     <script src="scripts/controllers/specifiedPersonController.js"></script>
     <script src="scripts/controllers/unspecifiedPersonController.js"></script>
@@ -170,29 +135,12 @@
     <script src="scripts/controllers/uploadController.js"></script>
     <!-- Services definition -->
     <script src="scripts/services/services.js"></script>
-    <!--  <script src="scripts/services/category.js"></script> -->
     <script src="scripts/services/crud.js"></script>
-    <!--    <script src="scripts/services/user.js"></script> -->
 
     <script src="scripts/directives/combo.js"></script>
     <script src="scripts/directives/combo2.js"></script>
     <script src="scripts/directives/crud-directive.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.dropdown-toggle').click(function() {
-                var location = $(this).attr('href');
-                $(this).addClass("active");
-                window.location.href = location;
-                return false;
-            });
-
-            $('li').hover(function() {
-                $(this).addClass("active");
-            }, function() {
-                $(this).removeClass("active");
-            });
-        })
-    </script>
+    <script src="scripts/directives/iv-simple-table.js"></script>
     <!-- endbuild -->
 </body>
 

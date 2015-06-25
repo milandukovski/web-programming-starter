@@ -2,6 +2,9 @@
 body {
 	padding-top: 20px;
 	padding-bottom: 20px;
+    overflow:auto;
+    min-width:1200px;
+}
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -53,6 +56,7 @@ body {
 .jumbotron {
 	text-align: center;
 	border-bottom: 1px solid #e5e5e5;
+	min-width:1200px;
 }
 
 .jumbotron .btn {
@@ -107,4 +111,101 @@ textarea{
 	resize:none;
 	overflow-y: scroll;
 	height: 300px;
+}
+
+.main-body {
+	padding-top: 0px;
+	background-color: #5a0201;
+}
+.background {
+	background: url("../images/banner_mvr.png") no-repeat scroll;
+	height:110px;
+	background-size: 100%;
+	margin-bottom: 10px;
+}
+
+.mvr_mk {
+  width: 45.3%;
+  padding-right: 4%;
+  float: left;
+  text-align: right;
+  font-size: 18px;
+  padding-top: 10px;
+  color: #222;
+  font-weight: 700;
+}
+
+.mvr_logo {
+  width: 9.4%;
+  float: left;
+  padding-top: 1.2%;
+}
+
+.mvr_en {
+  width: 45.3%;
+  float: right;
+  padding-left: 4%;
+  text-align: left;
+  font-size: 18px;
+  padding-top: 10px;
+  color: #222;
+  font-weight: 700;
+}
+
+.right {
+	float: right;
+}
+
+.mvr_public{
+	min-wdith:1386px;'
+	
+}
+
+.catg_title {
+  color: #111;
+  display: block;
+  font-size: 14px;
+  line-height: 23px;
+  margin-bottom: 7px;
+}
+
+:before, :after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: #444;
+}
+
+a{
+	decoration: none;
+	color: #111;
+}
+
+a:hover{
+	color: #777;
+}
+
+.table-margin{
+	/* height:110px;
+	background-size: 100%; */
+	margin-top:90px;
+}
+
+
+.pagination > li > a
+{
+	color: #a50301 !important;
+}
+
+.pagination > .active > a{
+	
+	background-color:  #a50301 !important;
+	border-color:  #a50301 !important;
+	color: #fff !important;
 }

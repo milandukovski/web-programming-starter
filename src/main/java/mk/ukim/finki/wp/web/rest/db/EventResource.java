@@ -69,7 +69,7 @@ public class EventResource extends CrudResource<Event, EventService> {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		//EventCase
-		List<EventCase> ec= CaseService.findAll();
+		List<EventCase> ec= CaseService.allCases();
 		
 		map.add(municipalityService.total(from, to));
 		

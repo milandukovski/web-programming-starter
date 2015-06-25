@@ -45,6 +45,15 @@
       </combo-2>
 
     </script>
+     <script type="text/ng-template" id="ng-table/filters/policeStation.html">
+      <combo-2 combo-type="EventPoliceStation"
+             combo-required="true"
+             combo-label="mvr.policeStation"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+
+    </script>
 
     <div class="table-responsive top-buffer2" ng-if="!entity">
       <!--  -->
@@ -60,7 +69,7 @@
               filter="{ 'svrrc': 'svrrc' }">{{r.svrRC["name"]}}
           </td>
           <td data-title="'mvr.eventpolicestations' | translate" sortable="'policeStation'"
-              filter="{ 'policeStation': 'text' }">{{r.policeStation["name"]}}
+              filter="{ 'policeStation': 'policeStation' }">{{r.policeStation["name"]}}
           </td>
           <td data-title="'mvr.eventcases' | translate" sortable="'ecase'">
             {{r.ecase["name"] | shorten}}

@@ -1,0 +1,47 @@
+<table class="table table-bordered" st-pipe="load" st-table="displayed">
+  <thead>
+  <tr ng-if="globalFilter">
+    <th colspan="{{ columns.length + 1 }}">
+      <input st-search=""
+             class="form-control"
+             placeholder="global search ..."
+             type="text"/>
+    </th>
+  </tr>
+  <tr ng-if="columnFilter">
+    <th ng-repeat="col in columns">
+      <input st-search="{{col}}"
+             class="form-control"
+             placeholder="search by {{ col | translate }} ..."
+             type="text"/>
+    </th>
+    <th></th>
+  </tr>
+  <tr>
+    <th ng-repeat="col in columns" st-sort="{{col}}"> {{ col | translate }}</th>
+    <th>Edit</th>
+  </tr>
+  </thead>
+  <tbody ng-show="isLoading">
+  <tr>
+    <td colspan="{{ columns.length + 1 }}" class="text-center">Loading ...</td>
+  </tr>
+  </tbody>
+  <tbody ng-show="!isLoading">
+  <tr ng-repeat="row in displayed">
+    <td ng-repeat="col in columns">{{ row[col] }}</td>
+    <td>
+      <a ui-sref="{{edit}}">
+        {{ 'action.edit' | translate }}
+      </a>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="{{ columns.length + 1 }}" class="text-center">
+      <div st-pagination="" st-items-by-page="itemsPerPage" st-displayed-pages="7"></div>
+    </td>
+  </tr>
+  </tfoot>
+</table>

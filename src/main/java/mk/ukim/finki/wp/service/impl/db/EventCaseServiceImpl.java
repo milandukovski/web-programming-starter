@@ -27,4 +27,10 @@ public class EventCaseServiceImpl extends
 		return getRepository().findByName(name);
 	}
 
+	@Override
+	public List<EventCase> allCases() {
+		// TODO Auto-generated method stub
+		return getRepository().allCasesWithEvents();
+	}
+
 }

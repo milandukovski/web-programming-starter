@@ -33,9 +33,9 @@ public class MunicipalityResource extends CrudResource<Municipality, Municipalit
     return getService().total(from, to);
   }
 
-  @RequestMapping(value = "/total1", method = RequestMethod.GET, produces = "application/json")
-  public List<MunicipalityInfo> getInfoOnMunicipality2() {
-    return getService().getAllMunicipalities();
+  @RequestMapping(value = "/all", method = RequestMethod.GET, produces = "application/json")
+  public List<Municipality> getAllMunicipalities() {
+	  return getService().findAll();
   }
 
   @RequestMapping(value = "/total1/{id}/{from}/{to}", method = RequestMethod.GET, produces = "application/json")

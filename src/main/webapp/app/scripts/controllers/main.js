@@ -12,213 +12,264 @@
  */
 
 FirstApp.controller('MainCtrl', [
-		'$scope',
-		'$http',
-		'$filter',
-		"ngTableParams",
-		function($scope, $http,$filter,ngTableParams) {			
-			$scope.entities = [];
-			$scope.cases=[];
-			$scope.entity = {};
-			$scope.mode=true;
-			$scope.count=0;
-			$scope.casesTotal={};
-			$scope.selected = null;
-			$scope.selectedCity=null;
-			$scope.eventsByCase=false;
-			$scope.click=true;
-			//only for public
-			$scope.map=true;
-			$scope.Date = {
-			         from: new Date(86400000).toISOString().split("T")[0],
-			         to: new Date().toISOString().split("T")[0]
-			       };
-			
-			$scope.pathClick = function(entity) {
-				var el = $("#path-" + entity.id);
-				console.log(el);
-			};
-			
-			//work only in public
-			$scope.returnToMap = function(){
-				$scope.map=true;
-			}
-			
-			$scope.select = function(p) {
-				$scope.map=false;
-				$scope.selectedCity=p;
-				$scope.click=true;
-				$scope.eventsByCase=false;
-				
-				if($scope.mode){
-					var from = $filter('date')($scope.Date.from,'yyyy-MM-dd');
-					var to = $filter('date')($scope.Date.to,'yyyy-MM-dd');
-					$http.get('/data/rest/Event/count/'+p[0]+'/'+from+'/'+to).success(
-							function(data, status, headers, config) {	
-								$scope.selected=data;
-							});	
-				}
-				else{
-					$scope.displayCase($scope.myCase['id'],false);
-				}				
-			}
+    '$scope',
+    '$http',
+    '$filter',
+    "ngTableParams",
+    "crudService",
+    function($scope, $http, $filter, ngTableParams, crudService) {
+        $scope.entities = []; // se koristi
+        $scope.cases = []; // se koristi
+        $scope.entity = {}; // se koristi
+        $scope.mode = true;
+        $scope.casesTotal = {};
+        $scope.selected = null;
+        $scope.selectedCity = null;
+        $scope.eventsByCase = false;
+        $scope.click = true;
+        //only for public
+        $scope.map = true; // se koristi
+        $scope.Date = {
+            from: new Date(86400000).toISOString().split("T")[0],
+            to: new Date().toISOString().split("T")[0]
+        };
 
-			$scope.textX = function(entity) {
-				if (!entity)
-					0;
-				if (!$scope.svg)
-					return 0;
-				var el = $("#path-" + entity[0]);
-				if(!el[0]) return 0;
-				return el[0].getBoundingClientRect().left
-						- $scope.svg[0].getBoundingClientRect().left
-						+ el[0].getBoundingClientRect().width/4;
-			}
+        //new variables
+        $scope.municipalities = {};
+        $scope.displayed = [];
 
-			$scope.textY = function(entity) {
-				if (!entity)
-					0;
-				if (!$scope.svg)
-					return 0;
-				var el = $("#path-" + entity[0]);
-				if(!el[0]) return 0;
-				return el[0].getBoundingClientRect().top
-						- $scope.svg[0].getBoundingClientRect().top
-						+ el[0].getBoundingClientRect().height/2;
-			}
-			
-			$scope.color = function(num){
-				if(!num){
-					return "green"
-				}
-				if(!$scope.svg)
-					return 0;
-				var count=0;
-				if($scope.mode)
-					count=$scope.count;
-				else{
-					for(var v in $scope.casesTotal){
-						if($scope.casesTotal[v][0]==$scope.myCase["id"])
-							count=$scope.casesTotal[v][2];
-					}				
-				}
-				var max=count*(1/2);
-				var size=max/4;
-				if(num>=0 && num<size)
-					return "green";
-				else if(num>=size && num<(2*size))
-					return "yellow";
-				else if(num>=(2*size) && num<(3*size))
-					return "orange";
-				else
-					return "red";
-			}
-			
-			$scope.reload = function(){
-				$scope.selected=null;
-				$scope.selectedCity=null;
-				$scope.eventsByCase=false;
-				$scope.map=true;
-				if($scope.myCase["id"]== 0){
-					$scope.mode=true;
-					$scope.entity=$scope.entities[0];
-				}
-				else{
-					$scope.mode=false;
-					var flag=true;
-					var temp={};
-					for(var m in $scope.entities){
-						if($scope.entities[m][0][4]==$scope.myCase["id"]){
-							$scope.entity=$scope.entities[m];
-							flag=false;							
-							break;
-						}
-						if($scope.entities[m][0][4]===null)
-							temp=$scope.entities[m];
-						
-					}
-					if(flag)
-						$scope.entity=temp;
-				}			
-			}
-			
-			$scope.displayCase = function(id,flag){
-				if(flag){
-					$scope.click=false;					
-				}
-				var from = $filter('date')($scope.Date.from,'yyyy-MM-dd');
-				var to = $filter('date')($scope.Date.to,'yyyy-MM-dd');
-				$http.get('/data/rest/Event/events/'+id+'/'+$scope.selectedCity[0]+'/'+from+'/'+to).success(
-						function(data, status, headers, config) {	
-							$scope.eventsByCase=true;
-							$scope.tableParams = new ngTableParams({
-						        page: 1,            // show first page
-						        count: 5           // count per page
-						    }, {
-						        total: data.length,
-						        data: data
-						    });
-						});
-				
-			}
-			
-			var serverAPI = function(){
-				var from = $filter('date')($scope.Date.from,'yyyy-MM-dd');
-				var to = $filter('date')($scope.Date.to,'yyyy-MM-dd');
-				$http.get('/data/rest/EventCase').success(
-						function(data, status, headers, config) {	
-							$scope.cases.push({'id':0,'name':'all events'});
-							$scope.myCase=$scope.cases[0];
-							for(var i in data){
-								$scope.cases.push(data[i]);
-							}
-							
-						});
-				
-				$http.get('/data/rest/Event/count/'+from+'/'+to).success(
-						function(data, status, headers, config) {	
-							$scope.casesTotal=data;
-							var c=0;
-							for(var i in data)
-							{							
-							     c+=data[i][2];									  
-							}
-							$scope.count=c;					
-										
-									});
+        $scope.numberOfCases = function(mid) {
+            for (var v in $scope.entity)
+                if ($scope.entity[v][0] == mid.toString())
+                    return $scope.entity[v][3];
+            return 0;
+        }
 
-				$http.get('/data/rest/Event/all/'+from+'/'+to).success(
-						function(data, status, headers, config) {	
-							$scope.svg = $("svg");
-							$scope.entities = data;
-							$scope.entity=$scope.entities[0];
-						});
-			}		
-			
-			$scope.changeDate=function(){
-				$scope.entities = [];
-				$scope.cases=[];
-				$scope.entity = {};
-				$scope.mode=true;
-				$scope.count=0;
-				$scope.casesTotal={};
-				$scope.selected = null;
-				$scope.selectedCity=null;
-				$scope.eventsByCase=false;
-				$scope.click=true;
-				serverAPI();				
-			}
-			
-			serverAPI();				
-} ]);
-		
+        $scope.pathClick = function(entity) {
+            var el = $("#path-" + entity.id);
+            console.log(el);
+        };
 
-FirstApp.controller('ImportController', [ '$scope', 'crudService',
+        //work only in public
+        $scope.returnToMap = function() {
+            $scope.map = true;
+        }
 
-function($scope, crudService) {
-	$scope.save = function() {
-		var regex = /"id":[^,]*,/gi;
-		var content = $scope.entities.replace(regex, "");
-		crudService($scope.service).import(content);
-	};
-} ]);
+        $scope.select = function(p) {
+            $scope.map = false;
+            $scope.selectedCity = p;
+            $scope.click = true;
+            $scope.eventsByCase = false;
+
+            if ($scope.mode) {
+                var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
+                var to = $filter('date')($scope.Date.to, 'yyyy-MM-dd');
+                $http.get('/data/rest/Event/count/' + p["id"] + '/' + from + '/' + to).success(
+                    function(data, status, headers, config) {
+                        $scope.selected = data;
+                    });
+            } else {
+                $scope.displayCase($scope.myCase['id'], false);
+            }
+        }
+
+        $scope.textX = function(entity) {
+            if (!entity)
+                0;
+            if (!$scope.svg)
+                return 0;
+            var el = $("#path-" + entity['id']);
+            if (!el[0]) return 0;
+            return el[0].getBoundingClientRect().left - $scope.svg[0].getBoundingClientRect().left + el[0].getBoundingClientRect().width / 4;
+        }
+
+        $scope.textY = function(entity) {
+            if (!entity)
+                0;
+            if (!$scope.svg)
+                return 0;
+            var el = $("#path-" + entity['id']);
+            if (!el[0]) return 0;
+            return el[0].getBoundingClientRect().top - $scope.svg[0].getBoundingClientRect().top + el[0].getBoundingClientRect().height / 2;
+        }
+
+        $scope.color = function(mid, residents) {
+            if (!mid || !residents) {
+                return "green"
+            }
+            if (!$scope.svg)
+                return 0;
+            var caseCount = 0;
+
+            for (var v in $scope.entity) {
+                if ($scope.entity[v][0] == mid.toString()) {
+                    caseCount = $scope.entity[v][3];
+                    break;
+                }
+            }
+            var value = caseCount / residents;
+            value = value * 1000;
+            value = Math.round(value);
+            if (value < 1)
+                return "green";
+            else if (value >= 1 && value < 2)
+                return "yellow";
+            else if (value >= 2 && value < 4)
+                return "orange";
+            else
+                return "red";
+        }
+
+        $scope.reload = function() {
+            $scope.selected = null;
+            $scope.selectedCity = null;
+            $scope.eventsByCase = false;
+            $scope.map = true;
+            if ($scope.myCase["id"] == 0) {
+                $scope.mode = true;
+                $scope.entity = $scope.entities[0];
+            } else {
+                $scope.mode = false;
+                var flag = true;
+                var temp = {};
+                for (var m in $scope.entities) {
+                    if ($scope.entities[m][0][4] == $scope.myCase["id"]) {
+                        $scope.entity = $scope.entities[m];
+                        flag = false;
+                        break;
+                    }
+                    if ($scope.entities[m][0][4] === null)
+                        temp = $scope.entities[m];
+
+                }
+                if (flag)
+                    $scope.entity = temp;
+            }
+        }
+
+        $scope.displayCase = function(id, flag) {
+            if (flag) {
+                $scope.click = false;
+            }
+//            var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
+//            var to = $filter('date')($scope.Date.to, 'yyyy-MM-dd');
+            //				$http.get('/data/rest/Event/events/'+id+'/'+$scope.selectedCity["id"]+'/'+from+'/'+to).success(
+            //						function(data, status, headers, config) {	
+            //							$scope.eventsByCase=true;
+            //							$scope.tableParams = new ngTableParams({
+            //						        page: 1,            // show first page
+            //						        count: 5           // count per page
+            //						    }, {
+            //						        total: data.length,
+            //						        data: data
+            //						    });
+            //						});
+            $scope.eventsByCase = true;
+
+        }
+
+        var serverAPI = function() {
+            var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
+            var to = $filter('date')($scope.Date.to, 'yyyy-MM-dd');
+
+            //Get all EventCases
+            $http.get('/data/rest/EventCase/all').success(
+                function(data, status, headers, config) {
+                    $scope.cases.push({
+                        'id': 0,
+                        'name': 'all events'
+                    });
+                    $scope.myCase = $scope.cases[0];
+                    for (var i in data) {
+                        $scope.cases.push(data[i]);
+                    }
+                });
+
+            //Get all Municipalities
+            $http.get('/data/rest/Municipality/all').success(
+                function(data, status, headers, config) {
+                    $scope.municipalities = data;
+
+                });
+
+            //Get all Events by Case and Municipality
+            $http.get('/data/rest/Event/all/' + from + '/' + to).success(
+                function(data, status, headers, config) {
+                    $scope.svg = $("svg");
+                    $scope.entities = data;
+                    $scope.entity = $scope.entities[0];
+                });
+        }
+
+        $scope.changeDate = function() {
+            $scope.entities = [];
+            $scope.cases = [];
+            $scope.entity = {};
+            $scope.mode = true;
+            $scope.count = 0;
+            $scope.casesTotal = {};
+            $scope.selected = null;
+            $scope.selectedCity = null;
+            $scope.eventsByCase = false;
+            $scope.click = true;
+            serverAPI();
+        }
+
+        serverAPI();
+
+        $scope.getPage = function(start, number,tableState) {
+            var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
+            var to = $filter('date')($scope.Date.to, 'yyyy-MM-dd');
+            $http.get('/data/rest/Event/paged?count=' + number + '&filter[caseByMunicipality]={"caseId":' + 3 + ',"mid":' + 1 + ',"from":"' + from + '","to":"' + to + '"}&page=' + start).success(
+                function(data, status, headers, config) {
+                	 $scope.displayed = data.content;
+                     tableState.pagination.numberOfPages = data.totalElements / number; //set the number of pages so the pagination can update
+                     $scope.isLoading = false;
+                });
+        }
+
+        $scope.callServer = function callServer(tableState) {
+
+            $scope.isLoading = true;
+
+            var pagination = tableState.pagination;
+
+            var start = pagination.start || 1; // This is NOT the page number, but the index of item in the list that you want to use to display the table.
+            var number = pagination.number || 10; // Number of entries showed per page.
+
+            $scope.getPage(start, number,tableState);
+        };
+
+        $scope.transformationLeft = function (){
+//        	"transform="translate(-120, -60) scale(0.8)
+        	var svg = $("#svg");
+			var path = svg.find("#path-b");	
+			var left = svg[0].getBoundingClientRect().left - path[0].getBoundingClientRect().left
+			var top = svg[0].getBoundingClientRect().top - path[0].getBoundingClientRect().top
+			console.log("left "+left);
+//			return left;
+			path.attr("transform", "translate("+left+","+top+")");
+        }
+        
+        $scope.transformationTop = function (){
+//        	"transform="translate(-120, -60) scale(0.8)
+        	var svg = $("#svg");
+			var path = svg.find("#path-b");		
+			var top = svg[0].getBoundingClientRect().top - path[0].getBoundingClientRect().top
+			console.log("top "+top);
+			return top;
+        }
+    }
+]);
+
+
+FirstApp.controller('ImportController', ['$scope', 'crudService',
+
+    function($scope, crudService) {
+        $scope.save = function() {
+            var regex = /"id":[^,]*,/gi;
+            var content = $scope.entities.replace(regex, "");
+            crudService($scope.service).import(content);
+        };
+    }
+]);

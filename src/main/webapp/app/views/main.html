@@ -1,72 +1,75 @@
-
 <div class="row" ng-controller="MainCtrl">
-
-<div class="jumbotron col-md-9" >
-<div class="row">
-		<div class="form-group">
-			 <select class="dropdown" ng-model="myCase" ng-options="case.name | translate for case in cases" ng-change="reload()"> 
-			</select>
-		</div>
-	</div>
-	<div class="row">
-		од <quick-datepicker ng-model='Date.from' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" init-value="01/02/1970" placeholder="избери датум"></quick-datepicker>
-		до <quick-datepicker ng-model='Date.to' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>
-		<button type="button" class="btn-primary btn-md" ng-click="changeDate()">Пребарај</button>
-	</div>
-
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
-			xmlns:cc="http://creativecommons.org/ns#"
-			xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-			xmlns:svg="http://www.w3.org/2000/svg"
-			xmlns="http://www.w3.org/2000/svg"
-			xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-			xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-			width="744.09003" 
-			height="581" 
-			id="svg2" 
-			sodipodi:version="0.32"
-			inkscape:version="0.48.4 r9939" 
-			version="1.0"
-			sodipodi:docname="Map_of_urban_and_rural_municipalities_of_Macedonia_en.svg"
-			inkscape:output_extension="org.inkscape.output.svg.inkscape">
-
-    		<g inkscape:label="Layer 1"  id="layer1">
-    			<path	ng-repeat="p in entity"
-    					ng-click="select(p)"
-    			 		inkscape:connector-curvature="0"
-						style="
+    <div class="jumbotron col-md-9">
+        <div class="row">
+            <div class="form-group">
+                <select class="dropdown" ng-model="myCase" ng-options="case.name | translate for case in cases" ng-change="reload()"></select>
+            </div>
+        </div>
+        <div class="row">
+            од
+            
+            <quick-datepicker ng-model='Date.from' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" init-value="01/02/1970" placeholder="избери датум"></quick-datepicker>
+            до
+            
+            <quick-datepicker ng-model='Date.to' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>
+            <button type="button" class="btn-primary btn-md" ng-click="changeDate()">Пребарај</button>
+        </div>
+        <svg
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="744.09003" height="581" id="svg2" sodipodi:version="0.32" inkscape:version="0.48.4 r9939" version="1.0" sodipodi:docname="Map_of_urban_and_rural_municipalities_of_Macedonia_en.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
+            <g inkscape:label="Layer 1" id="layer1">
+                <path ng-repeat="p in municipalities" ng-click="select(p)" inkscape:connector-curvature="0" style="
 						fill-opacity:0.5;
 						fill-rule:nonzero;
 						stroke:#000;
-						stroke-opacity:1"
-						fill={{color(p[3])}}
-						id="path-{{p[0]}}"
-						d="{{p[2]}}"
-						class="pointer">
-						
-        		 </path>
-        		 <text ng-repeat="p in entity" x="{{textX(p)}}" y="{{textY(p)}}" 
-        		 		style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{p[3]}}</text>
-    		</g>
-  </svg>
-</div>
-<div class="col-md-3" ng-if="selectedCity">
-	<h3><u>{{selectedCity[1]}}</u></h2>
-</div>
-<div class="col-md-3" ng-if="selectedCity&&mode">
-	<ul class="list-unstyled" ng-if="selected&&click" style="color:blue">
-		<li ng-repeat="s in selected" ng-click="displayCase(s[0],true)" class="pointer"><u>{{s[1] | shorten:35}}</u></li>
-	</ul>
-	
-	<p ng-if="!selected||!selected.length&&!click">Моментално нема криминални активности.</p>
-</div>
-<div class="col-md-3" ng-if="eventsByCase">	
-	<table ng-table="$parent.tableParams" class="table">
-			<tr ng-repeat="row in $data">
-				<td style="padding:5px;border-bottom: 1px solid #4444dd">
-					<div >{{row["eventDescription"] }}</div>
-				</td>				
-			</tr>
-		</table>
-</div>
+						stroke-opacity:1" fill="{{color(p['id'], p['residents'])}}" id="path-{{p['id']}}" d="{{p['description']}}" class="pointer"></path>
+                <text ng-repeat="p in municipalities" x="{{textX(p)}}" y="{{textY(p)}}" style="font-size: 10px; font-family: Verdana; fill: rgb(0, 0, 0);">{{numberOfCases(p['id'])}}</text>
+            </g>
+        </svg>
+    </div>
+    <!-- 	
+	<iv-simple-table
+  path="Event"
+  columns="['eventDescription']"
+  global-filter="false"></iv-simple-table> -->
+    <div class="col-md-3" ng-if="selectedCity">
+        <h3>
+            <u>{{selectedCity["name"]}}</u>
+        </h2>
+    </div>
+    <div class="col-md-3" ng-if="selectedCity&&mode">
+        <ul class="list-unstyled" ng-if="selected&&click" style="color: blue">
+            <li ng-repeat="s in selected" ng-click="displayCase(s[0],true)"
+				class="pointer">
+                <u>{{s[1] | shorten:30}}</u>
+            </li>
+        </ul>
+        <p ng-if="!selected||!selected.length&&!click">Моментално нема
+			криминални активности.</p>
+    </div>
+    <div class="col-md-3" ng-if="eventsByCase">
+        <!-- <table ng-table="$parent.tableParams" class="table"><tr ng-repeat="row in $data"><td style="padding: 5px; border-bottom: 1px solid #4444dd"><div>{{row["eventDescription"] }}</div></td></tr></table> -->
+        <table class="table" st-pipe="callServer" st-table="displayed">
+            <tbody ng-show="!isLoading">
+                <tr ng-repeat="row in displayed">
+                    <td>{{row.eventDescription}}</td>
+                </tr>
+            </tbody>
+            <tbody ng-show="isLoading">
+                <tr>
+                    <td colspan="4" class="text-center">Loading ... </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-center" st-pagination="" st-items-by-page="5" colspan="4"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 </div>

@@ -7,4 +7,6 @@ import mk.ukim.finki.wp.service.BaseEntityCrudService;
 
 public interface EventCaseService extends BaseEntityCrudService<EventCase> {
 	public List<EventCase> findByName(String name);
+	
+	public List<EventCase> allCases();
 }

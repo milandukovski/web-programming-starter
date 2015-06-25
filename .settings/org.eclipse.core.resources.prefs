@@ -1,8 +1,10 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/index.jsp=UTF-8
 encoding//src/main/webapp/app/forms/eventEntity.html=UTF-8
 encoding//src/main/webapp/app/forms/shortEventEntity.html=UTF-8
+encoding//src/main/webapp/app/styles/main.css=UTF-8
 encoding//src/main/webapp/app/views/crime_map/municipalities.html=UTF-8
 encoding//src/main/webapp/app/views/main.html=UTF-8
 encoding//src/main/webapp/app/views/main_public.html=UTF-8
