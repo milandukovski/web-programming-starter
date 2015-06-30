@@ -166,7 +166,15 @@ public class EventSpecifications implements BaseSpecification<Event> {
 		if (field.equals("date")) {
 			DateTime date = parseForFilter(value);
 			return date(date);
-		} else if (field.equals("datumFrom")) {
+		}else if (field.equals("caseByMunicipality")) {
+			try {
+				return caseByMunicipality(value);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if (field.equals("datumFrom")) {
 			DateTime date = parseForFilter(value);
 			return datumFrom(date);
 		} else if (field.equals("dateTo")) {
@@ -194,14 +202,7 @@ public class EventSpecifications implements BaseSpecification<Event> {
 			return durationValidity(Boolean.parseBoolean(value));
 		} else if (field.equals("shift")) {
 			return shift(Long.parseLong(value));
-		} else if (field.equals("caseByMunicipality")) {
-			try {
-				return caseByMunicipality(value);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		} 
 		return null;
 	}
 
@@ -230,7 +231,7 @@ public class EventSpecifications implements BaseSpecification<Event> {
 		String to = jsonObj.getString("to");
 		DateTime dateF = parseForFilter(from);
 		DateTime dateT = parseForFilter(to);
-		return Specifications.<Event>where(null).or(municipality(mid))
-		        .or(eventCase(caseId)).or(betweenDate(dateF,dateT));
+		return Specifications.<Event>where(municipality(mid))
+		        .and(eventCase(caseId)).and(betweenDate(dateF,dateT));
 	}
 }

@@ -59,14 +59,11 @@
 			        	var scaleFactorW = widthSvg / widthPath;
 			        	var scaleFactorH = heightSvg / heightPath;		
 				        path.attr("transform", "scale("+scaleFactorW+","+scaleFactorH+") translate(" + left + "," + top + ")");
-	/* 
-			        else
-			        	path.attr("transform", "translate(" + left + "," + top + ")"); */
 			        
 			    }, 250);
 			</script>		
 			</svg>
-			
+			<span class="right" style="margin-right:30px;" ng-if="dataCount">Вкупниот број на настани за бараниот период од {{Date.from | date:'yyyy-MM-dd'}} до {{Date.to}} e {{dataCount}}</span>
 			<h3><u>{{selectedCity["name"]}}</u></h2>
 		</div>
 		<div  ng-if="selectedCity&&mode">

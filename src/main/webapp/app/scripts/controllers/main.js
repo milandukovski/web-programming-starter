@@ -25,6 +25,7 @@ FirstApp.controller('MainCtrl', [
         $scope.casesTotal = {};
         $scope.selected = null;
         $scope.selectedCity = null;
+        $scope.selectedCase = null;
         $scope.eventsByCase = false;
         $scope.click = true;
         //only for public
@@ -37,7 +38,8 @@ FirstApp.controller('MainCtrl', [
         //new variables
         $scope.municipalities = {};
         $scope.displayed = [];
-
+        $scope.dataCount = null;
+        
         $scope.numberOfCases = function(mid) {
             for (var v in $scope.entity)
                 if ($scope.entity[v][0] == mid.toString())
@@ -53,6 +55,7 @@ FirstApp.controller('MainCtrl', [
         //work only in public
         $scope.returnToMap = function() {
             $scope.map = true;
+            $scope.dataCount = null;
         }
 
         $scope.select = function(p) {
@@ -100,7 +103,6 @@ FirstApp.controller('MainCtrl', [
             if (!$scope.svg)
                 return 0;
             var caseCount = 0;
-
             for (var v in $scope.entity) {
                 if ($scope.entity[v][0] == mid.toString()) {
                     caseCount = $scope.entity[v][3];
@@ -110,11 +112,11 @@ FirstApp.controller('MainCtrl', [
             var value = caseCount / residents;
             value = value * 1000;
             value = Math.round(value);
-            if (value < 1)
+            if (value < 2)
                 return "green";
-            else if (value >= 1 && value < 2)
+            else if (value >= 3 && value < 5)
                 return "yellow";
-            else if (value >= 2 && value < 4)
+            else if (value >= 5 && value < 7)
                 return "orange";
             else
                 return "red";
@@ -123,7 +125,9 @@ FirstApp.controller('MainCtrl', [
         $scope.reload = function() {
             $scope.selected = null;
             $scope.selectedCity = null;
+            $scope.selectedCase = null;
             $scope.eventsByCase = false;
+            $scope.dataCount = null;
             $scope.map = true;
             if ($scope.myCase["id"] == 0) {
                 $scope.mode = true;
@@ -151,21 +155,11 @@ FirstApp.controller('MainCtrl', [
             if (flag) {
                 $scope.click = false;
             }
-//            var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
-//            var to = $filter('date')($scope.Date.to, 'yyyy-MM-dd');
-            //				$http.get('/data/rest/Event/events/'+id+'/'+$scope.selectedCity["id"]+'/'+from+'/'+to).success(
-            //						function(data, status, headers, config) {	
-            //							$scope.eventsByCase=true;
-            //							$scope.tableParams = new ngTableParams({
-            //						        page: 1,            // show first page
-            //						        count: 5           // count per page
-            //						    }, {
-            //						        total: data.length,
-            //						        data: data
-            //						    });
-            //						});
-            $scope.eventsByCase = true;
+            var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
+            var to = $filter('date')($scope.Date.to, 'yyyy-MM-dd');
 
+            $scope.eventsByCase = true;
+            $scope.selectedCase = id;
         }
 
         var serverAPI = function() {
@@ -210,8 +204,10 @@ FirstApp.controller('MainCtrl', [
             $scope.casesTotal = {};
             $scope.selected = null;
             $scope.selectedCity = null;
+            $scope.selectedCase = null;
             $scope.eventsByCase = false;
             $scope.click = true;
+            $scope.dataCount = null;
             serverAPI();
         }
 
@@ -220,11 +216,17 @@ FirstApp.controller('MainCtrl', [
         $scope.getPage = function(start, number,tableState) {
             var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
             var to = $filter('date')($scope.Date.to, 'yyyy-MM-dd');
-            $http.get('/data/rest/Event/paged?count=' + number + '&filter[caseByMunicipality]={"caseId":' + 3 + ',"mid":' + 1 + ',"from":"' + from + '","to":"' + to + '"}&page=' + start).success(
+            var page;
+            if(start <= 1)
+            	page = 1;
+            else 
+            	page=  Math.ceil(start/number) + 1;
+            $http.get('/data/rest/Event/paged?count=' + number + '&filter[caseByMunicipality]={"caseId":' + $scope.selectedCase + ',"mid":' + $scope.selectedCity["id"] + ',"from":"' + from + '","to":"' + to + '"}&page=' + page).success(
                 function(data, status, headers, config) {
                 	 $scope.displayed = data.content;
                      tableState.pagination.numberOfPages = data.totalElements / number; //set the number of pages so the pagination can update
                      $scope.isLoading = false;
+                     $scope.dataCount = data.totalElements;
                 });
         }
 
@@ -236,29 +238,9 @@ FirstApp.controller('MainCtrl', [
 
             var start = pagination.start || 1; // This is NOT the page number, but the index of item in the list that you want to use to display the table.
             var number = pagination.number || 10; // Number of entries showed per page.
-
+    
             $scope.getPage(start, number,tableState);
         };
-
-        $scope.transformationLeft = function (){
-//        	"transform="translate(-120, -60) scale(0.8)
-        	var svg = $("#svg");
-			var path = svg.find("#path-b");	
-			var left = svg[0].getBoundingClientRect().left - path[0].getBoundingClientRect().left
-			var top = svg[0].getBoundingClientRect().top - path[0].getBoundingClientRect().top
-			console.log("left "+left);
-//			return left;
-			path.attr("transform", "translate("+left+","+top+")");
-        }
-        
-        $scope.transformationTop = function (){
-//        	"transform="translate(-120, -60) scale(0.8)
-        	var svg = $("#svg");
-			var path = svg.find("#path-b");		
-			var top = svg[0].getBoundingClientRect().top - path[0].getBoundingClientRect().top
-			console.log("top "+top);
-			return top;
-        }
     }
 ]);
 
