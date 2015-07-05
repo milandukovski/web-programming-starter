@@ -1,5 +1,18 @@
 # Changelog
 
+## `v0.3.9` - Mar 3, 2015.
+
+- [#155] Deactivate dropdown on escape. (thanks for [@EnTeQuAk](https://github.com/EnTeQuAk))
+
+## `v0.3.8` - Feb 26, 2015.
+
+- [#154] Fix completion with enter key. (thanks for [@tleruitte](https://github.com/tleruitte))
+- [#153] Fix empty span node is inserted. (thanks for [@tleruitte](https://github.com/tleruitte))
+
+## `v0.3.7` - Jan 21, 2015.
+
+- [#149] Support input[type=text]. (thanks for [@pafcu](https://github.com/pafcu))
+
 ## `v0.3.6` - Dec 11, 2014.
 
 - [#147] Support element.contentEditable compatibility check. (thanks for [@nick-desteffen](https://github.com/nick-desteffen))

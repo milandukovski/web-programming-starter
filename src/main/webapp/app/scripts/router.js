@@ -30,7 +30,11 @@ FirstApp.config([ '$routeProvider', '$translateProvider',
 				templateUrl : 'views/import/import.html',
 				controller : 'ImportController',
 				publicAccess : true
-			})
+			});
+			
+			$routeProvider.when('/visualisation', {
+				templateUrl : 'views/visualisation.html'
+			});
 
 			for (var i = 0; i < menuData.length; i++) {
 				var items = menuData[i]["items"];

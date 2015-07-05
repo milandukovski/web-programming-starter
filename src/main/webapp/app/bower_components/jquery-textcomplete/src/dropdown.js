@@ -117,6 +117,22 @@
 
     setPosition: function (position) {
       this.$el.css(this._applyPlacement(position));
+
+      // Make the dropdown fixed if the input is also fixed
+      // This can't be done during init, as textcomplete may be used on multiple elements on the same page
+      // Because the same dropdown is reused behind the scenes, we need to recheck every time the dropdown is showed
+      var position = 'absolute';
+      // Check if input or one of its parents has positioning we need to care about
+      this.$inputEl.add(this.$inputEl.parents()).each(function() {
+        if($(this).css('position') === 'absolute') // The element has absolute positioning, so it's all OK
+          return false;
+        if($(this).css('position') === 'fixed') {
+          position = 'fixed';
+          return false;
+        }
+      });
+      this.$el.css({ position: position }); // Update positioning
+
       return this;
     },
 
@@ -167,6 +183,10 @@
 
     isPagedown: function (e) {
       return e.keyCode === 34;  // PAGEDOWN
+    },
+
+    isEscape: function (e) {
+      return e.keyCode === 27;  // ESCAPE
     },
 
     // Private properties
@@ -229,6 +249,9 @@
       } else if (this.isPagedown(e)) {
         e.preventDefault();
         this._pagedown();
+      } else if (this.isEscape(e)) {
+        e.preventDefault();
+        this.deactivate();
       }
     },
 
@@ -255,7 +278,7 @@
     _enter: function () {
       var datum = this.data[parseInt(this._getActiveElement().data('index'), 10)];
       this.completer.select(datum.value, datum.strategy);
-      this._setScroll();
+      this.deactivate();
     },
 
     _pageup: function () {
@@ -352,7 +375,7 @@
       }
     },
 
-    _applyPlacement: function (position) { 
+    _applyPlacement: function (position) {
       // If the 'placement' option set to 'top', move the position above the element.
       if (this.placement.indexOf('top') !== -1) {
         // Overwrite the position object to set the 'bottom' property instead of the top.

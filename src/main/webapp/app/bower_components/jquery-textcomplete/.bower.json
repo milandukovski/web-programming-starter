@@ -1,7 +1,7 @@
 {
   "name": "jquery-textcomplete",
-  "version": "0.3.6",
-  "main": "dist/jquery.textcomplete.min.js",
+  "version": "0.3.9",
+  "main": "dist/jquery.textcomplete.js",
   "dependencies": {
     "jquery": ">=1.7.0"
   },
@@ -17,11 +17,11 @@
     "tests"
   ],
   "homepage": "https://github.com/yuku-t/jquery-textcomplete",
-  "_release": "0.3.6",
+  "_release": "0.3.9",
   "_resolution": {
     "type": "version",
-    "tag": "v0.3.6",
-    "commit": "f5a5cd38f354512cd835db6ca2b311a0f47f9426"
+    "tag": "v0.3.9",
+    "commit": "dec9a3732e0f6e7f22557fa2afe0c0052ec06f6c"
   },
   "_source": "git://github.com/yuku-t/jquery-textcomplete.git",
   "_target": "~0.3.3",

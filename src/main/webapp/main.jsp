@@ -65,6 +65,8 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#/">{{'menu.home' | translate }} <span class="sr-only">(current)</span></a>
                         </li>
+                        <li><a href="#/visualisation">{{'menu.visualisation' | translate }} <span class="sr-only">(current)</span></a>
+                        </li>
 
                         <li class="dropdown" ng-repeat="topMenu in menu">
                             <a class="dropdown-toggle" href="javascript: false" data-toggle="dropdown" role="button" aria-expanded="false">{{topMenu.name | translate}} <span class="caret"></span></a>
@@ -74,6 +76,7 @@
                                 </li>
                             </ul>
                         </li>
+                        
                         
                     </ul>
 
