@@ -84,8 +84,8 @@ public class Event extends BaseEntity{
 	@Column(length=10000)
 	private String eventDescription;
 
-	private String materialCost;
-	private String benefit;
+	private double materialCost;
+	private double benefit;
 	
 	
 	@ManyToMany(cascade = { CascadeType.ALL },fetch=FetchType.EAGER)   
@@ -226,19 +226,19 @@ public class Event extends BaseEntity{
 		this.eventDescription = eventDescription;
 	}
 
-	public String getMaterialCost() {
+	public double getMaterialCost() {
 		return materialCost;
 	}
 
-	public void setMaterialCost(String materialCost) {
+	public void setMaterialCost(double materialCost) {
 		this.materialCost = materialCost;
 	}
 
-	public String getBenefit() {
+	public double getBenefit() {
 		return benefit;
 	}
 
-	public void setBenefit(String benefit) {
+	public void setBenefit(double benefit) {
 		this.benefit = benefit;
 	}
 

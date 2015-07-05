@@ -144,6 +144,12 @@ public class EventResource extends CrudResource<Event, EventService> {
 		}
 		return String.valueOf(chars);
 	}
+	
+	private double getNumberValue(String s){
+		String[] parts = s.split(" ");
+		String value = parts[0].replaceAll(",", "");
+		return Double.parseDouble(value);
+	}
 
 	public void doUpload(InputStream is) {
 		String csvData = "data.csv";
@@ -258,10 +264,10 @@ public class EventResource extends CrudResource<Event, EventService> {
 				// Set Description
 				entity.setEventDescription(fields[10]);
 				// Set shteta
-				entity.setMaterialCost(fields[11]);
+				entity.setMaterialCost(getNumberValue(fields[11]));
 				// Set benefits
 				if (fields.length == 13)
-					entity.setBenefit(fields[12]);
+					entity.setBenefit(getNumberValue(fields[12]));
 				// Area ??
 				/*
 				 * entity.setArea(null); entity.setPoint(null);
