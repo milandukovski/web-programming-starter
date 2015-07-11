@@ -40,10 +40,12 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\EventPointsOfEntryRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\AgeServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\HumanCharacteristicsResource.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\view\EventView.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\VehicleModelServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\EyeColorResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\errors\RestErrorHandler.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EyeColorServiceImpl.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\EventViewResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\SpeachTroubleServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EyeColorService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\SpecifiedPersonInEventServiceImpl.java
@@ -140,6 +142,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\VehicleRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EventCrimesAgainstPropertyServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\HairColorResource.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EventViewService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\VehicleColorServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\HairColorServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\model\db\UnspecifiedPersonInEvent.java
@@ -182,6 +185,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\EventPoliceStationResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\NationalityServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\UnspecifiedPersonServiceImpl.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\EventViewServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\EthnicityService.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\TeethConditionResource.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\web\rest\db\ArticleTypeResource.java
@@ -205,6 +209,7 @@ C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\uk
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\security\AuthenticationTokenProcessingFilter.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\ArticleRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\UnspecifiedPersonService.java
+C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\EventViewRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\impl\db\ArticleUnitServiceImpl.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\repository\db\VehicleBrendRepository.java
 C:\Users\Reksorator\Documents\GitHub\web-programming-starter\src\main\java\mk\ukim\finki\wp\service\db\VehicleService.java

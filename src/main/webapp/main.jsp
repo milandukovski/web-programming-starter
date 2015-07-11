@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
     <link rel="stylesheet" href="bower_components/select2/select2.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-select2/docs/style.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-markdown/css/bootstrap-markdown.min.css" />
     <link rel="stylesheet" href="bower_components/datetimepicker/jquery.datetimepicker.css" />
     <link rel="stylesheet" href="bower_components/ng-table/ng-table.css" />
