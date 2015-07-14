@@ -61,8 +61,13 @@ public class EventResource extends CrudResource<Event, EventService> {
 
 	private HashSet<String> municipalitiesOfSkopje = new HashSet<String>();
 	
+	@RequestMapping(value = "/all", method = RequestMethod.GET, produces = "application/json")
+	public List<Event> getAll(){
+		return getService().findAll();
+	}
+	
 	@RequestMapping(value = "/all/{from}/{to}", method = RequestMethod.GET, produces = "application/json")
-	public LinkedList<Object> getALL(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+	public LinkedList<Object> getAllFromToDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date to) throws JsonProcessingException{
 		
 		LinkedList map = new LinkedList<Object>();

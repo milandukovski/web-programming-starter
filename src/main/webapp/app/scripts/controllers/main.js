@@ -16,8 +16,7 @@ FirstApp.controller('MainCtrl', [
     '$http',
     '$filter',
     "ngTableParams",
-    "crudService",
-    function($scope, $http, $filter, ngTableParams, crudService) {
+    function($scope, $http, $filter, ngTableParams) {
         $scope.entities = []; // se koristi
         $scope.cases = []; // se koristi
         $scope.entity = {}; // se koristi

@@ -25,98 +25,156 @@ public class EventView extends BaseEntity{
 	@JsonSerialize(using = ShortDateSerializer.class)
 	@JsonDeserialize(using = CustomDateDeserializer.class)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "datum")
-	private DateTime datum;
+	@Column(name = "date")
+	private DateTime date;
 	
-	@Column(name = "svrRc_id")
-	private Long svrRC;
+	@Column(name = "svr_rc_id")
+	private Long svrRcId;
 	
-	@Column(name = "policeStation_id")
-	private Long policeStation;
+	@Column(name = "svr_rc_name")
+	private String svrRcName;
 	
-	@Column(name = "commonArea_id")
-	private Long commonArea;
+	@Column(name = "police_station_id")
+	private Long policeStationId;
+	
+	@Column(name = "police_station_name")
+	private String policeStationName;
+	
+	@Column(name = "common_area_id")
+	private Long commonAreaId;
+	
+	@Column(name = "common_area_name")
+	private String commonAreaName;
 	
 	@Column(name = "area_id")
-	private Long area;
+	private Long areaId;
+	
+	@Column(name = "area_name")
+	private String areaName;
 	
 	@Column(name = "ecase_id")
-	private Long ecase;
+	private Long ecaseId;
 	
-	@Column(name = "opstina_id")
-	private Long opstina;
+	@Column(name = "ecase_name")
+	private String ecaseName;
 	
-	@Column(name = "eventDescription", length=10000)
-	private String eventDescription;
-
-	@Column(name = "materialCost")
+	@Column(name = "municipality_id")
+	private Long municipalityId;
+	
+	@Column(name = "municipality_name")
+	private String municipalityName;
+	
+	@Column(name = "municipality_residents")
+	private int municipalityResidents;
+	
+	@Column(name = "material_cost")
 	private double materialCost;
 	
 	@Column(name = "benefit")
 	private double benefit;
 
-	public DateTime getDatum() {
-		return datum;
+	public DateTime getDate() {
+		return date;
 	}
 
-	public void setDatum(DateTime datum) {
-		this.datum = datum;
+	public void setDate(DateTime date) {
+		this.date = date;
 	}
 
-	public Long getSvrRC() {
-		return svrRC;
+	public Long getSvrRcId() {
+		return svrRcId;
 	}
 
-	public void setSvrRC(Long svrRC) {
-		this.svrRC = svrRC;
+	public void setSvrRcId(Long svrRcId) {
+		this.svrRcId = svrRcId;
 	}
 
-	public Long getPoliceStation() {
-		return policeStation;
+	public String getSvrRcName() {
+		return svrRcName;
 	}
 
-	public void setPoliceStation(Long policeStation) {
-		this.policeStation = policeStation;
+	public void setSvrRcName(String svrRcName) {
+		this.svrRcName = svrRcName;
 	}
 
-	public Long getCommonArea() {
-		return commonArea;
+	public Long getPoliceStationId() {
+		return policeStationId;
 	}
 
-	public void setCommonArea(Long commonArea) {
-		this.commonArea = commonArea;
+	public void setPoliceStationId(Long policeStationId) {
+		this.policeStationId = policeStationId;
 	}
 
-	public Long getArea() {
-		return area;
+	public String getPoliceStationName() {
+		return policeStationName;
 	}
 
-	public void setArea(Long area) {
-		this.area = area;
+	public void setPoliceStationName(String policeStationName) {
+		this.policeStationName = policeStationName;
 	}
 
-	public Long getEcase() {
-		return ecase;
+	public Long getCommonAreaId() {
+		return commonAreaId;
 	}
 
-	public void setEcase(Long ecase) {
-		this.ecase = ecase;
+	public void setCommonAreaId(Long commonAreaId) {
+		this.commonAreaId = commonAreaId;
 	}
 
-	public Long getOpstina() {
-		return opstina;
+	public String getCommonAreaName() {
+		return commonAreaName;
 	}
 
-	public void setOpstina(Long opstina) {
-		this.opstina = opstina;
+	public void setCommonAreaName(String commonAreaName) {
+		this.commonAreaName = commonAreaName;
 	}
 
-	public String getEventDescription() {
-		return eventDescription;
+	public Long getAreaId() {
+		return areaId;
 	}
 
-	public void setEventDescription(String eventDescription) {
-		this.eventDescription = eventDescription;
+	public void setAreaId(Long areaId) {
+		this.areaId = areaId;
+	}
+
+	public String getAreaName() {
+		return areaName;
+	}
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
+	}
+
+	public Long getEcaseId() {
+		return ecaseId;
+	}
+
+	public void setEcaseId(Long ecaseId) {
+		this.ecaseId = ecaseId;
+	}
+
+	public String getEcaseName() {
+		return ecaseName;
+	}
+
+	public void setEcaseName(String ecaseName) {
+		this.ecaseName = ecaseName;
+	}
+
+	public Long getMunicipalityId() {
+		return municipalityId;
+	}
+
+	public void setMunicipalityId(Long municipalityId) {
+		this.municipalityId = municipalityId;
+	}
+
+	public String getMunicipalityName() {
+		return municipalityName;
+	}
+
+	public void setMunicipalityName(String municipalityName) {
+		this.municipalityName = municipalityName;
 	}
 
 	public double getMaterialCost() {
@@ -134,4 +192,12 @@ public class EventView extends BaseEntity{
 	public void setBenefit(double benefit) {
 		this.benefit = benefit;
 	}
-}	
+
+	public int getMunicipalityResidents() {
+		return municipalityResidents;
+	}
+
+	public void setMunicipalityResidents(int municipalityResidents) {
+		this.municipalityResidents = municipalityResidents;
+	}
+}

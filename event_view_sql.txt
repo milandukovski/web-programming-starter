@@ -1,0 +1,14 @@
+﻿create or replace view event_view as
+select  e.id, e.datum as date, e.benefit, e.materialCost as material_cost,
+		m.id as municipality_id, m.name as municipality_name, m.residents as municipality_residents,
+		svr.id as svr_rc_id, svr.name as svr_rc_name,
+		ec.id as ecase_id, ec.name as ecase_name, ps.id as police_station_id,
+		ps.name as police_station_name, ca.id as common_area_id,
+		ca.name as common_area_name, ea.id as area_id, ea.name as area_name
+from mvr_event e 
+			join mvr_municipalities m on e.opstina_id = m.id
+			join mvr_svr_rc svr on e.svrRc_id = svr.id
+			join mvr_event_cases ec on e.ecase_id = ec.id
+			join mvr_event_police_stations ps on e.policeStation_id = ps.id
+			join mvr_event_common_areas ca on e.commonArea_id = ca.id
+			join mvr_event_areas ea on e.area_id = ea.id

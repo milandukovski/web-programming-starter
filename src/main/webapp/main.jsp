@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!doctype html>
 <html class="no-js">
 
@@ -13,14 +14,14 @@
     <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
-    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
     <link rel="stylesheet" href="bower_components/select2/select2.css" />
-    <link rel="stylesheet" href="bower_components/angular-ui-select2/docs/style.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-select2/docs/styles.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-markdown/css/bootstrap-markdown.min.css" />
     <link rel="stylesheet" href="bower_components/datetimepicker/jquery.datetimepicker.css" />
     <link rel="stylesheet" href="bower_components/ng-table/ng-table.css" />
     <link rel="stylesheet" href="bower_components/ngQuickDate/dist/ng-quick-date.css" />
     <link rel="stylesheet" href="bower_components/ngQuickDate/dist/ng-quick-date-default-theme.css" />
+    <link rel="stylesheet" href="bower_components/dcjs/dc.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -113,6 +114,10 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/crossfilter/crossfilter.js"></script>
+    <script src="bower_components/dcjs/dc.js"></script>
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -131,9 +136,7 @@
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
-    <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script src="bower_components/momentjs/moment.js"></script>
     <script src="bower_components/select2/select2.js"></script>
     <script src="bower_components/angular-ui-select2/src/select2.js"></script>
     <script src="bower_components/bootstrap-markdown/js/bootstrap-markdown.js"></script>
@@ -145,6 +148,7 @@
     <script src="bower_components/ng-table-export/ng-table-export.js"></script>
     <script src="bower_components/ngQuickDate/dist/ng-quick-date.js"></script>
     <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+    <script src="bower_components/angular-dc/dist/angular-dc.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -168,6 +172,7 @@
     <script src="scripts/controllers/eventController.js"></script>
     <script src="scripts/controllers/municipalityControler.js"></script>
     <script src="scripts/controllers/uploadController.js"></script>
+    <script src="scripts/controllers/visualisationController.js"></script>
     <!-- Services definition -->
     <script src="scripts/services/services.js"></script>
     <script src="scripts/services/crud.js"></script>

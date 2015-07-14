@@ -209,3 +209,16 @@ a:hover{
 	border-color:  #a50301 !important;
 	color: #fff !important;
 }
+
+#ps-bar-chart{
+	height: 450px;
+} 
+
+.my-pie-char svg{
+	width:280px;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
