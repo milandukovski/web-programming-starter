@@ -62,6 +62,8 @@ FirstApp.controller('MainCtrl', [
             $scope.selectedCity = p;
             $scope.click = true;
             $scope.eventsByCase = false;
+//            $scope.displayed = [];
+            $scope.eventsByCase = false;
 
             if ($scope.mode) {
                 var from = $filter('date')($scope.Date.from, 'yyyy-MM-dd');
@@ -148,6 +150,7 @@ FirstApp.controller('MainCtrl', [
                 if (flag)
                     $scope.entity = temp;
             }
+           
         }
 
         $scope.displayCase = function(id, flag) {
@@ -159,6 +162,10 @@ FirstApp.controller('MainCtrl', [
 
             $scope.eventsByCase = true;
             $scope.selectedCase = id;
+            if($scope.tableState != null){
+            	$scope.tableState.pagination.start = 1;
+                $scope.callServer($scope.tableState);
+            }
         }
 
         var serverAPI = function() {
@@ -223,14 +230,14 @@ FirstApp.controller('MainCtrl', [
             $http.get('/data/rest/Event/paged?count=' + number + '&filter[caseByMunicipality]={"caseId":' + $scope.selectedCase + ',"mid":' + $scope.selectedCity["id"] + ',"from":"' + from + '","to":"' + to + '"}&page=' + page).success(
                 function(data, status, headers, config) {
                 	 $scope.displayed = data.content;
-                     tableState.pagination.numberOfPages = data.totalElements / number; //set the number of pages so the pagination can update
+                     tableState.pagination.numberOfPages = Math.ceil(data.totalElements / number); //set the number of pages so the pagination can update
                      $scope.isLoading = false;
                      $scope.dataCount = data.totalElements;
                 });
         }
 
         $scope.callServer = function callServer(tableState) {
-
+        	$scope.tableState = tableState;
             $scope.isLoading = true;
 
             var pagination = tableState.pagination;

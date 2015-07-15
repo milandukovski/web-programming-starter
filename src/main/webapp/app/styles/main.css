@@ -192,9 +192,7 @@ a:hover{
 }
 
 .table-margin{
-	/* height:110px;
-	background-size: 100%; */
-	margin-top:90px;
+	margin-top:20px;
 }
 
 
@@ -215,10 +213,41 @@ a:hover{
 } 
 
 .my-pie-char svg{
-	width:280px;
+	width:320px;
+	margin-top:20px;
+}
+
+.my-pie-char-2 svg{
+	width:600px;
+	margin-top:20px;
 }
 
 .col-centered{
     float: none;
     margin: 0 auto;
+}
+
+.col-12-centered{
+    float: none;
+    padding: 14px 24px;
+}
+
+.panel-default{
+	background-color: #eee;
+}
+
+.city-title{
+	margin: 20px 20px;
+	font-size: 25px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.chart-title{
+	font-size:18px;
+	font-weight:300;
+}
+
+.custom-row{
+	margin-bottom:30px;
 }

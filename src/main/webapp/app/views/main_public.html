@@ -1,53 +1,63 @@
 
 <div ng-controller="MainCtrl">
-<div class="jumbotron col-md-12" ng-if="map" >
-<div class="row">
-		<div class="form-group">
-			 <select class="dropdown" ng-model="$parent.myCase" ng-options="case.name | translate for case in cases" ng-change="reload()"> 
-			</select>
+	<div class="jumbotron col-md-12" ng-if="map" >
+		<div class="row">
+			<div class="form-group">
+				 <select class="dropdown" ng-model="$parent.myCase" 
+				 ng-options="case.name | translate for case in cases" ng-change="reload()"> 
+				</select>
+			</div>
 		</div>
+		<div class="row">
+			од <quick-datepicker ng-model='Date.from' icon-class='glyphicon glyphicon-calendar' 
+			date-format="dd/MM/yyyy" disable-timepicker="true" init-value="01/02/1970" 
+			placeholder="избери датум"></quick-datepicker>
+			до <quick-datepicker ng-model='Date.to' icon-class='glyphicon glyphicon-calendar' 
+			date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>
+			<button type="button" class="btn-danger btn-md" ng-click="changeDate()">Пребарај</button>
+		</div>
+	
+	 		<svg
+	            xmlns:dc="http://purl.org/dc/elements/1.1/"
+	            xmlns:cc="http://creativecommons.org/ns#"
+	            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	            xmlns:svg="http://www.w3.org/2000/svg"
+	            xmlns="http://www.w3.org/2000/svg"
+	            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+	            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" 
+	            width="744.09003" height="581" id="svg2" sodipodi:version="0.32" 
+	            inkscape:version="0.48.4 r9939" version="1.0" 
+	            sodipodi:docname="Map_of_urban_and_rural_municipalities_of_Macedonia_en.svg" 
+	            inkscape:output_extension="org.inkscape.output.svg.inkscape">
+	            <g inkscape:label="Layer 1" id="layer1">
+	                <path ng-repeat="p in municipalities" ng-click="select(p)" inkscape:connector-curvature="0" style="
+							fill-opacity:0.6;
+							fill-rule:nonzero;
+							stroke:#000;
+							stroke-opacity:1" fill="{{color(p['id'], p['residents'])}}" 
+							id="path-{{p['id']}}" d="{{p['description']}}" class="pointer"></path>            
+	            </g>
+	        </svg>
 	</div>
-	<div class="row">
-		од <quick-datepicker ng-model='Date.from' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" init-value="01/02/1970" placeholder="избери датум"></quick-datepicker>
-		до <quick-datepicker ng-model='Date.to' icon-class='glyphicon glyphicon-calendar' date-format="dd/MM/yyyy" disable-timepicker="true" placeholder="избери датум"></quick-datepicker>
-		<button type="button" class="btn-danger btn-md" ng-click="changeDate()">Пребарај</button>
-	</div>
-
- <svg
-            xmlns:dc="http://purl.org/dc/elements/1.1/"
-            xmlns:cc="http://creativecommons.org/ns#"
-            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:svg="http://www.w3.org/2000/svg"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="744.09003" height="581" id="svg2" sodipodi:version="0.32" inkscape:version="0.48.4 r9939" version="1.0" sodipodi:docname="Map_of_urban_and_rural_municipalities_of_Macedonia_en.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
-            <g inkscape:label="Layer 1" id="layer1">
-                <path ng-repeat="p in municipalities" ng-click="select(p)" inkscape:connector-curvature="0" style="
-						fill-opacity:0.6;
-						fill-rule:nonzero;
-						stroke:#000;
-						stroke-opacity:1" fill="{{color(p['id'], p['residents'])}}" id="path-{{p['id']}}" d="{{p['description']}}" class="pointer"></path>            
-            </g>
-        </svg>
-</div>
-<div class="panel panel-default" ng-if="!map">
-	<div class="panel-body">
-		<div>
-		 <svg width="148.8" height="116.2" id="svg" sodipodi:docname="Map_of_urban_and_rural_municipalities_of_Macedonia_en.svg"
-		  class="right" >
-            <g inkscape:label="Layer 1" id="layer1">	
-			 <path  ng-click="returnToMap()"style="
+	<div class="panel panel-default" ng-if="!map">
+		<div class="panel-body">
+			<div class="row">
+			 <svg width="148.8" height="116.2" id="svg"
+			  sodipodi:docname="Map_of_urban_and_rural_municipalities_of_Macedonia_en.svg"
+			  class="right" >
+	            <g inkscape:label="Layer 1" id="layer1">	
+				 <path  ng-click="returnToMap()"style="
 						fill-opacity:1;
 						fill-rule:nonzero;
 						stroke:#000;
-						stroke-opacity:1" fill="#a50301" id="path-b" d="{{selectedCity['description']}}" class="pointer"></path>
+						stroke-opacity:1" fill="#a50301" id="path-b" 
+						d="{{selectedCity['description']}}" class="pointer"></path>
 			</g>
 			<script>
 			    setTimeout(function() {
 			        var svg = $("#svg");
 			        var path = svg.find("#path-b");
-			
-			
+			        
 			        var top = svg[0].getBoundingClientRect().top - path[0].getBoundingClientRect().top;
 			        var left = svg[0].getBoundingClientRect().left - path[0].getBoundingClientRect().left;
 			        var widthSvg = svg[0].getBoundingClientRect().width;
@@ -55,44 +65,45 @@
 			        var heightSvg = svg[0].getBoundingClientRect().height;
 			        var heightPath = path[0].getBoundingClientRect().height;
 			  
-			        	var scaleFactorW = widthSvg / widthPath;
-			        	var scaleFactorH = heightSvg / heightPath;		
-				        path.attr("transform", "scale("+scaleFactorW+","+scaleFactorH+") translate(" + left + "," + top + ")");
+		        	var scaleFactorW = widthSvg / widthPath;
+		        	var scaleFactorH = heightSvg / heightPath;		
+			        path.attr("transform", "scale("+scaleFactorW+","+scaleFactorH+") translate(" + left + "," + top + ")");
 			        
 			    }, 250);
 			</script>		
 			</svg>
-			<span class="right" style="margin-right:30px;" ng-if="dataCount">Вкупниот број на настани за бараниот период од {{Date.from | date:'yyyy-MM-dd'}} до {{Date.to}} e {{dataCount}}</span>
-			<h3><u>{{selectedCity["name"]}}</u></h2>
+			<span class="right" style="margin-right:30px;" ng-if="dataCount">Вкупниот број на 
+				настани за периодОт од {{Date.from | date:'yyyy-MM-dd'}} до {{Date.to}} e {{dataCount}}</span>
+				<span class="city-title">{{selectedCity["name"]}}</span>
+			</div>
+			<div  ng-if="selectedCity&&mode">
+				<ul class=""  ng-if="selected&&click">
+					<li ng-repeat="s in selected" ng-click="displayCase(s[0],true)" class="catg_title pointer"><img src="./images/double-arrow-right.png" height="8px" width="8px"/> <a>{{s[1]}}</a> </li>
+				</ul>
+			</div>
+			<div ng-if="eventsByCase">	
+				<table class="table table-margin" st-pipe="callServer" st-table="displayed">
+	            <tbody ng-show="!isLoading">
+	                <tr ng-repeat="row in displayed">
+	                	<td><img src="./images/double-arrow-right.png" height="8px" width="8px"/></td>
+	                    <td>{{row.eventDescription}}</td>
+	                </tr>
+	            </tbody>
+	            <tbody ng-show="isLoading">
+	                <tr>
+	                    <td colspan="4" class="text-center">Loading ... </td>
+	                </tr>
+	            </tbody>
+	            <tfoot>
+	                <tr>
+	                    <td class="text-center danger!important" st-pagination="" st-displayed-pages="10" st-items-by-page="10" colspan="4"></td>
+	                </tr>
+	            </tfoot>
+	        </table>
+			</div>
+			
 		</div>
-		<div  ng-if="selectedCity&&mode">
-			<ul class=""  ng-if="selected&&click">
-				<li ng-repeat="s in selected" ng-click="displayCase(s[0],true)" class="catg_title pointer"><img src="./images/double-arrow-right.png" height="8px" width="8px"/> <a>{{s[1]}}</a> </li>
-			</ul>
-		</div>
-		<div ng-if="eventsByCase">	
-			<table class="table table-margin" st-pipe="callServer" st-table="displayed">
-            <tbody ng-show="!isLoading">
-                <tr ng-repeat="row in displayed">
-                	<td><img src="./images/double-arrow-right.png" height="8px" width="8px"/></td>
-                    <td>{{row.eventDescription}}</td>
-                </tr>
-            </tbody>
-            <tbody ng-show="isLoading">
-                <tr>
-                    <td colspan="4" class="text-center">Loading ... </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td class="text-center danger!important" st-pagination="" st-items-by-page="10" colspan="4"></td>
-                </tr>
-            </tfoot>
-        </table>
-		</div>
-		
 	</div>
-</div>
 </div>
 
 

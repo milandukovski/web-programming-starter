@@ -9,6 +9,8 @@ FirstApp.controller('VisualisationCtrl', [
 			var numberFormat = d3.format(".2f");
 			var monthsName = $scope.monthsName = ["Јан","Фев","Мар","Апр","Мај","Јун","Јул","Авг","Сеп","Окт","Ное","Дек"];
 			var dateFormat = d3.time.format("%d/%m/%Y");
+			var red = function(){ return 'red'; };
+			var green = function(){ return 'green'; };
 			
 			data.forEach(function (d) {
 	            d.dd = d3.time.format("%Y-%m-%d").parse(d.date);
@@ -136,6 +138,27 @@ FirstApp.controller('VisualisationCtrl', [
 	        	return d.benefit;
 	        });
 	        
+	        
+	        function reduceAddAvg(p,v) {
+        	  ++p.count
+        	  p.residents = v.municipalityResidents;
+        	  p.perCapita += p.residents*p.count / 100000;
+        	  return p;
+        	}
+        	function reduceRemoveAvg(p,v) {
+        	  --p.count
+        	  p.residents -= v.municipalityResidents;
+        	  p.perCapita = p.residents*p.count / 100000;
+        	  return p;
+        	}
+        	function reduceInitAvg() {
+        	  return {count:0, residents:0, perCapita:0};
+        	}
+//        	var statesAvgGroup = statesAvgDimension.group().reduce(reduceAddAvg, reduceRemoveAvg, reduceInitAvg);
+//        	var statesAvgGroup = statesAvgDimension.group().reduce(reduceAddAvg, reduceRemoveAvg, reduceInitAvg);
+	        
+	        s.eventPerCapiteGroup = s.timeMonths.group().reduce(reduceAddAvg, reduceRemoveAvg, reduceInitAvg);
+	        
 	        //### Define Chart Attributes
 	        //Define chart attributes using fluent methods. See the [dc API Reference](https://github.com/dc-js/dc.js/blob/master/web/docs/api-1.7.0.md) for more information
 	        //
@@ -206,7 +229,7 @@ FirstApp.controller('VisualisationCtrl', [
 	        
 	        s.moveChartOptions = {
                 title: function (d) {
-                    var value = d.value;
+                    var value = d.value.perCapita;
                     if (isNaN(value)) value = 0;
                     return "Датум: " + dateFormat(d.key) + 
                     "\nВредност: " + numberFormat(value);
@@ -229,6 +252,7 @@ FirstApp.controller('VisualisationCtrl', [
  	        	   chart.selectAll('g.grid-line .horizontal')
  	        	  		.attr('transform', 'translate(60,35)');
  	           });
+               c.colors(green);
             }
 	        
 	        s.materialCostsPostSetupChart = function(c) {
@@ -236,6 +260,55 @@ FirstApp.controller('VisualisationCtrl', [
                     return d.value;
                 });
                 
+                c.renderlet(function (chart) {
+  	        	   // rotate x-axis labels
+  	        	   chart.selectAll('g.chart-body')
+     	   				.attr('transform', 'translate(60, 35)');
+  	        	   chart.selectAll('g.x')
+  	        	   		.attr('transform', 'translate(60,180)');
+  	        	   chart.selectAll('g.y')
+    	   					.attr('transform', 'translate(60,35)');
+  	        	   chart.selectAll('g.grid-line .horizontal')
+  	        	  		.attr('transform', 'translate(60,35)');
+  	           });
+	        }
+	        
+	        s.materialCostsPostSetupChart = function(c) {
+                c.group(s.materialCostsByMonthGroup, "Месечна Материјална Штета", function (d) {
+                    return d.value;
+                });
+                
+                c.renderlet(function (chart) {
+  	        	   // rotate x-axis labels
+  	        	   chart.selectAll('g.chart-body')
+     	   				.attr('transform', 'translate(60, 35)');
+  	        	   chart.selectAll('g.x')
+  	        	   		.attr('transform', 'translate(60,180)');
+  	        	   chart.selectAll('g.y')
+    	   					.attr('transform', 'translate(60,35)');
+  	        	   chart.selectAll('g.grid-line .horizontal')
+  	        	  		.attr('transform', 'translate(60,35)');
+  	           });
+               c.colors(red);
+	        }
+	        
+	        s.eventPerCapitaChartOptions = {
+	                valueAccessor: function (d) {
+	                    return d.value.perCapita;
+	                },
+	                // title can be called by any stack layer.
+	                title: function (d) {
+	                	 var value = d.value.perCapita ? d.value.perCapita : d.value;
+	                     if (isNaN(value)) value = 0;
+	                     return "Датум: " + dateFormat(d.key) + 
+	                     "\nВредност: " + numberFormat(value);
+	                }
+	        }
+	        
+	        s.eventPerCapitaPostSetupChart = function(c) {
+	        	c.group(s.eventPerCapiteGroup, "Настани по глава на жител", function (d) {
+                    return d.value.perCapita;
+                });
                 c.renderlet(function (chart) {
   	        	   // rotate x-axis labels
   	        	   chart.selectAll('g.chart-body')

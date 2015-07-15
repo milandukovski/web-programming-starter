@@ -123,8 +123,7 @@
 
     <script src="scripts/app.js"></script>
     <!-- The route configuration -->
-    <script src="scripts/menuData.js"></script>
-    <script src="scripts/router.js"></script>
+    <script src="scripts/public_router.js"></script>
     <script src="scripts/config.js"></script>
     
     <script src="scripts/filter/filters.js"></script>
