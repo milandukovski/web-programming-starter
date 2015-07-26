@@ -7,7 +7,10 @@ import mk.ukim.finki.wp.web.CrudResource;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("/data/rest/EventView")

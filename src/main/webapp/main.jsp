@@ -7,7 +7,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="bower_components/select2/select2.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-select2/docs/styles.css" />
     <link rel="stylesheet" href="bower_components/bootstrap-markdown/css/bootstrap-markdown.min.css" />
-    <link rel="stylesheet" href="bower_components/datetimepicker/jquery.datetimepicker.css" />
+    <!-- <link rel="stylesheet" href="bower_components/datetimepicker/jquery.datetimepicker.css" /> -->
     <link rel="stylesheet" href="bower_components/ng-table/ng-table.css" />
     <link rel="stylesheet" href="bower_components/ngQuickDate/dist/ng-quick-date.css" />
     <link rel="stylesheet" href="bower_components/ngQuickDate/dist/ng-quick-date-default-theme.css" />
@@ -140,8 +140,8 @@
     <script src="bower_components/select2/select2.js"></script>
     <script src="bower_components/angular-ui-select2/src/select2.js"></script>
     <script src="bower_components/bootstrap-markdown/js/bootstrap-markdown.js"></script>
-    <script src="bower_components/datetimepicker/jquery.datetimepicker.js"></script>
-    <script src="bower_components/jquery-textcomplete/dist/jquery.textcomplete.min.js"></script>
+    <!-- <script src="bower_components/datetimepicker/jquery.datetimepicker.js"></script>-->
+    <!-- <script src="bower_components/jquery-textcomplete/dist/jquery.textcomplete.min.js"></script> -->
     <script src="bower_components/momentjs/moment.js"></script>
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/ng-table/ng-table.js"></script>
@@ -179,7 +179,6 @@
 
     <script src="scripts/directives/combo.js"></script>
     <script src="scripts/directives/combo2.js"></script>
-    <script src="scripts/directives/iv-simple-table.js"></script>
     <script src="scripts/directives/crud-directive.js"></script>
     <script>
         $(document).ready(function() {

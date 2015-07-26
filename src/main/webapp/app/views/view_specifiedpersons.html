@@ -5,8 +5,31 @@
 	on-new="noPopUp"
 	after-save="crudScope.hide"
 	on-edit="noPopUp"
+	paged="true"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 	
+	<script type="text/ng-template" id="ng-table/filters/municipality.html">
+      <combo-2 combo-type="Municipality"
+             combo-required="true"
+             combo-label="mvr.municipalities"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+	</script>
+	<script type="text/ng-template" id="ng-table/filters/nationality.html">
+      <combo-2 combo-type="Nationality"
+             combo-required="true"
+             combo-label="mvr.municipalities"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+	</script>
+	<script type="text/ng-template" id="ng-table/filters/datum.html">
+      <quick-datepicker ng-model='params.filter()[name]' date-format="dd/MM/yyyy"
+						icon-class='glyphicon glyphicon-calendar'
+                        disable-timepicker="true"
+						placeholder='Избери датум'></quick-datepicker>
+    </script>
 	<div class="panel panel-default top-buffer2" ng-if="entity">
 		<form name="form{{crudTitle}}" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
 			ng-submit="save()">
@@ -39,30 +62,26 @@
 					filter="{ 'firstName': 'text' }">{{r.firstName}}</td>
 				<td data-title="'generic.lastName' | translate" sortable="'lastName'"
 					filter="{ 'lastName': 'text' }">{{r.lastName}}</td>
+					
 				<td data-title="'generic.birthDate' | translate" sortable="'birthDate'"
-					filter="{ 'birthDate': 'text' }">{{r.birthDate}}</td>
+					filter="{ 'dateFrom': 'datum' }">{{r.birthDate}}</td>
+					
 				<td data-title="'generic.gender' | translate" sortable="'gender'"
-					filter="{ 'gender': 'text' }">{{r.gender}}</td>
-				<td data-title="'generic.age' | translate" sortable="'age'"
-					filter="{ 'age': 'text' }">{{r.age}}</td>
-				<td data-title="'generic.address' | translate" sortable="'address'"
-					filter="{ 'address': 'text' }">{{r.address}}</td>
-<!-- 				<td data-title="'mvr.municipalities' | translate" sortable="'municipalities'"
-					filter="{ 'opstina': 'text' }">{{r.opstina["name"]}}</td> -->
-				<td data-title="'mvr.cities' | translate" sortable="'city'"
-					filter="{ 'city': 'text' }">{{r.city["name"]}}</td>
-				<td data-title="'generic.currentAddress' | translate" sortable="'currentAddress'"
-					filter="{ 'currentAddress': 'text' }">{{r.currentAddress}}</td>					
+					>{{r.gender}}</td>
+				<td data-title="'generic.age' | translate" sortable="'age'">{{r.age}}</td>
+				<td data-title="'generic.address' | translate" sortable="'address'">{{r.address}}</td>
+				<td data-title="'mvr.cities' | translate" sortable="'city'">
+					{{r.city["name"]}}</td>
+				<td data-title="'generic.currentAddress' | translate" sortable="'currentAddress'">
+					{{r.currentAddress}}</td>					
 				<td data-title="'generic.currentMunicipality' | translate" sortable="'currentMunicipality'"
-					filter="{ 'currentMunicipality': 'text' }">{{r.currentOpstina["name"]}}</td>				
-				<td data-title="'generic.currentCity' | translate" sortable="'currentCity'"
-					filter="{ 'currentCity': 'text' }">{{r.currentCity["name"]}}</td>
+					filter="{ 'municipality': 'municipality' }">{{r.currentOpstina["name"]}}</td>				
+				<td data-title="'generic.currentCity' | translate" sortable="'currentCity'">
+					{{r.currentCity["name"]}}</td>
 				<td data-title="'mvr.nationalities' | translate" sortable="'nationality'"
-					filter="{ 'nationality': 'text' }">{{r.nationality["name"]}}</td>
-				<!-- <td data-title="'mvr.personroles' | translate" sortable="'personRole'"
-					filter="{ 'personRole': 'text' }">{{r.personRole["name"]}}</td> -->
+					filter="{ 'nationality': 'nationality' }">{{r.nationality["name"]}}</td>
 				<td data-title="'generic.comment' | translate" sortable="'comment'"
-					filter="{ 'comment': 'text' }">{{r.comment}}</td>
+					>{{r.comment}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">
 					<button type="button" ng-click="edit(r.id)"
 						class="btn btn-default btn-xs">

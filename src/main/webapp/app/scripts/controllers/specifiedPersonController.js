@@ -1,8 +1,10 @@
 FirstApp.controller('specifiedPersonController', [ '$scope', function($scope) {
 	$scope.entity = {};
 	$scope.entity.age = -1;
+	$scope.crudScope = {};
 
-	$scope.afterCrudInit = function(crudScope) {		
+	$scope.afterCrudInit = function(crudScope) {
+		$scope.crudScope = crudScope;
 		crudScope.hide = function() {
 			crudScope.entity = null;
 		}

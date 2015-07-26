@@ -59,9 +59,6 @@ public class SpecifiedPerson extends BaseEntity{
 	@ManyToOne
 	private Nationality nationality;
 	
-//	@ManyToMany(mappedBy="specifiedPersons")
-//	private List<Event> events = new LinkedList<Event>();
-	
 	public PersonRole getPersonRole() {
 		return personRole;
 	}
@@ -179,13 +176,5 @@ public class SpecifiedPerson extends BaseEntity{
 		return firstName+" "+lastName;
 				
 	}
-
-//	public List<Event> getEvents() {
-//		return events;
-//	}
-//
-//	public void setEvents(List<Event> events) {
-//		this.events = events;
-//	}
 	
 }

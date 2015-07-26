@@ -1,3 +1,4 @@
+
 {
     "mvr": {
         "ethnicity": "Eтничка припадност",
@@ -86,7 +87,8 @@
         "od": "од",
         "do": "до",
         "residents" : "Жители",
-        "color" : "Боја"
+        "color" : "Боја",
+        "modal_delete_prompt": "Дали сакате да го избришете?"
     },
     "action": {
         "actions": "Акции",
@@ -118,7 +120,6 @@
         "calculate": "Пресметај",
         "mark_processed": "Означи за обработено",
         "reload": "Освежи"
-        
     },
     "menu": {
         "event": "Настан",

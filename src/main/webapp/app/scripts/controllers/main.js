@@ -110,14 +110,13 @@ FirstApp.controller('MainCtrl', [
                     break;
                 }
             }
-            var value = caseCount / residents;
-            value = value * 1000;
+            var value = caseCount * residents / 100000;
             value = Math.round(value);
-            if (value < 2)
+            if (value < 20)
                 return "green";
-            else if (value >= 3 && value < 5)
+            else if (value >= 30 && value < 50)
                 return "yellow";
-            else if (value >= 5 && value < 7)
+            else if (value >= 50 && value < 70)
                 return "orange";
             else
                 return "red";
@@ -227,8 +226,9 @@ FirstApp.controller('MainCtrl', [
             	page = 1;
             else 
             	page=  Math.ceil(start/number) + 1;
+            
             $http.get('/data/rest/Event/paged?count=' + number + '&filter[caseByMunicipality]={"caseId":' + $scope.selectedCase + ',"mid":' + $scope.selectedCity["id"] + ',"from":"' + from + '","to":"' + to + '"}&page=' + page).success(
-                function(data, status, headers, config) {
+            	function(data, status, headers, config) {
                 	 $scope.displayed = data.content;
                      tableState.pagination.numberOfPages = Math.ceil(data.totalElements / number); //set the number of pages so the pagination can update
                      $scope.isLoading = false;

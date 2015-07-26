@@ -5,6 +5,7 @@
 	on-new="noPopUp"
 	after-save="crudScope.hide"
 	on-edit="noPopUp"
+	paged="true"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 	
 	<div class="panel panel-default top-buffer2" ng-if="entity">
@@ -28,6 +29,30 @@
 	      </form>
 	</div>
 
+	<script type="text/ng-template" id="ng-table/filters/ethicity.html">
+      <combo-2 combo-type="Ethnicity"
+             combo-required="true"
+             combo-label="mvr.ethnicity"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+	</script>
+	<script type="text/ng-template" id="ng-table/filters/eyeColor.html">
+      <combo-2 combo-type="EyeColor"
+             combo-required="true"
+             combo-label="mvr.eyecolors"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+	</script>
+	<script type="text/ng-template" id="ng-table/filters/hairColor.html">
+      <combo-2 combo-type="HairColor"
+             combo-required="true"
+             combo-label="mvr.haircolors"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+	</script>
 <div class="table-responsive top-buffer2" ng-if="!entity">
 	<!--  -->
 	<table ng-table="table" show-filter="true"
@@ -35,40 +60,24 @@
 		<tbody>
 			<tr ng-repeat="r in $data">
 				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
-				<td data-title="'generic.gender' | translate" sortable="'gender'"
-					filter="{ 'gender': 'text' }">{{r.gender}}</td>
+				<td data-title="'generic.gender' | translate" sortable="'gender'">{{r.gender}}</td>
 				<td data-title="'mvr.age' | translate" sortable="'age'"
-					filter="{ 'age': 'text' }">{{r.age["name"]}}</td>
+					>{{r.age["name"]}}</td>
 				<td data-title="'mvr.heights' | translate" sortable="'height'"
-					filter="{ 'height': 'text' }">{{r.height["name"]}}</td>
+					>{{r.height["name"]}}</td>
 				<td data-title="'mvr.weights' | translate" sortable="'weight'"
-					filter="{ 'weight': 'text' }">{{r.weight["name"]}}</td>
+					>{{r.weight["name"]}}</td>
 				<td data-title="'mvr.eyecolors' | translate" sortable="'eyecolors'"
-					filter="{ 'eyecolors': 'text' }">{{r.eyeColor["name"]}}</td>
+					filter="{ 'eyeColor': 'eyeColor' }">{{r.eyeColor["name"]}}</td>
 				<td data-title="'mvr.ethnicity' | translate" sortable="'ethnicity'"
-					filter="{ 'ethnicity': 'text' }">{{r.ethicity["name"]}}</td>
+					filter="{ 'ethicity': 'ethicity' }">{{r.ethicity["name"]}}</td>
 				<td data-title="'mvr.bodytypes' | translate" sortable="'nbodytypesme'"
-					filter="{ 'bodytypes': 'text' }">{{r.bodyType["name"]}}</td>
-			<!-- 	<td data-title="'mvr.teethconditions' | translate" sortable="'teethconditions'"
-					filter="{ 'teethconditions': 'text' }">{{r.teethCondition["name"]}}</td> -->
-				<!-- <td data-title="'mvr.handtypes' | translate" sortable="'handtypes'"
-					filter="{ 'handtypes': 'text' }">{{r.handType["name"]}}</td>		 -->			
-				<!-- <td data-title="'mvr.humancharacteristics' | translate" sortable="'humancharacteristics'"
-					filter="{ 'humancharacteristics': 'text' }">{{r.humanCharacteristics["name"]}}</td> -->
+					>{{r.bodyType["name"]}}</td>
+
 				<td data-title="'mvr.haircolors' | translate" sortable="'haircolors'"
-					filter="{ 'haircolors': 'text' }">{{r.hairColor["name"]}}</td>
-				<td data-title="'generic.hairLength' | translate" sortable="'hairLength'"
-					filter="{ 'hairLength': 'text' }">{{r.hairLength}}</td>
-				<td data-title="'mvr.physicalconditions' | translate" sortable="'physicalconditions'"
-					filter="{ 'physicalconditions': 'text' }">{{r.physicalCondition["name"]}}</td>
-<!-- 				<td data-title="'mvr.facialhairtypes' | translate" sortable="'facialhair'"
-					filter="{ 'facialhair': 'text' }">{{r.facialHair["name"]}}</td> -->
+					filter="{ 'hairColor': 'hairColor' }">{{r.hairColor["name"]}}</td>
 				<td data-title="'mvr.speachtroubles' | translate" sortable="'speachtroubles'"
-					filter="{ 'speachtroubles': 'text' }">{{r.speachTrouble["name"]}}</td>
-				<!-- <td data-title="'mvr.skintypes' | translate" sortable="'skintypes'"
-					filter="{ 'skintypes': 'text' }">{{r.skinType["name"]}}</td> -->
-				<!-- <td data-title="'mvr.personroles' | translate" sortable="'personroles'"
-					filter="{ 'personroles': 'text' }">{{r.role["name"]}}</td> -->
+					>{{r.speachTrouble["name"]}}</td>
 				<td data-title="'generic.comment' | translate" sortable="'comment'"
 					filter="{ 'comment': 'text' }">{{r.comment}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">

@@ -19,6 +19,8 @@ FirstApp.controller('VisualisationCtrl', [
 			
 			//### Create Crossfilter Dimensions and Groups
 			var ndx = s.ndx = crossfilter(data);
+			var ndx2 = s.ndx2 = crossfilter(data);
+			var ndx3 = s.ndx3 = crossfilter(data);
 	        var all = s.all = ndx.groupAll();
 
 	        //Calculate first and last Date
@@ -77,6 +79,14 @@ FirstApp.controller('VisualisationCtrl', [
 	            return d.month;
 	        });
 	        
+	        s.timeMonthsBenefit = ndx2.dimension(function (d) {
+	            return d.month;
+	        });
+	        
+	        s.timeMonthsEventPerCapita = ndx3.dimension(function (d) {
+	            return d.month;
+	        });
+	        
 	        // group by total volume within move, and scale down result
 	        s.timeByMonthGroup = s.timeMonths.group().reduceCount(function (d) {
 	            return d.id;
@@ -113,7 +123,6 @@ FirstApp.controller('VisualisationCtrl', [
 	        
 	        s.yearlyGroup = s.yearlyDimension.group();
 	        
-// ne provereni
 	        s.policeStationDimension = ndx.dimension(function (d) {
 	        	return d.policeStationName;
 	        });
@@ -134,30 +143,37 @@ FirstApp.controller('VisualisationCtrl', [
 	        	return d.materialCost
 	        });
 	        
-	        s.benefitByMonthGroup = s.timeMonths.group().reduceSum(function (d) {
+	        s.benefitByMonthGroup = s.timeMonthsBenefit.group().reduceSum(function (d) {
 	        	return d.benefit;
 	        });
 	        
+	        s.timeByMonthGroup2 = s.timeMonths.group().reduceCount(function (d) {
+	            return d.id;
+	        });
 	        
 	        function reduceAddAvg(p,v) {
         	  ++p.count
         	  p.residents = v.municipalityResidents;
         	  p.perCapita += p.residents*p.count / 100000;
+        	  p.benefit += v.benefit;
         	  return p;
         	}
         	function reduceRemoveAvg(p,v) {
         	  --p.count
         	  p.residents -= v.municipalityResidents;
         	  p.perCapita = p.residents*p.count / 100000;
+        	  p.benefit -= v.benefit;
         	  return p;
         	}
         	function reduceInitAvg() {
-        	  return {count:0, residents:0, perCapita:0};
+        	  return {count:0, residents:0, perCapita:0, benefit:0};
         	}
-//        	var statesAvgGroup = statesAvgDimension.group().reduce(reduceAddAvg, reduceRemoveAvg, reduceInitAvg);
-//        	var statesAvgGroup = statesAvgDimension.group().reduce(reduceAddAvg, reduceRemoveAvg, reduceInitAvg);
+        	
+	        s.eventPerCapiteGroup = s.timeMonthsEventPerCapita.group().reduce(reduceAddAvg, reduceRemoveAvg, reduceInitAvg);
 	        
-	        s.eventPerCapiteGroup = s.timeMonths.group().reduce(reduceAddAvg, reduceRemoveAvg, reduceInitAvg);
+	        s.timeByMonthGroup3 = s.timeMonths.group().reduceCount(function (d) {
+	            return d.id;
+	        });
 	        
 	        //### Define Chart Attributes
 	        //Define chart attributes using fluent methods. See the [dc API Reference](https://github.com/dc-js/dc.js/blob/master/web/docs/api-1.7.0.md) for more information
@@ -225,11 +241,9 @@ FirstApp.controller('VisualisationCtrl', [
 	           });
 	        }
 	        
-	        s.pieChartDcLegend = dc.legend().x(400).y(0).itemHeight(13).gap(5);
-	        
 	        s.moveChartOptions = {
                 title: function (d) {
-                    var value = d.value.perCapita;
+                    var value = d.value;
                     if (isNaN(value)) value = 0;
                     return "Датум: " + dateFormat(d.key) + 
                     "\nВредност: " + numberFormat(value);
@@ -254,24 +268,6 @@ FirstApp.controller('VisualisationCtrl', [
  	           });
                c.colors(green);
             }
-	        
-	        s.materialCostsPostSetupChart = function(c) {
-                c.group(s.materialCostsByMonthGroup, "Месечна Материјална Штета", function (d) {
-                    return d.value;
-                });
-                
-                c.renderlet(function (chart) {
-  	        	   // rotate x-axis labels
-  	        	   chart.selectAll('g.chart-body')
-     	   				.attr('transform', 'translate(60, 35)');
-  	        	   chart.selectAll('g.x')
-  	        	   		.attr('transform', 'translate(60,180)');
-  	        	   chart.selectAll('g.y')
-    	   					.attr('transform', 'translate(60,35)');
-  	        	   chart.selectAll('g.grid-line .horizontal')
-  	        	  		.attr('transform', 'translate(60,35)');
-  	           });
-	        }
 	        
 	        s.materialCostsPostSetupChart = function(c) {
                 c.group(s.materialCostsByMonthGroup, "Месечна Материјална Штета", function (d) {
@@ -323,9 +319,13 @@ FirstApp.controller('VisualisationCtrl', [
 	        }
 	        
 	        s.resetAll = function(){
+	        	s.dayOfWeek.filterAll();
 	            dc.filterAll();
 	            dc.redrawAll();
+	            dc.renderAll();
 	        }
+	        
+	        
 		});
     }
 ]);

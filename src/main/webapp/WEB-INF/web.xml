@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 
-	<display-name>Web Programming Starter project</display-name>
+	<display-name>MVR Crime map</display-name>
 	<description>Project used for the Web Programming subject</description>
 
 	<context-param>

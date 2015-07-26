@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;
 
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -18,30 +20,36 @@ import javax.persistence.criteria.Root;
 
 public class EventSpecifications implements BaseSpecification<Event> {
 
-	public static DateTimeFormatter DATE_TIME = DateTimeFormat
-			.forPattern("yyyy-MM-dd");
+	public static DateTimeFormatter DATE_TIME = DateTimeFormat.forPattern("yyyy-MM-dd");
 
 	static Specification<Event> date(final DateTime date) {
 		return new Specification<Event>() {
 
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.between(root.<DateTime> get("checkOutTime"), date,
-						date.plusDays(1));
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.between(root.<DateTime> get("checkOutTime"), date, date.plusDays(1));
+			}
+
+		};
+	}
+	
+	static Specification<Event> description(final String description) {
+		return new Specification<Event>() {
+
+			@Override
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.like(cb.lower(root.<String> get("eventDescription")), "%"+description.toLowerCase()+"%");
 			}
 
 		};
 	}
 
-	static Specification<Event> datumFrom(final DateTime date) {
+	static Specification<Event> dateFrom(final DateTime date) {
 		return new Specification<Event>() {
 
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.greaterThanOrEqualTo(root.<DateTime> get("datum"),
-						date);
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.greaterThanOrEqualTo(root.<DateTime> get("datum"), date);
 			}
 
 		};
@@ -51,10 +59,8 @@ public class EventSpecifications implements BaseSpecification<Event> {
 		return new Specification<Event>() {
 
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.lessThanOrEqualTo(
-						root.<DateTime> get("checkOutTime"), date);
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.lessThanOrEqualTo(root.<DateTime> get("datum"), date);
 			}
 
 		};
@@ -64,8 +70,7 @@ public class EventSpecifications implements BaseSpecification<Event> {
 		return new Specification<Event>() {
 
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return cb.equal(root.<Long> get("svrRC"), id);
 			}
 
@@ -75,64 +80,17 @@ public class EventSpecifications implements BaseSpecification<Event> {
 	static Specification<Event> policeStation(final long id) {
 		return new Specification<Event>() {
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return cb.equal(root.<Long> get("policeStation"), id);
 			}
 
 		};
 	}
 
-	static Specification<Event> durationValidity(final boolean invalid) {
+	static Specification<Event> betweenDate(final DateTime from, final DateTime to) {
 		return new Specification<Event>() {
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.equal(root.get("invalid"), invalid);
-			}
-
-		};
-	}
-
-	static Specification<Event> checkInValidity(final boolean invalid) {
-		return new Specification<Event>() {
-			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.equal(root.<Boolean> get("invalidCheckIn"), invalid);
-			}
-
-		};
-	}
-
-	static Specification<Event> shift(final Long id) {
-		return new Specification<Event>() {
-			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.equal(root.<Long> get("shiftId"), id);
-			}
-
-		};
-	}
-
-	static Specification<Event> checkInOutType(final Long id) {
-		return new Specification<Event>() {
-			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.equal(root.<Long> get("checkInOutTypeId"), id);
-			}
-
-		};
-	}
-
-	static Specification<Event> betweenDate(final DateTime from,
-			final DateTime to) {
-		return new Specification<Event>() {
-			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return cb.between(root.<DateTime> get("datum"), from, to);
 			}
 
@@ -142,8 +100,7 @@ public class EventSpecifications implements BaseSpecification<Event> {
 	static Specification<Event> eventCase(final long id) {
 		return new Specification<Event>() {
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return cb.equal(root.<Long> get("ecase"), id);
 			}
 
@@ -153,8 +110,7 @@ public class EventSpecifications implements BaseSpecification<Event> {
 	static Specification<Event> municipality(final long id) {
 		return new Specification<Event>() {
 			@Override
-			public Predicate toPredicate(Root<Event> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
+			public Predicate toPredicate(Root<Event> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return cb.equal(root.<Long> get("opstina"), id);
 			}
 
@@ -166,17 +122,15 @@ public class EventSpecifications implements BaseSpecification<Event> {
 		if (field.equals("date")) {
 			DateTime date = parseForFilter(value);
 			return date(date);
-		}else if (field.equals("caseByMunicipality")) {
+		} else if (field.equals("caseByMunicipality")) {
 			try {
 				return caseByMunicipality(value);
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		else if (field.equals("datumFrom")) {
+		} else if (field.equals("dateFrom")) {
 			DateTime date = parseForFilter(value);
-			return datumFrom(date);
+			return dateFrom(date);
 		} else if (field.equals("dateTo")) {
 			DateTime date = parseForFilter(value);
 			return dateTo(date);
@@ -184,25 +138,23 @@ public class EventSpecifications implements BaseSpecification<Event> {
 			try {
 				return svrrc(parseJsonString(value));
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (field.equals("checkInOutType")) {
-			return checkInOutType(Long.parseLong(value));
-		} else if (field.equals("checkIn_invalid")) {
-			return checkInValidity(Boolean.parseBoolean(value));
 		} else if (field.equals("policeStation")) {
 			try {
 				return policeStation(parseJsonString(value));
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (field.equals("duration_invalid")) {
-			return durationValidity(Boolean.parseBoolean(value));
-		} else if (field.equals("shift")) {
-			return shift(Long.parseLong(value));
-		} 
+		}
+		else if(field.equals("eventCase")){
+			return eventCase(Long.parseLong(value));
+		}
+		else if(field.equals("municipality")){
+			return municipality(Long.parseLong(value));
+		}
+		else if(field.equals("description"))
+			return description(value);
 		return null;
 	}
 
@@ -215,15 +167,14 @@ public class EventSpecifications implements BaseSpecification<Event> {
 	/**
 	 * parameters String json - Json string of one entity return long id of
 	 * entity
-	 * **/
+	 **/
 	private static long parseJsonString(String json) throws JSONException {
 		JSONObject jsonObj = new JSONObject(json);
 		Long pom = jsonObj.getLong("id");
 		return pom;
 	}
 
-	private static Specification<Event> caseByMunicipality(String value)
-			throws JSONException {
+	private static Specification<Event> caseByMunicipality(String value) throws JSONException {
 		JSONObject jsonObj = new JSONObject(value);
 		Long caseId = jsonObj.getLong("caseId");
 		Long mid = jsonObj.getLong("mid");
@@ -231,7 +182,6 @@ public class EventSpecifications implements BaseSpecification<Event> {
 		String to = jsonObj.getString("to");
 		DateTime dateF = parseForFilter(from);
 		DateTime dateT = parseForFilter(to);
-		return Specifications.<Event>where(municipality(mid))
-		        .and(eventCase(caseId)).and(betweenDate(dateF,dateT));
+		return Specifications.<Event> where(municipality(mid)).and(eventCase(caseId)).and(betweenDate(dateF, dateT));
 	}
 }

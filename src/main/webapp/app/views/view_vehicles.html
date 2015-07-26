@@ -1,7 +1,41 @@
 <crud crud-title="mvr.vehicles" crud-type="Vehicle"
 	crud-form="vehicleEntity"
+	paged="true"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 
+
+<script type="text/ng-template" id="ng-table/filters/brend.html">
+      <combo-2 combo-type="VehicleBrend"
+             combo-required="true"
+             combo-label="mvr.vehiclebrends"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+</script>
+<script type="text/ng-template" id="ng-table/filters/brend.html">
+      <combo-2 combo-type="VehicleBrend"
+             combo-required="true"
+             combo-label="mvr.vehiclebrends"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+</script>
+<script type="text/ng-template" id="ng-table/filters/vehicleType.html">
+      <combo-2 combo-type="VehicleType"
+             combo-required="true"
+             combo-label="mvr.vehicletype"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+</script>
+<script type="text/ng-template" id="ng-table/filters/regCountry.html">
+      <combo-2 combo-type="VehicleRegCountry"
+             combo-required="true"
+             combo-label="mvr.vehicleregcountries"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+</script>
 <div class="table-responsive">
 	<!--  -->
 	<table ng-table="table" show-filter="true"
@@ -12,15 +46,15 @@
 				<td data-title="'generic.registration' | translate" sortable="'registration'"
 					filter="{ 'registration': 'text' }">{{r.registration}}</td>
 				<td data-title="'mvr.vehiclebrends' | translate" sortable="'brend'"
-					filter="{ 'brend': 'text' }">{{r.brend["name"]}}</td>
-				<td data-title="'mvr.vehiclecolor' | translate" sortable="'color'"
-					filter="{ 'color': 'text' }">{{r.color["name"]}}</td>
-					<td data-title="'mvr.vehiclemodels' | translate" sortable="'model'"
-					filter="{ 'model': 'text' }">{{r.model["name"]}}</td>
-					<td data-title="'mvr.vehicleregcountries' | translate" sortable="'regCountry'"
-					filter="{ 'regCountry': 'text' }">{{r.regCountry["name"]}}</td>
-					<td data-title="'mvr.vehicletype' | translate" sortable="'type'"
-					filter="{ 'type': 'text' }">{{r.type["name"]}}</td>
+					filter="{ 'brend': 'brend' }">{{r.brend["name"]}}</td>
+				<td data-title="'mvr.vehiclecolor' | translate" sortable="'color'">
+					{{r.color["name"]}}</td>
+				<td data-title="'mvr.vehiclemodels' | translate" sortable="'model'">
+					{{r.model["name"]}}</td>
+				<td data-title="'mvr.vehicleregcountries' | translate" sortable="'regCountry'"
+					filter="{ 'regCountry': 'regCountry' }">{{r.regCountry["name"]}}</td>
+				<td data-title="'mvr.vehicletype' | translate" sortable="'type'"
+					filter="{ 'vehicleType': 'vehicleType' }">{{r.type["name"]}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">
 					<button type="button" ng-click="edit(r.id)"
 						class="btn btn-default btn-xs">

@@ -1,8 +1,0 @@
-package mk.ukim.finki.wp.repository.{pkg};
-
-import mk.ukim.finki.wp.model.{pkg}.{name};
-import mk.ukim.finki.wp.repository.JpaSpecificationRepository;
-
-public interface {name}Repository extends JpaSpecificationRepository<{name}> {
-
-}

@@ -1,7 +1,7 @@
+mk\ukim\finki\wp\service\db\EventViewService.class
 mk\ukim\finki\wp\service\db\UnspecifiedPersonService.class
 mk\ukim\finki\wp\repository\db\VehicleInEventRepository.class
 mk\ukim\finki\wp\repository\db\PersonRoleRepository.class
-mk\ukim\finki\wp\specifications\EventSpecifications$10.class
 mk\ukim\finki\wp\web\errors\RestErrorHandler.class
 mk\ukim\finki\wp\service\db\EventAreaService.class
 mk\ukim\finki\wp\web\rest\db\VehicleRegCountryResource.class
@@ -52,7 +52,6 @@ mk\ukim\finki\wp\repository\db\ArticleTypeRepository.class
 mk\ukim\finki\wp\repository\db\PhysicalConditionRepository.class
 mk\ukim\finki\wp\model\db\EventWeaponType.class
 mk\ukim\finki\wp\repository\db\HandTypeRepository.class
-mk\ukim\finki\wp\specifications\EventSpecifications$11.class
 mk\ukim\finki\wp\service\impl\db\MunicipalityServiceImpl.class
 mk\ukim\finki\wp\service\impl\db\CityServiceImpl.class
 mk\ukim\finki\wp\model\db\HairColor.class
@@ -111,6 +110,7 @@ mk\ukim\finki\wp\model\db\TeethCondition.class
 mk\ukim\finki\wp\repository\db\ArticleInEventRepository.class
 mk\ukim\finki\wp\repository\db\SpeachTroubleRepository.class
 mk\ukim\finki\wp\service\impl\db\EventCommonAreaServiceImpl.class
+mk\ukim\finki\wp\repository\db\EventViewRepository.class
 mk\ukim\finki\wp\service\db\HumanCharacteristicsService.class
 mk\ukim\finki\wp\web\CrudResource.class
 mk\ukim\finki\wp\service\impl\db\FacialHairTypeServiceImpl.class
@@ -160,7 +160,6 @@ mk\ukim\finki\wp\repository\db\TeethConditionRepository.class
 mk\ukim\finki\wp\web\rest\db\VehicleModelResource.class
 mk\ukim\finki\wp\service\db\ArticleUnitService.class
 mk\ukim\finki\wp\repository\db\WeightRepository.class
-mk\ukim\finki\wp\specifications\EventSpecifications$9.class
 mk\ukim\finki\wp\web\MunicipalityInfo.class
 mk\ukim\finki\wp\service\impl\db\ArticleInEventServiceImpl.class
 mk\ukim\finki\wp\repository\db\EventMethodOfEnteringRepository.class
@@ -182,11 +181,11 @@ mk\ukim\finki\wp\model\db\SpeachTrouble.class
 mk\ukim\finki\wp\web\rest\db\EventPointsOfEntryResource.class
 mk\ukim\finki\wp\service\db\ArticleTypeService.class
 mk\ukim\finki\wp\service\impl\db\PhysicalConditionServiceImpl.class
+mk\ukim\finki\wp\model\db\view\EventView.class
 mk\ukim\finki\wp\model\db\VehicleRegCountry.class
 mk\ukim\finki\wp\service\db\PersonRoleService.class
 mk\ukim\finki\wp\repository\db\HumanCharacteristicsRepository.class
 mk\ukim\finki\wp\web\rest\db\EyeColorResource.class
-mk\ukim\finki\wp\specifications\EventSpecifications$12.class
 mk\ukim\finki\wp\repository\db\CityRepository.class
 mk\ukim\finki\wp\specifications\EventSpecifications$4.class
 mk\ukim\finki\wp\model\db\EventMethodOfEntering.class
@@ -212,6 +211,7 @@ mk\ukim\finki\wp\service\impl\db\VehicleModelServiceImpl.class
 mk\ukim\finki\wp\service\impl\db\ArticleServiceImpl.class
 mk\ukim\finki\wp\specifications\EventSpecifications$5.class
 mk\ukim\finki\wp\web\EventCaseInfo.class
+mk\ukim\finki\wp\service\impl\db\EventViewServiceImpl.class
 mk\ukim\finki\wp\web\rest\db\ArticleInEventResource.class
 mk\ukim\finki\wp\service\impl\db\EventCrimesAgainstPropertyServiceImpl.class
 mk\ukim\finki\wp\service\db\EventMethodOfEnteringService.class
@@ -223,6 +223,7 @@ mk\ukim\finki\wp\model\db\EventObjectOfAttack.class
 mk\ukim\finki\wp\web\rest\db\BodyTypeResource.class
 mk\ukim\finki\wp\service\db\EventWeaponTypeService.class
 mk\ukim\finki\wp\web\rest\db\EventMethodOfEnteringResource.class
+mk\ukim\finki\wp\web\rest\db\EventViewResource.class
 mk\ukim\finki\wp\service\impl\db\EyeColorServiceImpl.class
 mk\ukim\finki\wp\repository\db\UnspecifiedPersonInEventRepository.class
 mk\ukim\finki\wp\model\db\VehicleBrend.class

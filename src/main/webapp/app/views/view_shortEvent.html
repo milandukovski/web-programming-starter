@@ -1,8 +1,14 @@
 <crud crud-title="mvr.shortEvent" crud-type="Event"
 	crud-form="shortEventEntity"
-	paged="true"
-	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
+	 paged="true"
+     crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 	
+	  <script type="text/ng-template" id="ng-table/filters/datum.html">
+      <quick-datepicker ng-model='params.filter()[name]' date-format="dd/MM/yyyy"
+						icon-class='glyphicon glyphicon-calendar'
+                        disable-timepicker="true"
+						placeholder='Избери датум'></quick-datepicker>
+    </script>
 <div class="table-responsive top-buffer2">
 	<!--  -->
 	<table ng-table="table" show-filter="true"
@@ -10,36 +16,14 @@
 		<tbody>
 			<tr ng-repeat="r in $data">
 				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
-				<td data-title="'generic.date' | translate" sortable="'date'"
-					filter="{ 'date': 'text' }">{{r.datum | date:'yyyy-MM-dd'}}</td>
-			
-			<!-- 	<td data-title="'mvr.eventcommonareas' | translate" sortable="'commonArea'"
-					filter="{ 'commonArea': 'text' }">{{r.commonArea["name"]}}</td>
-				<td data-title="'mvr.eventareas' | translate" sortable="'area'"
-					filter="{ 'area': 'text' }">{{r.area["name"]}}</td> -->
+				 <td data-title="'generic.date' | translate" sortable="'datum'"
+		              filter="{ 'dateFrom': 'datum' }">{{r.datum | date:'dd/MM/yyyy'}}
+		          </td>
 				<td data-title="'mvr.eventcases' | translate" sortable="'ecase'">
 				{{r.ecase["name"] | shorten}}</td>
 				<td data-title="'generic.datum' | translate">{{'generic.od' | translate}} {{r.staringDate}} {{'generic.do' | translate}} {{r.endingDate}}</td>
-			<!-- 	<td data-title="'generic.endDate' | translate" sortable="'endingDate'"
-					filter="{ 'endingDate': 'text' }">{{r.endingDate}}</td> -->
-<!-- 				<td data-title="'generic.startTime' | translate" sortable="'startTime'"
-					filter="{ 'startTime': 'text' }">{{r.startingTime}}</td>
-				<td data-title="'generic.endTime' | translate" sortable="'endTime'"
-					filter="{ 'endTime': 'text' }">{{r.endingTime}}</td> 
-				<td data-title="'mvr.municipalities' | translate" sortable="'opstina'"
-					filter="{ 'opstina': 'text' }">{{r.opstina["name"]}}</td>
-				<td data-title="'generic.location' | translate" sortable="'location'"
-					filter="{ 'location': 'text' }">{{r.location}}</td> -->
 				<td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
-					filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten:100}}</td>
-		<!-- 		<td data-title="'mvr.eventpointsofentry' | translate" sortable="'point'"
-					filter="{ 'point': 'text' }">{{r.point["name"]}}</td>
-				<td data-title="'mvr.eventmethodsofentering' | translate" sortable="'method'"
-					filter="{ 'method': 'text' }">{{r.method["name"]}}</td>
-				<td data-title="'mvr.eventsuspectacts' | translate" sortable="'suspectAct'"
-					filter="{ 'suspectAct': 'text' }">{{r.suspectAct["name"]}}</td>
-				<td data-title="'mvr.eventcrimesagainstproperties' | translate" sortable="'propertyCrime'"
-					filter="{ 'propertyCrime': 'text' }">{{r.propertyCrime["name"]}}</td> -->
+					filter="{ 'description': 'text' }">{{r.eventDescription | shorten:100}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">
 					<button type="button" ng-click="edit(r.id)"
 						class="btn btn-default btn-xs">

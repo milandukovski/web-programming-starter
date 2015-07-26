@@ -63,7 +63,7 @@
         <tr ng-repeat="r in $data">
           <td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
           <td data-title="'generic.date' | translate" sortable="'date'"
-              filter="{ 'datumFrom': 'datum' }">{{r.datum | date:'dd/MM/yyyy'}}
+              filter="{ 'dateFrom': 'datum' }">{{r.datum | date:'dd/MM/yyyy'}}
           </td>
           <td data-title="'mvr.svrrc' | translate" sortable="'svrrc'"
               filter="{ 'svrrc': 'svrrc' }">{{r.svrRC["name"]}}
@@ -79,7 +79,7 @@
           </td>
 
           <td data-title="'generic.eventDescription' | translate" sortable="'eventDescription'"
-              filter="{ 'eventDescription': 'text' }">{{r.eventDescription | shorten}}
+              filter="{ 'description': 'text' }">{{r.eventDescription | shorten}}
           </td>
           <td data-title="'generic.materialCost' | translate" sortable="'materialCost'"
             >{{r.materialCost}}
@@ -91,11 +91,8 @@
           <td data-title="'mvr.eventobjectsofattack' | translate" sortable="'objectOfAttack'"
             >{{r.objectOfAttack["name"]}}
           </td>
-          <td data-title="'mvr.eventwayofleaving' | translate" sortable="'wayOfLeaving'"
-            >{{r.wayOfLeaving["name"]}}
-          </td>
           <td data-title="'mvr.eventweapontypes' | translate" sortable="'weaponType'"
-              filter="{ 'weaponType': 'text' }">{{r.weaponType["name"]}}
+              >{{r.weaponType["name"]}}
           </td>
           <td class="td-edit" data-title="'action.edit' | translate">
             <button type="button" ng-click="edit(r.id)"

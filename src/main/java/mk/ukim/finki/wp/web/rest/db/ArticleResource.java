@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mk.ukim.finki.wp.model.db.Article;
 import mk.ukim.finki.wp.service.db.ArticleService;
+import mk.ukim.finki.wp.specifications.ArticleSpecifications;
+import mk.ukim.finki.wp.specifications.BaseSpecification;
 import mk.ukim.finki.wp.web.CrudResource;
 
 @RestController
@@ -19,5 +21,9 @@ public class ArticleResource extends CrudResource<Article, ArticleService> {
 	public ArticleService getService() {
 		return service;
 	}
-
+	
+	@Override
+	public BaseSpecification<Article> getSpecification() {
+		return new ArticleSpecifications();
+	}
 }

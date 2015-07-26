@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mk.ukim.finki.wp.model.db.UnspecifiedPerson;
 import mk.ukim.finki.wp.service.db.UnspecifiedPersonService;
+import mk.ukim.finki.wp.specifications.BaseSpecification;
+import mk.ukim.finki.wp.specifications.UnspecifiedPersonSpecifications;
 import mk.ukim.finki.wp.web.CrudResource;
 
 @RestController
@@ -19,5 +21,9 @@ public class UnspecifiedPersonResource extends CrudResource<UnspecifiedPerson, U
 	public UnspecifiedPersonService getService() {
 		return service;
 	}
-
+	
+	@Override
+	public BaseSpecification<UnspecifiedPerson> getSpecification() {
+		return new UnspecifiedPersonSpecifications();
+	}
 }

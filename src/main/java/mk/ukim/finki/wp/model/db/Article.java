@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import mk.ukim.finki.wp.model.BaseEntity;
 
 
@@ -41,6 +43,11 @@ public class Article extends BaseEntity{
 
 	public void setUnit(ArticleUnit unit) {
 		this.unit = unit;
+	}
+	
+	@JsonProperty(value="displayText")
+	public String getDisplayText(){
+		return type.getName() + " "+ num + unit.getName();
 	}
 	
 }

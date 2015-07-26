@@ -1,20 +1,28 @@
 <crud crud-title="mvr.articles" crud-type="Article"
 	crud-form="articleEntity"
+	paged="true"
 	crud-table-params="{ count: 10, sorting: { id: 'desc' } }">
 
+<script type="text/ng-template" id="ng-table/filters/unit.html">
+      <combo-2 combo-type="ArticleUnit"
+             combo-required="true"
+             combo-label="mvr.articleunits"
+             combo-model="params.filter()[name]"
+             combo-property="name">
+      </combo-2>
+</script>
 <div class="table-responsive">
-	<!--  -->
 	<table ng-table="table" show-filter="true"
 		class="table table-bordered table-striped table-condensed ng-table-responsive">
 		<tbody>
 			<tr ng-repeat="r in $data">
 				<td class="td-id" data-title="'generic.id' | translate" sortable="'id'">{{r.id}}</td>
 				<td data-title="'generic.quantity' | translate" sortable="'num'"
-					filter="{ 'num': 'text' }">{{r.num}}</td>
+					>{{r.num}}</td>
 					<td data-title="'mvr.articletypes' | translate" sortable="'type'"
-					filter="{ 'type': 'text' }">{{r.type["name"]}}</td>
+					>{{r.type["name"]}}</td>
 					<td data-title="'mvr.articleunits' | translate" sortable="'unit'"
-					filter="{ 'unit': 'text' }">{{r.unit["name"]}}</td>
+					filter="{ 'unit': 'unit' }">{{r.unit["name"]}}</td>
 				<td class="td-edit" data-title="'action.edit' | translate">
 					<button type="button" ng-click="edit(r.id)"
 						class="btn btn-default btn-xs">
