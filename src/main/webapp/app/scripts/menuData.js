@@ -96,14 +96,6 @@ var menuData = [{
         label: 'mvr.vehicles',
         path: "/views/view_vehicle",
         templateUrl: 'views/view_vehicles.html',
-    }, {
-        label: 'mvr.vehiclesofpersons',
-        path: "/views/view_vehiclesofperson",
-        templateUrl: 'views/view_vehiclesofpersons.html',
-    },{
-        label: 'mvr.vehiclesinevents',
-        path: "/views/view_vehiclesinevent",
-        templateUrl: 'views/view_vehiclesinevents.html',
     }]
 
 }, {
@@ -120,12 +112,7 @@ var menuData = [{
         label: 'mvr.articles',
         path: "/views/view_article",
         templateUrl: 'views/view_articles.html',
-    }, {
-        label: 'mvr.articlesinevents',
-        path: "/views/view_articlesinevent",
-        templateUrl: 'views/view_articlesinevents.html',
-    }
-    ] 
+    }] 
 }, {
     name: 'menu.person',
     items: [{
@@ -197,14 +184,6 @@ var menuData = [{
         label: 'mvr.unspecifiedpersons',
         path: "/views/view_unspecifiedperson",
         templateUrl: 'views/view_unspecifiedpersons.html',
-    }, {
-        label: 'mvr.specifiedpersonsinevents',
-        path: "/views/view_specifiedpersonsinevent",
-        templateUrl: 'views/view_specifiedpersonsinevents.html',
-    }, {
-        label: 'mvr.unspecifiedpersonsinevents',
-        path: "/views/view_unspecifiedpersonsinevent",
-        templateUrl: 'views/view_unspecifiedpersonsinevents.html',
     }]  
 },{
 	 name: 'menu.upload',
