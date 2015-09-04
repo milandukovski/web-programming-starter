@@ -22,3 +22,14 @@ dist
 .tmp
 .sass-cache
 bower_components/
+
+
+.classpath
+.gradle/
+.idea/
+.project
+bin/
+build/
+*.iml
+d/
+

@@ -96,6 +96,19 @@ FirstApp.controller('MainCtrl', [
             if (!el[0]) return 0;
             return el[0].getBoundingClientRect().top - $scope.svg[0].getBoundingClientRect().top + el[0].getBoundingClientRect().height / 2;
         }
+        
+        $scope.prosek = function(mid, residents) {
+        	 var caseCount = 0;
+             for (var v in $scope.entity) {
+                 if ($scope.entity[v][0] == mid.toString()) {
+                     caseCount = $scope.entity[v][3];
+                     break;
+                 }
+             }
+             var value = caseCount * residents / 100000;
+             value = Math.round(value);
+             return value;
+        }
 
         $scope.color = function(mid, residents) {
             if (!mid || !residents) {
@@ -111,15 +124,17 @@ FirstApp.controller('MainCtrl', [
                 }
             }
             var value = caseCount * residents / 100000;
-            value = Math.round(value);
-            if (value < 20)
-                return "green";
-            else if (value >= 30 && value < 50)
-                return "yellow";
-            else if (value >= 50 && value < 70)
-                return "orange";
+            value = Math.floor(value);
+            
+            var red = value + 70;
+            var green = (255 - value);
+            red = red > 255 ? 255 : red;
+            green = green < 0 ? 0 : green;
+
+            if(value > 120)
+            	return "rgb(255,"+ green+", 0)";
             else
-                return "red";
+            	return "rgb("+red+", 200, 0)";
         }
 
         $scope.reload = function() {

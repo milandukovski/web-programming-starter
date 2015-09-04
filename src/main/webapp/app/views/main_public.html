@@ -31,11 +31,11 @@
 	            inkscape:output_extension="org.inkscape.output.svg.inkscape">
 	            <g inkscape:label="Layer 1" id="layer1">
 	                <path ng-repeat="p in municipalities" ng-click="select(p)" inkscape:connector-curvature="0" style="
-							fill-opacity:0.6;
+							fill-opacity:0.55;
 							fill-rule:nonzero;
 							stroke:#000;
 							stroke-opacity:1" fill="{{color(p['id'], p['residents'])}}" 
-							id="path-{{p['id']}}" d="{{p['description']}}" class="pointer"></path>            
+							id="path-{{p['id']}}" d="{{p['description']}}" class="pointer"></path> 		      
 	            </g>
 	        </svg>
 	</div>
@@ -73,7 +73,7 @@
 			</script>		
 			</svg>
 			<span class="right" style="margin-right:30px;" ng-if="dataCount">Вкупниот број на 
-				настани за периодОт од {{Date.from | date:'yyyy-MM-dd'}} до {{Date.to}} e {{dataCount}}</span>
+				настани за периодот од {{Date.from | date:'yyyy-MM-dd'}} до {{Date.to}} e {{dataCount}}</span>
 				<span class="city-title">{{selectedCity["name"]}}</span>
 			</div>
 			<div  ng-if="selectedCity&&mode">
