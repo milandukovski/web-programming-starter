@@ -14,16 +14,17 @@ FirstApp.controller('VisualisationCtrl', [
 			
 			data.forEach(function (d) {
 	            d.dd = d3.time.format("%Y-%m-%d").parse(d.date);
-	            d.month = d3.time.month(d.dd); // pre-calculate month for better performance
+	            d.month = d3.time.month(d.dd); // pre-calculate month for
+												// better performance
 	        });
 			
-			//### Create Crossfilter Dimensions and Groups
+			// ### Create Crossfilter Dimensions and Groups
 			var ndx = s.ndx = crossfilter(data);
 			var ndx2 = s.ndx2 = crossfilter(data);
 			var ndx3 = s.ndx3 = crossfilter(data);
 	        var all = s.all = ndx.groupAll();
 
-	        //Calculate first and last Date
+	        // Calculate first and last Date
 	        var strmDateAccessor = function (d){return d.date;};
 	        strmDateExtent = [];
 	        strmDateExtent = d3.extent(data, strmDateAccessor);
@@ -31,7 +32,7 @@ FirstApp.controller('VisualisationCtrl', [
 	        $scope.minDate = strmDateExtent[0];
 	        $scope.maxDate = strmDateExtent[1];
 
-    //Good to go
+    // Good to go
 	        // dimension by full date
 	        s.dateDimension = ndx.dimension(function (d) {
 	            return d.dd;
@@ -74,7 +75,7 @@ FirstApp.controller('VisualisationCtrl', [
 	        s.dayOfWeekGroup = s.dayOfWeek.group();
 	        
 	        
-	        //time picker
+	        // time picker
 	        s.timeMonths = ndx.dimension(function (d) {
 	            return d.month;
 	        });
@@ -115,7 +116,7 @@ FirstApp.controller('VisualisationCtrl', [
 	        
 	        s.svrRcGroup = s.svrRcDimension.group().reduceCount(function (d) {
 	        	return d.svrRcId;
-	        });
+	        })
 	        
 	        s.yearlyDimension = ndx.dimension(function (d) {
 	            return d3.time.year(d.dd).getFullYear();
@@ -130,6 +131,59 @@ FirstApp.controller('VisualisationCtrl', [
 	        s.policeStationGroup = s.policeStationDimension.group().reduceCount(function (d) {
 	        	return d.policeStationId;
 	        });
+	        
+	        var num = s.policeStationGroup.size();
+	        s.filter = [];
+	        var step = Math.round(num/3);
+	        var i = 0;
+	        
+	        while(i < num){
+	        	var temp = i + step
+	        	temp = temp > num ? num : temp; 
+        		s.filter.push({"from":(i),"to": temp});
+        		i = temp;
+        	}
+
+	        s.n = s.filter[0].from;
+	        s.m = s.filter[0].to;
+	        
+	        s.removeEmptyBins = function (source_group) {
+	            function non_zero_pred(d) {
+	                return d.value != 0;
+	            }
+	            return {
+	                all: function () {
+	                	return this.slice(s.n, s.m);
+	                },
+	                top: function(n) {
+	                    return source_group.top(Infinity)
+	                        .filter(non_zero_pred)
+	                        .slice(0, n);
+	                },
+	                slice: function(n,m) {
+	                    return source_group.top(Infinity)
+	                    .filter(non_zero_pred)
+                        .slice(n, m);
+	                },
+	                allItems: function(){
+	                	return source_group.all().filter(non_zero_pred);
+	                }
+	            };
+	        }
+	        
+	        s.policeStationGroup = s.removeEmptyBins(s.policeStationGroup);
+
+	        s.setActive = function(f){
+	        	if(f.from != s.n || f.to != s.m)
+	        		return "";
+	        	return "active";
+	        }
+	        
+	        s.slice = function(f){
+	        	s.n = f.from;
+	        	s.m = f.to;
+	            dc.redrawAll(1);
+	        }
 	        
 	        s.municipalityDimension = ndx.dimension(function (d) {
 	        	return d.municipalityName;
@@ -175,9 +229,8 @@ FirstApp.controller('VisualisationCtrl', [
 	            return d.id;
 	        });
 	        
-	        //### Define Chart Attributes
-	        //Define chart attributes using fluent methods. See the [dc API Reference](https://github.com/dc-js/dc.js/blob/master/web/docs/api-1.7.0.md) for more information
-	        //
+	        // ### Define Chart Attributes
+	        
 	        s.dayOfWeekPostSetupChart = function(c) {
 	            c.label(function(d) {
 	                return d.key.split('.')[1];
@@ -225,9 +278,9 @@ FirstApp.controller('VisualisationCtrl', [
 	            c.yAxis().ticks(0);
 	        }
 	        
-	        s.policeStationBarChartSetup = function(c) {
-	        	var temp = c;
-	        	c.yAxis().ticks(5);
+	        s.municipalityBarChartSetup = function(c) {
+	        	c.yAxis().ticks(10);
+	        	
 	            c.renderlet(function (chart) {
 	        	   // rotate x-axis labels
 	        	   chart.selectAll('g.chart-body')
@@ -239,6 +292,11 @@ FirstApp.controller('VisualisationCtrl', [
 	        	   chart.selectAll('g.y')
   	   				.attr('transform', 'translate(40,0)');
 	           });
+	        }
+	        
+	        s.policeStationBarChartSetup = function(c) {
+	        	c.yAxis().ticks(10);
+	        	c.xAxis().tickValues([]);
 	        }
 	        
 	        s.moveChartOptions = {
@@ -319,13 +377,12 @@ FirstApp.controller('VisualisationCtrl', [
 	        }
 	        
 	        s.resetAll = function(){
-	        	s.dayOfWeek.filterAll();
-	            dc.filterAll();
-	            dc.redrawAll();
-	            dc.renderAll();
+//	        	s.dayOfWeek.filterAll();
+	        	s.n = s.filter[0].from;
+	            s.m = s.filter[0].to;
+	            dc.filterAll(1);
+	            dc.redrawAll(1);
 	        }
-	        
-	        
 		});
     }
 ]);

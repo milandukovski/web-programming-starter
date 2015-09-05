@@ -7,6 +7,8 @@
 			</ul>
 			<div class="top-buffer" ng-show="tab === 1">
 			<!-- First row custom-row -->
+			<button  ng-click="resetAll()" class="btn btn-primary">Ресетирање на дијаграмите</button>
+			<br/>
 			<div class="row custom-row">
 				<div class="col-md-4">
 					<span class="chart-title">Настани групирани по квартал</span>
@@ -115,28 +117,6 @@
 					     dc-legend="dc.legend().x(210)">
 				     </div>
 			   	</div>
-			</div> 
-			<div class="row custom-row">
-				<div class="col-md-12">
-					<span class="chart-title">Настани по Полициски Станици</span>
-					<div id="ps-bar-chart"
-						 dc-chart="barChart"
-				 		 dc-chart-group="1"	
-			             dc-name="'volumeChart'"
-			             dc-width="990"
-			             dc-height="400"
-			             dc-margins="{top: 100, right: 50, bottom: 20, left: 40}"
-			             dc-dimension="policeStationDimension"
-			             dc-group="policeStationGroup"
-			             dc-center-bar="true"
-			             dc-elastic-x="true"
-			             dc-x="d3.scale.ordinal()"
-			             dc-round="d3.time.month.round"
-			             dc-always-use-rounding="true"
-			             dc-x-units="dc.units.ordinal"
-			             dc-post-setup-chart="policeStationBarChartSetup">
-					</div>
-				</div>
 			</div>
 			<div class="row custom-row">
 				<div class="col-md-12">
@@ -156,8 +136,46 @@
 			             dc-round="d3.time.month.round"
 			             dc-always-use-rounding="true"
 			             dc-x-units="dc.units.ordinal"
+			             dc-post-setup-chart="municipalityBarChartSetup">
+					</div>
+				</div>
+			</div>
+			<div class="row custom-row">
+				<div class="col-md-10">
+					<span class="chart-title">Настани по Полициски Станици</span>
+					<div id="ps-bar-chart"
+						 dc-chart="barChart"
+				 		 dc-chart-group="1"	
+			             dc-name="'volumeChart'"
+			             dc-width="880"
+			             dc-height="400"
+			             dc-dimension="policeStationDimension"
+			             dc-group="policeStationGroup"
+			             dc-gap="5"
+			             dc-center-bar="true"
+			             dc-elastic-x="true"
+			             dc-x="d3.scale.ordinal()"
+			             dc-round="d3.time.month.round"
+			             dc-always-use-rounding="true"
+			             dc-x-units="dc.units.ordinal"
 			             dc-post-setup-chart="policeStationBarChartSetup">
 					</div>
+				</div>
+				<div class="col-md-2">
+					<ul id="filter" class="nav nav-pills nav-stacked">
+						<li role="presentation"
+						 ng-repeat="f in filter track by $index"" ng-click="slice(f)" ng-class="setActive(f)">
+						 	<a ng-if="$index==0">
+						 		ПС со најголем број на настани
+						 	</a>
+						 	<a ng-if="$index==1">
+						 		ПС со среден број на настани
+						 	</a>
+						 	<a ng-if="$index==2">
+						 		ПС со најмал број на настани
+						 	</a>
+						 </li>
+					</ul>
 				</div>
 			</div>
 			<div class="row custom-row">
