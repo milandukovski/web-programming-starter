@@ -9,13 +9,13 @@
     <name>web-programming-starter</name>
     <packaging>war</packaging>
 
-    <repositories>
+   <!--  <repositories>
         <repository>
             <id>in-project-jasper</id>
             <name>In Project Repo for jasper</name>
             <url>file://${project.basedir}/lib</url>
         </repository>
-    </repositories>
+    </repositories> -->
 
     <properties>
 
@@ -257,11 +257,11 @@
             <version>${jasperreports.version}</version>
         </dependency>
 
-        <dependency>
+     <!--    <dependency>
             <groupId>jasper</groupId>
             <artifactId>arial-font</artifactId>
             <version>1.0</version>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>org.apache.poi</groupId>
