@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
-@Subselect("SELECT * FROM event_view")
+@Subselect("select * from event_view")
 @Immutable
 public class EventView extends BaseEntity{
 	

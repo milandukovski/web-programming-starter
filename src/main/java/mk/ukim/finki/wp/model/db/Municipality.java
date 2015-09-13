@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import mk.ukim.finki.wp.model.BaseEntity;
 import mk.ukim.finki.wp.model.NameDescriptionEntity;
 
 

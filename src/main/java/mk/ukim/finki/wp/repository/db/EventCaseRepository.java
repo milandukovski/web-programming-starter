@@ -10,7 +10,8 @@ import mk.ukim.finki.wp.repository.JpaSpecificationRepository;
 public interface EventCaseRepository extends JpaSpecificationRepository<EventCase> {
 	public List<EventCase> findByName(String name);
 	
-	@Query(value ="select * from mvr_event_cases where id in (SELECT distinct ecase_id from mvr_event where ecase_id)", nativeQuery = true)
+	@Query(value ="select * from mvr_event_cases where id in (select distinct ecase_id "
+			+ "from mvr_event where ecase_id)", nativeQuery = true)
 	public List<EventCase> allCasesWithEvents();
 	
 }

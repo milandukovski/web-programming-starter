@@ -7,18 +7,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.JoinColumns;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import mk.ukim.finki.wp.json.CustomDateDeserializer;
-import mk.ukim.finki.wp.json.ShortDateSerializer;
-import mk.ukim.finki.wp.json.TimeDeserializer;
-import mk.ukim.finki.wp.json.TimeSerializer;
-import mk.ukim.finki.wp.model.BaseEntity;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
@@ -26,6 +19,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import mk.ukim.finki.wp.json.CustomDateDeserializer;
+import mk.ukim.finki.wp.json.ShortDateSerializer;
+import mk.ukim.finki.wp.json.TimeDeserializer;
+import mk.ukim.finki.wp.json.TimeSerializer;
+import mk.ukim.finki.wp.model.BaseEntity;
 
 @Entity
 @Table(name="mvr_event")
