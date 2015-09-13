@@ -1,7 +1,26 @@
 package mk.ukim.finki.wp.web.rest.db;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import mk.ukim.finki.wp.model.db.Event;
 import mk.ukim.finki.wp.model.db.EventArea;
@@ -16,30 +35,11 @@ import mk.ukim.finki.wp.service.db.EventCommonAreaService;
 import mk.ukim.finki.wp.service.db.EventPoliceStationService;
 import mk.ukim.finki.wp.service.db.EventService;
 import mk.ukim.finki.wp.service.db.MunicipalityService;
+import mk.ukim.finki.wp.service.db.SvrRcService;
 import mk.ukim.finki.wp.specifications.BaseSpecification;
 import mk.ukim.finki.wp.specifications.EventSpecifications;
 import mk.ukim.finki.wp.web.CrudResource;
 import mk.ukim.finki.wp.web.EventCaseInfo;
-import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-import mk.ukim.finki.wp.service.db.SvrRcService;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/data/rest/Event")
@@ -87,8 +87,7 @@ public class EventResource extends CrudResource<Event, EventService> {
 	public LinkedList<Object> getAllFromToDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
 			@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date to) throws JsonProcessingException{
 		
-		LinkedList map = new LinkedList<Object>();
-		ObjectMapper mapper = new ObjectMapper();
+		LinkedList<Object> map = new LinkedList<Object>();
 		
 		//EventCase
 		List<EventCase> ec= CaseService.allCases();

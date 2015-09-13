@@ -1,8 +1,9 @@
 package mk.ukim.finki.wp.specifications;
 
-import mk.ukim.finki.wp.model.db.Event;
-import mk.ukim.finki.wp.model.db.Municipality;
-import mk.ukim.finki.wp.model.db.SpecifiedPerson;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -11,10 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import mk.ukim.finki.wp.model.db.SpecifiedPerson;
 
 public class SpecifiedPersonSpecifications implements BaseSpecification<SpecifiedPerson> {
 

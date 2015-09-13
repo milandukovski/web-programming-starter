@@ -1,7 +1,9 @@
 package mk.ukim.finki.wp.specifications;
 
-import mk.ukim.finki.wp.model.db.Event;
-import mk.ukim.finki.wp.model.db.SvrRc;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -11,12 +13,7 @@ import org.json.JSONObject;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;
 
-import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import mk.ukim.finki.wp.model.db.Event;
 
 public class EventSpecifications implements BaseSpecification<Event> {
 

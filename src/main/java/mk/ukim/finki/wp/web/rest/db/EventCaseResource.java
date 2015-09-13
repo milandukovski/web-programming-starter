@@ -1,11 +1,8 @@
 package mk.ukim.finki.wp.web.rest.db;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import mk.ukim.finki.wp.model.db.EventCase;
 import mk.ukim.finki.wp.service.db.EventCaseService;
 import mk.ukim.finki.wp.web.CrudResource;
-import mk.ukim.finki.wp.web.MunicipalityInfo;
 
 @RestController
 @RequestMapping("/data/rest/EventCase")
