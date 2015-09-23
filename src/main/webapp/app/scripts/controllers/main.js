@@ -30,10 +30,11 @@ FirstApp.controller('MainCtrl', [
         //only for public
         $scope.map = true; // se koristi
         $scope.Date = {
-            from: new Date(86400000).toISOString().split("T")[0],
-            to: new Date().toISOString().split("T")[0]
+            from: moment("01.01.2000","dd.MM.YYYY").toDate(),
+            to: moment().format()
         };
-
+        
+        console.log(moment.unix(1318781876).toDate());
         //new variables
         $scope.municipalities = {};
         $scope.displayed = [];
